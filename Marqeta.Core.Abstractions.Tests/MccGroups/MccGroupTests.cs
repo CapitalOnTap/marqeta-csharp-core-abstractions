@@ -1,12 +1,12 @@
-﻿using AutoFixture;
-using DeepEqual.Syntax;
+﻿using DeepEqual.Syntax;
 using Marqeta.Core.Abstractions.MccGroups;
+using Marqeta.Core.Abstractions.Tests.Infrastructure;
 using Newtonsoft.Json;
 using Xunit;
 
 namespace Marqeta.Core.Abstractions.Tests.MccGroups
 {
-    public class MccGroupTests
+    public class MccGroupTests : BaseAbstractionTests<MccGroup>
     {
         protected const string Json = @"
             {
@@ -55,16 +55,6 @@ namespace Marqeta.Core.Abstractions.Tests.MccGroups
         {
             var mccGroup = JsonConvert.DeserializeObject<MccGroup>(Json);
             mccGroup.ShouldDeepEqual(MccGroup);
-        }
-
-        [Fact]
-        public void Roundtrip()
-        {
-            var fixture = new Fixture();
-            var original = fixture.Create<MccGroup>();
-            var originalJson = JsonConvert.SerializeObject(original);
-            var actual = JsonConvert.DeserializeObject<MccGroup>(originalJson);
-            original.ShouldDeepEqual(actual);
         }
     }
 }
