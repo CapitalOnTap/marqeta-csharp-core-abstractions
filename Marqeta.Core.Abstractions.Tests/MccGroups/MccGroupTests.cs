@@ -1,6 +1,5 @@
 ﻿using DeepEqual.Syntax;
 using Marqeta.Core.Abstractions.MccGroups;
-using Marqeta.Core.Abstractions.Tests.Infrastructure;
 using Newtonsoft.Json;
 using Xunit;
 

@@ -3,7 +3,7 @@ using DeepEqual.Syntax;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace Marqeta.Core.Abstractions.Tests.Infrastructure
+namespace Marqeta.Core.Abstractions.Tests
 {
     public abstract class BaseAbstractionTests<T> where T : class
     {
