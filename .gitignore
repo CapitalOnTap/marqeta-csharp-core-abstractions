@@ -332,6 +332,8 @@ ASALocalRun/
 # Swagger CodeGen Files
 swagger-codegen/
 swagger-codegen-cli.jar
+swagger.json
+swagger.*.json
 
 # TODO - Remove
 swagger-codegen-output/
