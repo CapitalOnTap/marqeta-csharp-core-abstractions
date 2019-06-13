@@ -1,0 +1,5 @@
+{
+    "packageName" : "Marqeta.Generated.Test",
+    "targetFramework" : "v5.0",
+    "netCoreProjectFile" : true
+}
