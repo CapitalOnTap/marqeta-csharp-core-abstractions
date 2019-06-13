@@ -92,16 +92,20 @@ if ($RemoveCommandoCommands) {
     # Remove definitions
     Write-Verbose "Massaging JSON."
     # $jsonObject.tags = $jsonObject.tags | Where-Object { $_.name -ne "commandomodes : Operation for commandomodes" }
-    $jsonObject.paths.Remove("/commandomodes") | Out-Null
+    # $jsonObject.paths.Remove("/commandomodes") | Out-Null
     # $jsonObject.paths.Remove("/commandomodes/transitions/{token}") | Out-Null
     # $jsonObject.paths.Remove("/commandomodes/{commandomode_token}/transitions") | Out-Null
-    $jsonObject.paths.Remove("/commandomodes/{token}") | Out-Null
+    # $jsonObject.paths.Remove("/commandomodes/{token}") | Out-Null
     # $jsonObject.definitions.Remove("commando_mode_request") | Out-Null
     # $jsonObject.definitions.Remove("commando_mode_transition_response") | Out-Null
 
+    # Minimum required
+    $jsonObject.paths["/commandomodes"].get.responses["200"].Remove("schema") | Out-Null
+    $jsonObject.paths["/commandomodes/{token}"].get.responses["200"].Remove("schema") | Out-Null
+
     Write-Verbose "Writing file."
     # $jsonObject | ConvertTo-Json -depth 100 | Out-File $defaultJsonPath
-    # $jsonObject | ConvertTo-Json -depth 100 | ForEach-Object { $_.Replace("\u003c", "<").Replace("\u003e", ">").Replace("\u0027", "'") } | Out-File $defaultJsonPath
+    # $jsonObject | ConvertTo-Json -depth 100 | ForEach-Object { $_.Replace("\u003c", "<").Replace("\u003e", ">").Replace("\u0027", "'") } | Out-File './swagger.1.json'
     [System.IO.File]::WriteAllLines($defaultJsonPath, ($jsonObject | ConvertTo-Json -depth 100), [System.Text.UTF8Encoding]::new($false))
 
     $swaggerArgs += @('-i', $defaultJsonPath)
@@ -121,8 +125,8 @@ $swaggerArgs += @(
     # https://github.com/swagger-api/swagger-codegen#selective-generation
     # '-Dmodels', '-DsupportingFiles',
     #'-Dmodels',
-    '-Dapis', '',
-    # '-DsupportingFiles', '',
+    '-Dapis',
+    # '-DsupportingFiles',
     '-l', 'csharp',
     '-o', $outDir
 )
