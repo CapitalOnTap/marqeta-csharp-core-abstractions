@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [switch] $UsePreviewSwaggerCodeGen,
-    [switch] $RemoveCommandoCommands = $true
+    [switch] $CapMaxItems = $true
 )
 
 # Add java to path if required
@@ -71,42 +71,34 @@ Copy-Item -Force $( $PSScriptRoot + '\' + $ignoreFileName) $($outDir + '\' + $ig
 $swaggerArgs = @('generate')
 
 #
-# Remove commando commands
+# Cap 'maxItems'
 # 
 # NB: Currently the marqeta-core-api/v3/swagger.json does not play with swagger-codegen
 #       Temporary measure to fix it. (Removing all instances of commando)
 #
 $defaultJsonUri = 'https://shared-sandbox-api.marqeta.com/v3/swagger.json'
-if ($RemoveCommandoCommands) {
-    Write-Verbose "Removing 'Commando' commands."
+if ($CapMaxItems) {
+    Write-Verbose "Capping 'maxItems' values to 500."
     $defaultJsonPath = './swagger.json'
 
     Write-Verbose "Downloading '$defaultJsonUri'."
     Invoke-WebRequest -Uri $defaultJsonUri -OutFile $defaultJsonPath
 
-    # $jsonObject = Get-Content -Path $defaultJsonPath | ConvertFrom-Json
+    # NB: We need to use the .NET JavaScriptSerializer because the build in powershell one cannot handle IDs with the same name but different casing
     [void][System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions")
-    # $json = (New-Object -TypeName System.Web.Script.Serialization.JavaScriptSerializer).DeserializeObject((Get-Content -Path $defaultJsonPath))
     $jsonObject = [System.Web.Script.Serialization.JavaScriptSerializer]::new().DeserializeObject((Get-Content -Path $defaultJsonPath))
 
     # Remove definitions
     Write-Verbose "Massaging JSON."
-    # $jsonObject.tags = $jsonObject.tags | Where-Object { $_.name -ne "commandomodes : Operation for commandomodes" }
-    # $jsonObject.paths.Remove("/commandomodes") | Out-Null
-    # $jsonObject.paths.Remove("/commandomodes/transitions/{token}") | Out-Null
-    # $jsonObject.paths.Remove("/commandomodes/{commandomode_token}/transitions") | Out-Null
-    # $jsonObject.paths.Remove("/commandomodes/{token}") | Out-Null
-    # $jsonObject.definitions.Remove("commando_mode_request") | Out-Null
-    # $jsonObject.definitions.Remove("commando_mode_transition_response") | Out-Null
-
-    # Minimum required
-    $jsonObject.paths["/commandomodes"].get.responses["200"].schema.items.Remove("`$ref") | Out-Null
-    $jsonObject.paths["/commandomodes/{token}"].get.responses["200"].schema.Remove("`$ref") | Out-Null
+    # NB: We change the max items due to a bug in swagger-codegen
+    #       https://github.com/swagger-api/swagger-codegen/issues/6394
+    $newMax = 500
+    $jsonObject.definitions["auth_user_request"].properties["roles"].maxItems = $newMax
+    $jsonObject.definitions["auth_user_update_request"].properties["roles"].maxItems = $newMax
+    $jsonObject.definitions["commando_mode_enables"].properties["velocity_controls"].maxItems = $newMax
 
     Write-Verbose "Writing file."
-    # $jsonObject | ConvertTo-Json -depth 100 | Out-File $defaultJsonPath
-    # $jsonObject | ConvertTo-Json -depth 100 | ForEach-Object { $_.Replace("\u003c", "<").Replace("\u003e", ">").Replace("\u0027", "'") } | Out-File './swagger.1.json'
-    [System.IO.File]::WriteAllLines($defaultJsonPath, ($jsonObject | ConvertTo-Json -depth 100), [System.Text.UTF8Encoding]::new($false))
+    $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
 
     $swaggerArgs += @('-i', $defaultJsonPath)
 }
@@ -115,7 +107,7 @@ else {
     $swaggerArgs += @('-i', $defaultJsonUri)
 }
 #
-# /Remove commando commands
+# /Cap 'maxItems'
 #
 
 $swaggerArgs += @(
@@ -134,5 +126,3 @@ Write-Verbose "Using `$swaggerArgs: $($swaggerArgs)"
 
 Write-Verbose "Running swagger-codegen."
 java $javaArgs $swaggerArgs
-
-# java -DdebugModels -jar swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i https://shared-sandbox-api.marqeta.com/v3/swagger.json -l csharp
