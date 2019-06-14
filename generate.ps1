@@ -100,8 +100,8 @@ if ($RemoveCommandoCommands) {
     # $jsonObject.definitions.Remove("commando_mode_transition_response") | Out-Null
 
     # Minimum required
-    $jsonObject.paths["/commandomodes"].get.responses["200"].Remove("schema") | Out-Null
-    $jsonObject.paths["/commandomodes/{token}"].get.responses["200"].Remove("schema") | Out-Null
+    $jsonObject.paths["/commandomodes"].get.responses["200"].schema.items.Remove("`$ref") | Out-Null
+    $jsonObject.paths["/commandomodes/{token}"].get.responses["200"].schema.Remove("`$ref") | Out-Null
 
     Write-Verbose "Writing file."
     # $jsonObject | ConvertTo-Json -depth 100 | Out-File $defaultJsonPath
