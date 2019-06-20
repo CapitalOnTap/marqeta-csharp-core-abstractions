@@ -80,27 +80,31 @@ $defaultJsonUri = 'https://shared-sandbox-api.marqeta.com/v3/swagger.json'
 if ($CapMaxItems) {
     Write-Verbose "Capping 'maxItems' values to 500."
     $defaultJsonPath = './swagger.json'
-
-    Write-Verbose "Downloading '$defaultJsonUri'."
-    Invoke-WebRequest -Uri $defaultJsonUri -OutFile $defaultJsonPath
-
-    # NB: We need to use the .NET JavaScriptSerializer because the build in powershell one cannot handle IDs with the same name but different casing
-    [void][System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions")
-    $jsonObject = [System.Web.Script.Serialization.JavaScriptSerializer]::new().DeserializeObject((Get-Content -Path $defaultJsonPath))
-
-    # Remove definitions
-    Write-Verbose "Massaging JSON."
-    # NB: We change the max items due to a bug in swagger-codegen
-    #       https://github.com/swagger-api/swagger-codegen/issues/6394
-    $newMax = 500
-    $jsonObject.definitions["auth_user_request"].properties["roles"].maxItems = $newMax
-    $jsonObject.definitions["auth_user_update_request"].properties["roles"].maxItems = $newMax
-    $jsonObject.definitions["commando_mode_enables"].properties["velocity_controls"].maxItems = $newMax
-
-    Write-Verbose "Writing file."
-    $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
-
     $swaggerArgs += @('-i', $defaultJsonPath)
+
+    if (!(Test-Path $defaultJsonPath)) {
+        Write-Verbose "Downloading '$defaultJsonUri'."
+        Invoke-WebRequest -Uri $defaultJsonUri -OutFile $defaultJsonPath
+
+        # NB: We need to use the .NET JavaScriptSerializer because the build in powershell one cannot handle IDs with the same name but different casing
+        [void][System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions")
+        $jsonObject = [System.Web.Script.Serialization.JavaScriptSerializer]::new().DeserializeObject((Get-Content -Path $defaultJsonPath))
+
+        # Remove definitions
+        Write-Verbose "Massaging JSON."
+        # NB: We change the max items due to a bug in swagger-codegen
+        #       https://github.com/swagger-api/swagger-codegen/issues/6394
+        $newMax = 500
+        $jsonObject.definitions["auth_user_request"].properties["roles"].maxItems = $newMax
+        $jsonObject.definitions["auth_user_update_request"].properties["roles"].maxItems = $newMax
+        $jsonObject.definitions["commando_mode_enables"].properties["velocity_controls"].maxItems = $newMax
+
+        Write-Verbose "Writing file."
+        $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
+    }
+    else {
+        Write-Verbose "File '$($defaultJsonPath)' already exists. Skipping."
+    }
 }
 else {
     Write-Verbose "Using default swagger.json '$defaultJsonUri'."
