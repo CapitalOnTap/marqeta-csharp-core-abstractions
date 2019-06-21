@@ -35,7 +35,7 @@ else {
     Write-Verbose 'Using swagger-codegen v2.4.5.'
     $swaggerCodeGenPath = 'swagger-codegen-cli.jar'
     if (!(Test-Path $swaggerCodeGenPath)) {
-        Invoke-WebRequest -Uri http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.8/swagger-codegen-cli-3.0.8.jar -OutFile $swaggerCodeGenPath
+        Invoke-WebRequest -Uri http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.5/swagger-codegen-cli-2.4.5.jar -OutFile $swaggerCodeGenPath
     }
 }
 
