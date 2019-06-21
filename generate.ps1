@@ -51,21 +51,21 @@ $javaArgs = @(
 Write-Verbose "Using `$javaArgs: $($javaArgs)"
 
 # Output settings
-$outDir = $PSScriptRoot + '\swagger-codegen-output'
+$outDir = $PSScriptRoot
 Write-Verbose "Using `$outDir: $($outDir)"
 
-# Purge output directory
-if (Test-Path $outDir) {
-    Write-Verbose "Purging directory '$outDir'."
-    Remove-Item -Recurse -Force $outDir -ErrorAction SilentlyContinue
-}
-Write-Verbose "Creating directory '$outDir'."
-mkdir $outDir -ErrorAction SilentlyContinue | Out-Null
+# # Purge output directory
+# if (Test-Path $outDir) {
+#     Write-Verbose "Purging directory '$outDir'."
+#     Remove-Item -Recurse -Force $outDir -ErrorAction SilentlyContinue
+# }
+# Write-Verbose "Creating directory '$outDir'."
+# mkdir $outDir -ErrorAction SilentlyContinue | Out-Null
 
-# Copy ignore file
-Write-Verbose "Copying swagger-codegen-ignore file."
-$ignoreFileName = '.swagger-codegen-ignore'
-Copy-Item -Force $( $PSScriptRoot + '\' + $ignoreFileName) $($outDir + '\' + $ignoreFileName) -ErrorAction SilentlyContinue | Out-Null
+# # Copy ignore file
+# Write-Verbose "Copying swagger-codegen-ignore file."
+# $ignoreFileName = '.swagger-codegen-ignore'
+# Copy-Item -Force $( $PSScriptRoot + '\' + $ignoreFileName) $($outDir + '\' + $ignoreFileName) -ErrorAction SilentlyContinue | Out-Null
 
 # Executing Code Generator
 $swaggerArgs = @('generate')
