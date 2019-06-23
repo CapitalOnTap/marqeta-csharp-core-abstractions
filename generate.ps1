@@ -13,6 +13,11 @@ foreach ($path in $pathes) {
     }
 }
 
+# 
+# git clean -xdf .
+git clean -xdf docs
+git clean -xdf src
+
 #
 # Swagger Code Generator
 # 
@@ -92,15 +97,116 @@ if ($CapMaxItems) {
 
         # Remove definitions
         Write-Verbose "Massaging JSON."
+
         # NB: We change the max items due to a bug in swagger-codegen
         #       https://github.com/swagger-api/swagger-codegen/issues/6394
+        Write-Verbose "Removing large 'maxItem' properties."
         $newMax = 500
         $jsonObject.definitions["auth_user_request"].properties["roles"].maxItems = $newMax
         $jsonObject.definitions["auth_user_update_request"].properties["roles"].maxItems = $newMax
         $jsonObject.definitions["commando_mode_enables"].properties["velocity_controls"].maxItems = $newMax
 
+        # Enum
+        Write-Verbose "Removing problematic enums."
+        Import-Module "$($PSScriptRoot)\HelpersModule.ps1" -Force
+        $delegate = {
+            param (
+                [string] $PropertyName,
+                [object] $JsonObject
+            )
+            try {
+
+
+                # 
+                if ($null -eq $JsonObject) { return }
+
+                # 
+                $value = $JsonObject[$PropertyName]
+                if ($null -eq $value) { $value = $JsonObject.$PropertyName }
+
+                # Blacklist
+                $blacklist = @(
+                    '*Authentication*',
+                    '*char max*',
+                    '*chars max*',
+                    '*max char*',
+                    '*max chars*',
+                    '*Must be * char*',
+                    '*Payment card or ACH account number*',
+                    '*Required if*',
+                    '*String representing batch id*',
+                    '*Strong password required*',
+                    '*Valid URL*',
+                    '*yyyy-MM-dd*'
+                    '*yyyyMMdd*'
+                )
+                foreach ($pattern in $blacklist) {
+                    if ($value -like $pattern) {
+                        $JsonObject.Remove($PropertyName) | Out-Null
+                        return
+                    }
+                }
+
+                # Arrays
+                switch ($value.GetType().ToString()) {
+                    'System.Object[]' {
+                        if ($value.Length -eq 1) {                        
+                            # Delimited values
+                            $delimiters = @('|', 'or', ' ')
+                            $value1 = $value[0]
+                            foreach ($delimiter in $delimiters) {
+                                if ($value1.Contains($delimiter)) {
+                                    $newValue = $value1.Split($delimiter).Trim().Replace('.', '_')
+                                    $JsonObject[$PropertyName] = $newValue
+                                    break
+                                }
+                            }
+                        }
+                        else {
+                            # Delimited values
+                            $value1 = $value -like '*|*'
+                            if ($value1) {
+                                $newValue = $value1.Split('|').Trim().Replace('.', '_')
+                                $JsonObject[$PropertyName] = $newValue
+                            }
+                        }
+                    }
+                }
+
+                # 
+                $value = $JsonObject[$PropertyName]
+                if ($null -eq $value) { $value = $JsonObject.$PropertyName }
+
+                # 
+                if ($value.Length -le 1) {
+                    $JsonObject.Remove($PropertyName) | Out-Null
+                    return
+                }
+
+                # Regex replace (default = ) 
+                $regex = [regex]::new("(\(default = [A-Za-z_]*\))")
+                $newValue = $value | ForEach-Object { $regex.Replace($_, "") } | Where-Object { ![string]::IsNullOrWhiteSpace($_) } | ForEach-Object { $_.Trim() }
+                # $JsonObject[$PropertyName] = $newValue
+                switch ($value.GetType().ToString()) {
+                    { 'System.Object[]', 'Object[]' -contains $_ } { $JsonObject[$PropertyName] = $newValue }
+                    default {
+                        Write-Host "liam $($JsonObject.GetType().ToString())"
+                        # $JsonObject.$PropertyName = $newValue
+                        return
+                    }
+                }
+
+                # 
+                if ($null -eq $JsonObject) { return }
+            }
+            catch {
+                throw $_
+            }
+        }
+        Invoke-DelegateOnJsonNodeWithProperty -PropertyName "enum" -Delegate $delegate -JsonObject $JsonObject
+
         Write-Verbose "Writing file."
-        $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
+        $JsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
     }
     else {
         Write-Verbose "File '$($defaultJsonPath)' already exists. Skipping."
@@ -120,7 +226,7 @@ $swaggerArgs += @(
     # https://github.com/swagger-api/swagger-codegen#modifying-the-client-library-format
     # https://github.com/swagger-api/swagger-codegen#selective-generation
     # '-Dmodels', '-DsupportingFiles',
-    # '-Dmodels',
+    '-Dmodels',
     # '-Dapis',
     # '-DsupportingFiles',
     '-l', 'csharp',
@@ -129,4 +235,4 @@ $swaggerArgs += @(
 Write-Verbose "Using `$swaggerArgs: $($swaggerArgs)"
 
 Write-Verbose "Running swagger-codegen."
-java $javaArgs $swaggerArgs
+# java $javaArgs $swaggerArgs
