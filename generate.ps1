@@ -264,15 +264,28 @@ switch ($Language) {
 # Clean up code
 #
 if ($CleanUpCode) {
-    $reSharperCltUrl = 'https://download-cf.jetbrains.com/resharper/ReSharperUltimate.2019.1.2/JetBrains.ReSharper.CommandLineTools.2019.1.2.zip'
-    $reSharperCltDirectory = './JetBrains.ReSharper.CommandLineTools.2019.1.2'
-    $reSharperCltZipPath = $reSharperCltDirectory + '.zip'
-    $reSharperCleanUpCodePath = $reSharperCltDirectory + '/cleanupcode.exe'
-    if (!(Test-Path $reSharperCleanUpCodePath)) {
-        Write-Verbose "Downloading 'ReSharper Command Line Tools'."
-        Invoke-WebRequest -Uri $reSharperCltUrl -OutFile $reSharperCltZipPath
-        Expand-Archive -Path $reSharperCltZipPath -DestinationPath $reSharperCltDirectory
-        Remove-Item -Path $reSharperCltZipPath -Force
+    # Check for dotnet CLI
+    # We need to build the solution before running the ReSharper Clean Up Code to prevent errors in the clean up
+    if (Get-Command 'dotnet' -ErrorAction SilentlyContinue) {
+        $solutionPath = './Marqeta.Core.Abstractions.sln'
+
+        # Build solution
+        dotnet build $solutionPath
+
+        # Clean up code
+        $reSharperCltUrl = 'https://download-cf.jetbrains.com/resharper/ReSharperUltimate.2019.1.2/JetBrains.ReSharper.CommandLineTools.2019.1.2.zip'
+        $reSharperCltDirectory = './JetBrains.ReSharper.CommandLineTools.2019.1.2'
+        $reSharperCltZipPath = $reSharperCltDirectory + '.zip'
+        $reSharperCleanUpCodePath = $reSharperCltDirectory + '/cleanupcode.exe'
+        if (!(Test-Path $reSharperCleanUpCodePath)) {
+            Write-Verbose "Downloading 'ReSharper Command Line Tools'."
+            Invoke-WebRequest -Uri $reSharperCltUrl -OutFile $reSharperCltZipPath
+            Expand-Archive -Path $reSharperCltZipPath -DestinationPath $reSharperCltDirectory
+            Remove-Item -Path $reSharperCltZipPath -Force
+        }
+        . $reSharperCleanUpCodePath $solutionPath
     }
-    . $reSharperCleanUpCodePath './Marqeta.Core.Abstractions.sln'
+    else {
+        Write-Host -ForegroundColor Yellow "Warning: dotnet CLI could not be found within the current environment. ReSharper Clean Up Code has not been run."
+    }
 }
