@@ -329,6 +329,9 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
+# ReSharper Command Line Tools
+JetBrains.ReSharper.CommandLineTools.*/
+
 # Swagger CodeGen Files
 swagger-codegen/
 swagger-codegen-cli.jar

@@ -1,8 +1,9 @@
 [CmdletBinding()]
 param(
     [switch] $UsePreviewSwaggerCodeGen,
-    [switch] $CapMaxItems = $true,
-    [string] [ValidateSet('csharp', 'csharp-dotnet2')] $Language = 'csharp-dotnet2'
+    [bool] $CapMaxItems = $true,
+    [string] [ValidateSet('csharp', 'csharp-dotnet2')] $Language = 'csharp-dotnet2',
+    [bool] $CleanUpCode = $true
 )
 
 # Add java to path if required
@@ -257,4 +258,21 @@ switch ($Language) {
         Move-Item -Path './src/main/CsharpDotNet2/Marqeta/Core/Abstractions/Model' -Destination './src/Marqeta.Core.Abstractions/Model' -Force
         Remove-Item './src/main' -Recurse -Force
     }
+}
+
+# 
+# Clean up code
+#
+if ($CleanUpCode) {
+    $reSharperCltUrl = 'https://download-cf.jetbrains.com/resharper/ReSharperUltimate.2019.1.2/JetBrains.ReSharper.CommandLineTools.2019.1.2.zip'
+    $reSharperCltDirectory = './JetBrains.ReSharper.CommandLineTools.2019.1.2'
+    $reSharperCltZipPath = $reSharperCltDirectory + '.zip'
+    $reSharperCleanUpCodePath = $reSharperCltDirectory + '/cleanupcode.exe'
+    if (!(Test-Path $reSharperCleanUpCodePath)) {
+        Write-Verbose "Downloading 'ReSharper Command Line Tools'."
+        Invoke-WebRequest -Uri $reSharperCltUrl -OutFile $reSharperCltZipPath
+        Expand-Archive -Path $reSharperCltZipPath -DestinationPath $reSharperCltDirectory
+        Remove-Item -Path $reSharperCltZipPath -Force
+    }
+    . $reSharperCleanUpCodePath './Marqeta.Core.Abstractions.sln'
 }
