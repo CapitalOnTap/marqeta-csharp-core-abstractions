@@ -114,92 +114,83 @@ if ($CapMaxItems) {
                 [string] $PropertyName,
                 [object] $JsonObject
             )
-            try {
-                # Early outs
-                if ($null -eq $JsonObject) { return }
-                $value = $JsonObject[$PropertyName]
-                if ($null -eq $value) { return }
 
-                # 
-                switch ($JsonObject.GetType().ToString()) {
-                    'System.Object[]' {
-                        $JsonObject | ForEach-Object { Invoke-DelegateOnJsonNodeWithProperty -PropertyName $PropertyName -Delegate $Delegate -JsonObject $_ }
-                        return
-                    }
+            # Early out if null
+            if ($null -eq $JsonObject) { return }
+            $value = $JsonObject[$PropertyName]
+            if ($null -eq $value) { return }
+
+            # If object is an array, recurse through array
+            switch ($JsonObject.GetType().ToString()) {
+                'System.Object[]' {
+                    $JsonObject | ForEach-Object { Invoke-DelegateOnJsonNodeWithProperty -PropertyName $PropertyName -Delegate $Delegate -JsonObject $_ }
+                    return
                 }
+            }
 
-                # 
-                $value = $JsonObject[$PropertyName]
+            #
+            # Object is not an array so process object
+            #
 
-                # Blacklist
-                $blacklist = @(
-                    '*Authentication*',
-                    '*char max*',
-                    '*chars max*',
-                    '*max char*',
-                    '*max chars*',
-                    '*Must be * char*',
-                    '*Payment card or ACH account number*',
-                    '*Required if*',
-                    '*String representing batch id*',
-                    '*Strong password required*',
-                    '*Valid URL*',
-                    '*yyyy-MM-dd*'
-                    '*yyyyMMdd*'
-                )
-                foreach ($pattern in $blacklist) {
-                    if ($value -like $pattern) {
-                        $JsonObject.Remove($PropertyName) | Out-Null
-                        return
-                    }
-                }
-
-                # Arrays
-                switch ($value.GetType().ToString()) {
-                    'System.Object[]' {
-                        if ($value.Length -eq 1) {                        
-                            # Delimited values
-                            $delimiters = @('|', 'or', ' ')
-                            $value1 = $value[0]
-                            foreach ($delimiter in $delimiters) {
-                                if ($value1.Contains($delimiter)) {
-                                    $newValue = $value1.Split($delimiter).Trim().Replace('.', '_')
-                                    $JsonObject[$PropertyName] = $newValue
-                                    break
-                                }
-                            }
-                        }
-                        else {
-                            # Delimited values
-                            $value1 = $value -like '*|*'
-                            if ($value1) {
-                                $newValue = $value1.Split('|').Trim().Replace('.', '_')
-                                $JsonObject[$PropertyName] = $newValue
-                            }
-                        }
-                    }
-                }
-
-                # 
-                $value = $JsonObject[$PropertyName]
-
-                # 
-                if ($value.Length -le 1) {
+            # Blacklist - Remove enum value if it contains any of the following patterns
+            $blacklist = @(
+                '*Authentication*',
+                '*char max*',
+                '*chars max*',
+                '*max char*',
+                '*max chars*',
+                '*Must be * char*',
+                '*Payment card or ACH account number*',
+                '*Required if*',
+                '*String representing batch id*',
+                '*Strong password required*',
+                '*Valid URL*',
+                '*yyyy-MM-dd*'
+                '*yyyyMMdd*'
+            )
+            foreach ($pattern in $blacklist) {
+                if ($value -like $pattern) {
                     $JsonObject.Remove($PropertyName) | Out-Null
                     return
                 }
-
-                # Regex replace (default = ) 
-                $regex = [regex]::new("(\(default = [A-Za-z_]*\))")
-                $newValue = $value | ForEach-Object { $regex.Replace($_, "") } | Where-Object { ![string]::IsNullOrWhiteSpace($_) } | ForEach-Object { $_.Trim() }
-                $JsonObject[$PropertyName] = $newValue
-
-                # 
-                if ($null -eq $JsonObject) { return }
             }
-            catch {
-                throw $_
+
+            # Arrays
+            switch ($value.GetType().ToString()) {
+                'System.Object[]' {
+                    if ($value.Length -eq 1) {
+                        $delimiters = @('|', 'or', ' ')
+                        $value1 = $value[0]
+                        foreach ($delimiter in $delimiters) {
+                            if ($value1.Contains($delimiter)) {
+                                $newValue = $value1.Split($delimiter).Trim().Replace('.', '_')
+                                $JsonObject[$PropertyName] = $newValue
+                                break
+                            }
+                        }
+                    }
+                    else {
+                        $value1 = $value -like '*|*'
+                        if ($value1) {
+                            $newValue = $value1.Split('|').Trim().Replace('.', '_')
+                            $JsonObject[$PropertyName] = $newValue
+                        }
+                    }
+                }
             }
+
+            # If the above manipulation has reduced the array to one or less items, remove it
+            $value = $JsonObject[$PropertyName]
+            if ($value.Length -le 1) {
+                $JsonObject.Remove($PropertyName) | Out-Null
+                return
+            }
+
+            # Regex
+            # Replace (default*) 
+            $regex = [regex]::new("(\(default = [A-Za-z_]*\))")
+            $newValue = $value | ForEach-Object { $regex.Replace($_, "") } | Where-Object { ![string]::IsNullOrWhiteSpace($_) } | ForEach-Object { $_.Trim() }
+            $JsonObject[$PropertyName] = $newValue
         }
         Invoke-DelegateOnJsonNodeWithProperty -PropertyName "enum" -Delegate $delegate -JsonObject $JsonObject
 
