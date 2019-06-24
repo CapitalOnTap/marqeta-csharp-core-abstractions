@@ -41,6 +41,8 @@ else {
     $swaggerCodeGenPath = 'swagger-codegen-cli.jar'
     if (!(Test-Path $swaggerCodeGenPath)) {
         Invoke-WebRequest -Uri http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.5/swagger-codegen-cli-2.4.5.jar -OutFile $swaggerCodeGenPath
+        # TODO - Support swagger-codegen v3+
+        # Invoke-WebRequest -Uri http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.8/swagger-codegen-cli-3.0.8.jar -OutFile $swaggerCodeGenPath
     }
 }
 
@@ -215,7 +217,6 @@ else {
 #
 
 $swaggerArgs += @(
-    '--config', 'csharp-config.json',
 
     # https://github.com/swagger-api/swagger-codegen#modifying-the-client-library-format
     # https://github.com/swagger-api/swagger-codegen#selective-generation
@@ -223,10 +224,21 @@ $swaggerArgs += @(
     '-Dmodels',
     # '-Dapis',
     # '-DsupportingFiles',
-    '-l', 'csharp',
+
+    # '--config', 'csharp-config.json',
+    # '-l', 'csharp',
+    # '-t', './swagger-templates/csharp',
+
+    '--config', 'csharp-dotnet2-config.json',
+    '-l', 'csharp-dotnet2',
+
     '-o', $outDir
 )
 Write-Verbose "Using `$swaggerArgs: $($swaggerArgs)"
 
 Write-Verbose "Running swagger-codegen."
-# java $javaArgs $swaggerArgs
+java $javaArgs $swaggerArgs
+
+Write-Verbose "Moving csharp-dotnet2 files."
+Move-Item -Path './src/main/CsharpDotNet2/Marqeta/Core/Abstractions/Model' -Destination './src/Marqeta.Core.Abstractions/Model' -Force
+Remove-Item './src/main' -Recurse -Force
