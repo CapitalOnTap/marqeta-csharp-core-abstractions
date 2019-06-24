@@ -21,7 +21,14 @@ Function Invoke-DelegateOnJsonNodeWithProperty {
     }
 
     # 
-    if ($JsonObject.Keys -contains $PropertyName) {
+    try {
+        if ($JsonObject.Keys -contains $PropertyName) {
+            $Delegate.Invoke($PropertyName, $JsonObject)
+        }
+    }
+    catch {
+        Write-Host $_
+        Write-Host $JsonObject
         $Delegate.Invoke($PropertyName, $JsonObject)
     }
     

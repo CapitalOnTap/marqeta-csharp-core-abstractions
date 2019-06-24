@@ -115,14 +115,25 @@ if ($CapMaxItems) {
                 [object] $JsonObject
             )
             try {
-
+                # Early outs
+                if ($null -eq $JsonObject) { return }
+                $value = $JsonObject[$PropertyName]
+                if ($null -eq $value) { $value = $JsonObject.$PropertyName }
+                if ($null -eq $value) { return }
 
                 # 
-                if ($null -eq $JsonObject) { return }
+                switch ($JsonObject.GetType().ToString()) {
+                    'System.Object[]' {
+                        $JsonObject | ForEach-Object { Invoke-DelegateOnJsonNodeWithProperty -PropertyName $PropertyName -Delegate $Delegate -JsonObject $_ }
+                        return
+                    }
+                }
 
                 # 
                 $value = $JsonObject[$PropertyName]
-                if ($null -eq $value) { $value = $JsonObject.$PropertyName }
+                if ($null -eq $value) {
+                    $value = $JsonObject.$PropertyName
+                }
 
                 # Blacklist
                 $blacklist = @(
@@ -188,10 +199,9 @@ if ($CapMaxItems) {
                 $newValue = $value | ForEach-Object { $regex.Replace($_, "") } | Where-Object { ![string]::IsNullOrWhiteSpace($_) } | ForEach-Object { $_.Trim() }
                 # $JsonObject[$PropertyName] = $newValue
                 switch ($value.GetType().ToString()) {
-                    { 'System.Object[]', 'Object[]' -contains $_ } { $JsonObject[$PropertyName] = $newValue }
+                    'System.Object[]' { $JsonObject[$PropertyName] = $newValue }
                     default {
-                        Write-Host "liam $($JsonObject.GetType().ToString())"
-                        # $JsonObject.$PropertyName = $newValue
+                        $JsonObject.$PropertyName = $newValue
                         return
                     }
                 }
