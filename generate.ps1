@@ -188,7 +188,7 @@ if ($CapMaxItems) {
 
             # Regex
             # Replace (default*) 
-            $regex = [regex]::new("(\(default = [A-Za-z_]*\))")
+            $regex = [regex]::new("(\(default[ = ]*[0-9A-Za-z_]*\))")
             $newValue = $value | ForEach-Object { $regex.Replace($_, "") } | Where-Object { ![string]::IsNullOrWhiteSpace($_) } | ForEach-Object { $_.Trim() }
             $JsonObject[$PropertyName] = $newValue
         }
