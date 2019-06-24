@@ -118,6 +118,7 @@ if ($CapMaxItems) {
             # Early out if null
             if ($null -eq $JsonObject) { return }
             $value = $JsonObject[$PropertyName]
+            if ($null -eq $value) { $value = $JsonObject.$PropertyName }
             if ($null -eq $value) { return }
 
             # If object is an array, recurse through array
@@ -181,9 +182,13 @@ if ($CapMaxItems) {
 
             # If the above manipulation has reduced the array to one or less items, remove it
             $value = $JsonObject[$PropertyName]
-            if ($value.Length -le 1) {
-                $JsonObject.Remove($PropertyName) | Out-Null
-                return
+            switch ($value.GetType().ToString()) {
+                'System.Object[]' {
+                    if ($value.Length -le 1) {
+                        $JsonObject.Remove($PropertyName) | Out-Null
+                        return
+                    }
+                }
             }
 
             # Regex

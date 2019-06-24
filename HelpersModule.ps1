@@ -32,17 +32,9 @@ Function Invoke-DelegateOnJsonNodeWithProperty {
         $Delegate.Invoke($PropertyName, $JsonObject)
     }
     
-    # 
-    # if ($null -eq $JsonObject.Values -and
-    #     $JsonObject.GetType().ToString() -ne 'System.Object[]') {
-    #     return $null
-    # }
     if ($null -eq $JsonObject.Values) {
-        # if ($JsonObject.GetType().ToString() -ne 'System.Object[]') {
-        #     return $null
-        # }
         switch ($JsonObject.GetType().ToString()) {
-            { 'System.Object[]', 'Object[]', 'System.Object', 'Object' -contains $_ } { }
+            { 'System.Object[]', 'System.Object' -contains $_ } { }
             default { return $null }
         }
     }
