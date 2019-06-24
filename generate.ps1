@@ -118,7 +118,6 @@ if ($CapMaxItems) {
                 # Early outs
                 if ($null -eq $JsonObject) { return }
                 $value = $JsonObject[$PropertyName]
-                if ($null -eq $value) { $value = $JsonObject.$PropertyName }
                 if ($null -eq $value) { return }
 
                 # 
@@ -131,9 +130,6 @@ if ($CapMaxItems) {
 
                 # 
                 $value = $JsonObject[$PropertyName]
-                if ($null -eq $value) {
-                    $value = $JsonObject.$PropertyName
-                }
 
                 # Blacklist
                 $blacklist = @(
@@ -186,7 +182,6 @@ if ($CapMaxItems) {
 
                 # 
                 $value = $JsonObject[$PropertyName]
-                if ($null -eq $value) { $value = $JsonObject.$PropertyName }
 
                 # 
                 if ($value.Length -le 1) {
@@ -197,14 +192,7 @@ if ($CapMaxItems) {
                 # Regex replace (default = ) 
                 $regex = [regex]::new("(\(default = [A-Za-z_]*\))")
                 $newValue = $value | ForEach-Object { $regex.Replace($_, "") } | Where-Object { ![string]::IsNullOrWhiteSpace($_) } | ForEach-Object { $_.Trim() }
-                # $JsonObject[$PropertyName] = $newValue
-                switch ($value.GetType().ToString()) {
-                    'System.Object[]' { $JsonObject[$PropertyName] = $newValue }
-                    default {
-                        $JsonObject.$PropertyName = $newValue
-                        return
-                    }
-                }
+                $JsonObject[$PropertyName] = $newValue
 
                 # 
                 if ($null -eq $JsonObject) { return }
