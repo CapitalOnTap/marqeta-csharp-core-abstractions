@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
     [switch] $UsePreviewSwaggerCodeGen,
-    [switch] $CapMaxItems = $true
+    [switch] $CapMaxItems = $true,
+    [string] [ValidateSet('csharp', 'csharp-dotnet2')] $Language = 'csharp-dotnet2'
 )
 
 # Add java to path if required
@@ -216,29 +217,44 @@ else {
 # /Cap 'maxItems'
 #
 
+# Swagger arguments
 $swaggerArgs += @(
-
     # https://github.com/swagger-api/swagger-codegen#modifying-the-client-library-format
     # https://github.com/swagger-api/swagger-codegen#selective-generation
     # '-Dmodels', '-DsupportingFiles',
     '-Dmodels',
     # '-Dapis',
     # '-DsupportingFiles',
-
-    # '--config', 'csharp-config.json',
-    # '-l', 'csharp',
-    # '-t', './swagger-templates/csharp',
-
-    '--config', 'csharp-dotnet2-config.json',
-    '-l', 'csharp-dotnet2',
-
     '-o', $outDir
 )
+
+# Add language specific swagger arguments
+switch ($Language) {
+    'csharp' {
+        $swaggerArgs += @(
+            '--config', 'csharp-config.json',
+            '-l', 'csharp',
+            '-t', './swagger-templates/csharp'
+        )
+    }
+    'csharp-dotnet2' {
+        $swaggerArgs += @(
+            '--config', 'csharp-dotnet2-config.json',
+            '-l', 'csharp-dotnet2',
+            '-t', './swagger-templates/csharp-dotnet2'
+        )
+    }
+}
 Write-Verbose "Using `$swaggerArgs: $($swaggerArgs)"
 
 Write-Verbose "Running swagger-codegen."
 java $javaArgs $swaggerArgs
 
-Write-Verbose "Moving csharp-dotnet2 files."
-Move-Item -Path './src/main/CsharpDotNet2/Marqeta/Core/Abstractions/Model' -Destination './src/Marqeta.Core.Abstractions/Model' -Force
-Remove-Item './src/main' -Recurse -Force
+# language specific clean up
+switch ($Language) {
+    'csharp-dotnet2' {
+        Write-Verbose "Moving csharp-dotnet2 files."
+        Move-Item -Path './src/main/CsharpDotNet2/Marqeta/Core/Abstractions/Model' -Destination './src/Marqeta.Core.Abstractions/Model' -Force
+        Remove-Item './src/main' -Recurse -Force
+    }
+}
