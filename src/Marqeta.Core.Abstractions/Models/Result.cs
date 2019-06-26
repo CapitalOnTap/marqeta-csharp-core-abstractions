@@ -1,26 +1,23 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Result 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Result
     {
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Status { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("codes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Result_code> Codes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("failed_questions_count", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("codes", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<Result_code> Codes { get; set; }
+
+        [JsonProperty("failed_questions_count", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? Failed_questions_count { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

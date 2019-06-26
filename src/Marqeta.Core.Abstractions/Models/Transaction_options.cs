@@ -1,35 +1,34 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Transaction_options 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Transaction_options
     {
-        [Newtonsoft.Json.JsonProperty("additional_data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("additional_data", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Additional_data { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("database_transaction_timeout", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("database_transaction_timeout", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? Database_transaction_timeout { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pre_auth_time_limit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("pre_auth_time_limit", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Pre_auth_time_limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("send_expiration_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("send_expiration_date", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? Send_expiration_date { get; set; } = true;
-    
-        [Newtonsoft.Json.JsonProperty("send_track_data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("send_track_data", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Send_track_data { get; set; } = true;
-    
-        [Newtonsoft.Json.JsonProperty("card_expiration_date_yymm", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("card_expiration_date_yymm", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Card_expiration_date_yymm { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

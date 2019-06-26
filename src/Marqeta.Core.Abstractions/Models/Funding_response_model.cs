@@ -1,29 +1,25 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Funding_response_model 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Funding_response_model
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public long? Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("accounting_balance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("accounting_balance", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public double? Accounting_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("available_balance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("available_balance", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public double? Available_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("transaction", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Gatewaylog Transaction { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

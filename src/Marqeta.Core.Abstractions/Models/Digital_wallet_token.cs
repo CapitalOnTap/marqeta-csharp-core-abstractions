@@ -1,56 +1,57 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Digital_wallet_token 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Digital_wallet_token
     {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("card_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("card_token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Card_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("state", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string State { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state_reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("state_reason", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string State_reason { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fulfillment_status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("fulfillment_status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Fulfillment_status { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("issuer_eligibility_decision", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("issuer_eligibility_decision", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Issuer_eligibility_decision { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Created_time { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Last_modified_time { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_service_provider", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("created_time", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? Created_time { get; set; }
+
+        [JsonProperty("last_modified_time", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? Last_modified_time { get; set; }
+
+        [JsonProperty("token_service_provider", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public Token_service_provider Token_service_provider { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("device", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("device", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Device Device { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("wallet_provider_profile", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("wallet_provider_profile", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public Wallet_provider_profile Wallet_provider_profile { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("address_verification", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("address_verification", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public Address_verification Address_verification { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("user", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public User_card_holder_response User { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

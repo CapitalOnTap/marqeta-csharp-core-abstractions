@@ -1,41 +1,42 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Fraud 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Fraud
     {
-        [Newtonsoft.Json.JsonProperty("merchant_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("merchant_risk_score", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public int? Merchant_risk_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("merchant_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("merchant_risk_score_reason_code", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Merchant_risk_score_reason_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("transaction_risk_score", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? Transaction_risk_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("transaction_risk_score_reason_code", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Transaction_risk_score_reason_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_risk_score_reason_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("transaction_risk_score_reason_description", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Transaction_risk_score_reason_description { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("account_risk_score", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public int? Account_risk_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("account_risk_score_reason_code", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Account_risk_score_reason_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("issuerFraudModel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("issuerFraudModel", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Issuer2 IssuerFraudModel { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

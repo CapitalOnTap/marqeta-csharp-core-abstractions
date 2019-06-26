@@ -1,25 +1,21 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum BulkCardOrderExpirationOffsetUnit
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"YEARS")]
-        YEARS = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MONTHS")]
-        MONTHS = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"DAYS")]
-        DAYS = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"HOURS")]
-        HOURS = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MINUTES")]
-        MINUTES = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"SECONDS")]
-        SECONDS = 5,
-    
+        [EnumMember(Value = @"YEARS")] YEARS = 0,
+
+        [EnumMember(Value = @"MONTHS")] MONTHS = 1,
+
+        [EnumMember(Value = @"DAYS")] DAYS = 2,
+
+        [EnumMember(Value = @"HOURS")] HOURS = 3,
+
+        [EnumMember(Value = @"MINUTES")] MINUTES = 4,
+
+        [EnumMember(Value = @"SECONDS")] SECONDS = 5
     }
 }

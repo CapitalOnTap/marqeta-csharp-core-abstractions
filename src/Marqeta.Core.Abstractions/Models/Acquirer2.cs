@@ -1,59 +1,56 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Acquirer2 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Acquirer2
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public long? Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transactionAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("transactionAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount TransactionAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("feeAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("feeAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount FeeAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("feeLossesAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("feeLossesAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount FeeLossesAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("feeEarningsAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("feeEarningsAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount FeeEarningsAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("refundAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("refundAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount RefundAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("depositAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("depositAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount DepositAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("chargebackAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("chargebackAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount ChargebackAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("active", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Active { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("issuer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("issuer", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Issuer Issuer { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mfdaccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("mfdaccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount Mfdaccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mfdfeeAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("mfdfeeAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount MfdfeeAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mfdfeeCalculationSchedule", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("mfdfeeCalculationSchedule", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public CalculationSchedule MfdfeeCalculationSchedule { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

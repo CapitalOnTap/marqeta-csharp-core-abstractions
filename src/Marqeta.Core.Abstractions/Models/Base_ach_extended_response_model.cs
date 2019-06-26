@@ -1,71 +1,71 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Base_ach_extended_response_model 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Base_ach_extended_response_model
     {
-        [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created_time { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Last_modified_time { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [JsonProperty("created_time", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
+        public DateTimeOffset Created_time { get; set; }
+
+        [JsonProperty("last_modified_time", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
+        public DateTimeOffset Last_modified_time { get; set; }
+
+        [JsonProperty("token", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_suffix", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+
+        [JsonProperty("account_suffix", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
         public string Account_suffix { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("verification_status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Verification_status { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_type", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+
+        [JsonProperty("account_type", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
         public string Account_type { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name_on_account", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+
+        [JsonProperty("name_on_account", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
         public string Name_on_account { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("bank_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("bank_name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Bank_name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Always)]
-        public bool Active { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("date_sent_for_verification", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Date_sent_for_verification { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("is_default_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("active", Required = Required.Always)]
+        public bool Active { get; set; }
+
+        [JsonProperty("date_sent_for_verification", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? Date_sent_for_verification { get; set; }
+
+        [JsonProperty("is_default_account", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Is_default_account { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("date_verified", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Date_verified { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("verification_override", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("date_verified", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? Date_verified { get; set; }
+
+        [JsonProperty("verification_override", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? Verification_override { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("verification_notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("verification_notes", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Verification_notes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("routing_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("routing_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Routing_number { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("account_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Account_number { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

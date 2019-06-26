@@ -1,22 +1,19 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum FileProcessingResponseFile_process_status
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"QUEUED")]
-        QUEUED = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"STARTED")]
-        STARTED = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"COMPLETED")]
-        COMPLETED = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ERROR")]
-        ERROR = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"TERMINATED;")]
-        TERMINATED = 4,
-    
+        [EnumMember(Value = @"QUEUED")] QUEUED = 0,
+
+        [EnumMember(Value = @"STARTED")] STARTED = 1,
+
+        [EnumMember(Value = @"COMPLETED")] COMPLETED = 2,
+
+        [EnumMember(Value = @"ERROR")] ERROR = 3,
+
+        [EnumMember(Value = @"TERMINATED;")] TERMINATED = 4
     }
 }

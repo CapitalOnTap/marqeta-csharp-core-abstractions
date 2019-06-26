@@ -1,25 +1,21 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum TranLogTransactionState
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"PENDING")]
-        PENDING = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CLEARED")]
-        CLEARED = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"COMPLETION")]
-        COMPLETION = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"DECLINED")]
-        DECLINED = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ERROR")]
-        ERROR = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ALL")]
-        ALL = 5,
-    
+        [EnumMember(Value = @"PENDING")] PENDING = 0,
+
+        [EnumMember(Value = @"CLEARED")] CLEARED = 1,
+
+        [EnumMember(Value = @"COMPLETION")] COMPLETION = 2,
+
+        [EnumMember(Value = @"DECLINED")] DECLINED = 3,
+
+        [EnumMember(Value = @"ERROR")] ERROR = 4,
+
+        [EnumMember(Value = @"ALL")] ALL = 5
     }
 }

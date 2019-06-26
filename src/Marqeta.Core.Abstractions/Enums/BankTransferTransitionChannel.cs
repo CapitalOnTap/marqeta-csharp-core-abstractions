@@ -1,13 +1,13 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum BankTransferTransitionChannel
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"API")]
-        API = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"SYSTEM")]
-        SYSTEM = 1,
-    
+        [EnumMember(Value = @"API")] API = 0,
+
+        [EnumMember(Value = @"SYSTEM")] SYSTEM = 1
     }
 }

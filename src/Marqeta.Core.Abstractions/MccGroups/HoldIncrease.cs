@@ -1,5 +1,4 @@
-﻿
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace Marqeta.Core.Abstractions.MccGroups
@@ -16,7 +15,6 @@ namespace Marqeta.Core.Abstractions.MccGroups
         [JsonConverter(typeof(StringEnumConverter))]
         public HoldType Type { get; set; }
 
-        [JsonProperty("value")]
-        public long Value { get; set; }
+        [JsonProperty("value")] public long Value { get; set; }
     }
 }

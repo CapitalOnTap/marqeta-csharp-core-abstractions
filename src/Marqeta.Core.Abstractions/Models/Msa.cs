@@ -1,29 +1,26 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Msa 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Msa
     {
-        [Newtonsoft.Json.JsonProperty("campaign_token", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [JsonProperty("campaign_token", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
         public string Campaign_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("trigger_amount", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
+
+        [JsonProperty("trigger_amount", Required = Required.Always)]
+        [Range(0, int.MaxValue)]
         public double Trigger_amount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("reload_amount", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
+
+        [JsonProperty("reload_amount", Required = Required.Always)]
+        [Range(0, int.MaxValue)]
         public double Reload_amount { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

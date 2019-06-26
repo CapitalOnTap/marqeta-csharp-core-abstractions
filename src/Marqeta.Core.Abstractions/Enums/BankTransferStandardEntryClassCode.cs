@@ -1,16 +1,15 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum BankTransferStandardEntryClassCode
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"WEB")]
-        WEB = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PPD")]
-        PPD = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CCD")]
-        CCD = 2,
-    
+        [EnumMember(Value = @"WEB")] WEB = 0,
+
+        [EnumMember(Value = @"PPD")] PPD = 1,
+
+        [EnumMember(Value = @"CCD")] CCD = 2
     }
 }

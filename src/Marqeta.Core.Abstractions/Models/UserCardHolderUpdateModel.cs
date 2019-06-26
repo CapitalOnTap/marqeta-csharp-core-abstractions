@@ -1,137 +1,139 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserCardHolderUpdateModel 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class UserCardHolderUpdateModel
     {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        [JsonProperty("token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("active", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Active { get; set; } = true;
-    
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("notes", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Notes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ip_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(39)]
+
+        [JsonProperty("ip_address", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(39)]
         public string Ip_address { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("password", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Password { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("phone", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Phone { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, string> Metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_holder_group_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36)]
+
+        [JsonProperty("metadata", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public IDictionary<string, string> Metadata { get; set; }
+
+        [JsonProperty("account_holder_group_token", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(36)]
         public string Account_holder_group_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("identifications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<IdentificationRequestModel> Identifications { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("honorific", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(10)]
+
+        [JsonProperty("identifications", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<IdentificationRequestModel> Identifications { get; set; }
+
+        [JsonProperty("honorific", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(10)]
         public string Honorific { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("gender", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(1)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("gender", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(1)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public UserCardHolderUpdateModelGender? Gender { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("first_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(40)]
+
+        [JsonProperty("first_name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(40)]
         public string First_name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("middle_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(40)]
+
+        [JsonProperty("middle_name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(40)]
         public string Middle_name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("last_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(40)]
+
+        [JsonProperty("last_name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(40)]
         public string Last_name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255, MinimumLength = 1)]
+
+        [JsonProperty("email", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255, MinimumLength = 1)]
         public string Email { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("address1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("address1", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Address1 { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("address2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("address2", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Address2 { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(40)]
+
+        [JsonProperty("city", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(40)]
         public string City { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(2)]
+
+        [JsonProperty("state", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(2)]
         public string State { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(40)]
+
+        [JsonProperty("country", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(40)]
         public string Country { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("birth_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("birth_date", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Birth_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("corporate_card_holder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("corporate_card_holder", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? Corporate_card_holder { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("ssn", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Ssn { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("passport_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(40)]
+
+        [JsonProperty("passport_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(40)]
         public string Passport_number { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("passport_expiration_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("passport_expiration_date", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Passport_expiration_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id_card_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("id_card_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Id_card_number { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id_card_expiration_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("id_card_expiration_date", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Id_card_expiration_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("nationality", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("nationality", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Nationality { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("company", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("company", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Company { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("parent_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+
+        [JsonProperty("parent_token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(36, MinimumLength = 1)]
         public string Parent_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("uses_parent_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("uses_parent_account", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Uses_parent_account { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(10)]
+
+        [JsonProperty("postal_code", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(10)]
         public string Postal_code { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

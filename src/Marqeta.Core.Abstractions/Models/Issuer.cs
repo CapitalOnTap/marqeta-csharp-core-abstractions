@@ -1,65 +1,66 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Issuer 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Issuer
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public long? Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tz", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tz", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Tz { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? EndDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? StartDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("journal", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("endDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? EndDate { get; set; }
+
+        [JsonProperty("startDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? StartDate { get; set; }
+
+        [JsonProperty("journal", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Journal Journal { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("account", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Account Account { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("active", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Active { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("cardHolders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CardHolder> CardHolders { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardProducts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Card_product> CardProducts { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("acquirers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Acquirer2> Acquirers { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("partnerMFDAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("cardHolders", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<CardHolder> CardHolders { get; set; }
+
+        [JsonProperty("cardProducts", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<Card_product> CardProducts { get; set; }
+
+        [JsonProperty("acquirers", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<Acquirer2> Acquirers { get; set; }
+
+        [JsonProperty("partnerMFDAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount PartnerMFDAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("programMFDFeeAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("programMFDFeeAccount", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public FinalAccount ProgramMFDFeeAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("directDepositRoutingNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("directDepositRoutingNumber", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string DirectDepositRoutingNumber { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("directDepositAccountPrefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("directDepositAccountPrefix", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string DirectDepositAccountPrefix { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mfdfeeCalculationSchedule", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("mfdfeeCalculationSchedule", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public CalculationSchedule MfdfeeCalculationSchedule { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

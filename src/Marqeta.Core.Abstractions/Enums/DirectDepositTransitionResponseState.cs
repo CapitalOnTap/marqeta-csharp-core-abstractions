@@ -1,19 +1,17 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum DirectDepositTransitionResponseState
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"PENDING")]
-        PENDING = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"APPLIED")]
-        APPLIED = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"REVERSED")]
-        REVERSED = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"REJECTED")]
-        REJECTED = 3,
-    
+        [EnumMember(Value = @"PENDING")] PENDING = 0,
+
+        [EnumMember(Value = @"APPLIED")] APPLIED = 1,
+
+        [EnumMember(Value = @"REVERSED")] REVERSED = 2,
+
+        [EnumMember(Value = @"REJECTED")] REJECTED = 3
     }
 }

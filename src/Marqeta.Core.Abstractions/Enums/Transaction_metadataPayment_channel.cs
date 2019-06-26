@@ -1,22 +1,19 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum Transaction_metadataPayment_channel
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"OTHER")]
-        OTHER = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ATM")]
-        ATM = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ECOMMERCE")]
-        ECOMMERCE = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MAIL")]
-        MAIL = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PHONE")]
-        PHONE = 4,
-    
+        [EnumMember(Value = @"OTHER")] OTHER = 0,
+
+        [EnumMember(Value = @"ATM")] ATM = 1,
+
+        [EnumMember(Value = @"ECOMMERCE")] ECOMMERCE = 2,
+
+        [EnumMember(Value = @"MAIL")] MAIL = 3,
+
+        [EnumMember(Value = @"PHONE")] PHONE = 4
     }
 }

@@ -1,46 +1,45 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Bank_transfer_transition_request_model 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Bank_transfer_transition_request_model
     {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36)]
+        [JsonProperty("token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(36)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("bank_transfer_token", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [System.ComponentModel.DataAnnotations.StringLength(36)]
+
+        [JsonProperty("bank_transfer_token", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(36)]
         public string Bank_transfer_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("status", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public Bank_transfer_transition_request_modelStatus Status { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("reason", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Reason { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("channel", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("channel", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public Bank_transfer_transition_request_modelChannel Channel { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("batch_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("batch_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Batch_number { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("program_reserve_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36)]
+
+        [JsonProperty("program_reserve_token", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(36)]
         public string Program_reserve_token { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

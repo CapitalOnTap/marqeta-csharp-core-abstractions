@@ -1,17 +1,20 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System;
+using System.CodeDom.Compiler;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    [System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = true)]
-    internal class JsonInheritanceAttribute : System.Attribute
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    internal class JsonInheritanceAttribute : Attribute
     {
-        public JsonInheritanceAttribute(string key, System.Type type)
+        public JsonInheritanceAttribute(string key, Type type)
         {
             Key = key;
             Type = type;
         }
-    
+
         public string Key { get; }
-    
-        public System.Type Type { get; }
+
+        public Type Type { get; }
     }
 }

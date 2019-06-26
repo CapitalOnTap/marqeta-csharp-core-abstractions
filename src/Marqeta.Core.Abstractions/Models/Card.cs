@@ -1,179 +1,184 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Card 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Card
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public long? Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("bin", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("bin", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Bin { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lastFour", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("lastFour", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string LastFour { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("kid", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("kid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Kid { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("hash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("hash", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Hash { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("secureData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]> SecureData { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? StartDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? EndDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardHolder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("secureData", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<byte[]> SecureData { get; set; }
+
+        [JsonProperty("startDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? StartDate { get; set; }
+
+        [JsonProperty("endDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? EndDate { get; set; }
+
+        [JsonProperty("cardHolder", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public UserCardHolder CardHolder { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardProduct", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("cardProduct", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Card_product CardProduct { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, double> Fees { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("merchant", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("fees", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public IDictionary<string, double> Fees { get; set; }
+
+        [JsonProperty("merchant", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Merchant Merchant { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lastModifiedTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? LastModifiedTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("createdTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? CreatedTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("idempotentHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("lastModifiedTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? LastModifiedTime { get; set; }
+
+        [JsonProperty("createdTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? CreatedTime { get; set; }
+
+        [JsonProperty("idempotentHash", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string IdempotentHash { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pan", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("pan", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Pan { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("encryptedPAN", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("encryptedPAN", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public CryptoData EncryptedPAN { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("encryptedPIN", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("encryptedPIN", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public CryptoData EncryptedPIN { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("encryptedCVV", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("encryptedCVV", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public CryptoData EncryptedCVV { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("encryptedMSCVV", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("encryptedMSCVV", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public CryptoData EncryptedMSCVV { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("encryptedICVV", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("encryptedICVV", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public CryptoData EncryptedICVV { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("barcode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("barcode", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Barcode { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("state", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CardState? State { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fulfillmentStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("fulfillmentStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CardFulfillmentStatus? FulfillmentStatus { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("stateReason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("stateReason", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string StateReason { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("returnAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("returnAddress", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FulfillmentAddress ReturnAddress { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("recipientAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("recipientAddress", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public FulfillmentAddress RecipientAddress { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("shippingMethod", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("shippingMethod", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CardShippingMethod? ShippingMethod { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("careOfLine", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("careOfLine", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string CareOfLine { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardPersonalization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("cardPersonalization", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Card_personalization CardPersonalization { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("nameLine1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("nameLine1", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string NameLine1 { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("nameLine2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("nameLine2", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string NameLine2 { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("trackName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("trackName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string TrackName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("bulkCardOrder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("bulkCardOrder", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public BulkCardOrder BulkCardOrder { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("panGenerationSeed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("panGenerationSeed", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public long? PanGenerationSeed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("serviceCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("serviceCode", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string ServiceCode { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("terminateReIssuedSourceCard", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("terminateReIssuedSourceCard", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? TerminateReIssuedSourceCard { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("paymentInstrument", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("paymentInstrument", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CardPaymentInstrument? PaymentInstrument { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("replicateFromCard", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("replicateFromCard", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Card ReplicateFromCard { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("translatePinFromCard", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("translatePinFromCard", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public Card TranslatePinFromCard { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("swapDigitalWalletTokenFromCard", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("swapDigitalWalletTokenFromCard", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public Card SwapDigitalWalletTokenFromCard { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, string> Metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardAttributes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CardAttribute> CardAttributes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("expedite", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("metadata", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public IDictionary<string, string> Metadata { get; set; }
+
+        [JsonProperty("cardAttributes", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<CardAttribute> CardAttributes { get; set; }
+
+        [JsonProperty("expedite", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Expedite { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("expirationOffsetValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("expirationOffsetValue", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? ExpirationOffsetValue { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("expirationOffsetUnit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("expirationOffsetUnit", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CardExpirationOffsetUnit? ExpirationOffsetUnit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("superInactive", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("superInactive", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? SuperInactive { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("offlinePinSetRequiredOnNextTransaction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("offlinePinSetRequiredOnNextTransaction", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? OfflinePinSetRequiredOnNextTransaction { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("cardFulfillmentReason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("cardFulfillmentReason", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CardFulfillmentReason? CardFulfillmentReason { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("entityName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("entityName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string EntityName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("entityId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("entityId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public long? EntityId { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

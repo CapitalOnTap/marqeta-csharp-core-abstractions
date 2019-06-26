@@ -1,72 +1,70 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Velocity_control_response 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Velocity_control_response
     {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        [JsonProperty("token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
+
+        [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255)]
         public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("association", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("association", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Spend_control_association Association { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("merchant_scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("merchant_scope", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Merchant_scope Merchant_scope { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("usage_limit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Range(-1, int.MaxValue)]
+
+        [JsonProperty("usage_limit", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [Range(-1, int.MaxValue)]
         public int? Usage_limit { get; set; }
-    
+
         /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("approvals_only", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("approvals_only", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Approvals_only { get; set; } = false;
-    
+
         /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_purchases", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("include_purchases", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Include_purchases { get; set; } = false;
-    
+
         /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_withdrawals", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("include_withdrawals", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Include_withdrawals { get; set; } = false;
-    
+
         /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_transfers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("include_transfers", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Include_transfers { get; set; } = false;
-    
+
         /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_cashback", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("include_cashback", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Include_cashback { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+
+        [JsonProperty("currency_code", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
         public string Currency_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("amount_limit", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
+
+        [JsonProperty("amount_limit", Required = Required.Always)]
+        [Range(0, int.MaxValue)]
         public double Amount_limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("velocity_window", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("velocity_window", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public Velocity_control_responseVelocity_window Velocity_window { get; set; }
-    
+
         /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("active", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Active { get; set; } = false;
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

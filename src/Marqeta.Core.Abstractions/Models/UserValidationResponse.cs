@@ -1,26 +1,22 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserValidationResponse 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class UserValidationResponse
     {
-        [Newtonsoft.Json.JsonProperty("birth_date", Required = Newtonsoft.Json.Required.Always)]
-        public bool Birth_date { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Always)]
-        public bool Phone { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.Always)]
-        public bool Ssn { get; set; } = false;
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+        [JsonProperty("birth_date", Required = Required.Always)]
+        public bool Birth_date { get; set; }
+
+        [JsonProperty("phone", Required = Required.Always)]
+        public bool Phone { get; set; }
+
+        [JsonProperty("ssn", Required = Required.Always)]
+        public bool Ssn { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

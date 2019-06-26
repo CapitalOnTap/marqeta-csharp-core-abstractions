@@ -1,51 +1,51 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Token_service_provider 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Token_service_provider
     {
-        [Newtonsoft.Json.JsonProperty("token_reference_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("token_reference_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token_reference_id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pan_reference_id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+
+        [JsonProperty("pan_reference_id", Required = Required.Always)]
+        [Required(AllowEmptyStrings = true)]
         public string Pan_reference_id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("correlation_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("correlation_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Correlation_id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_requestor_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_requestor_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token_requestor_id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_requestor_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_requestor_name", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Token_requestor_name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token_type { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_pan", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_pan", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token_pan { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_expiration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_expiration", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token_expiration { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_score", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_assurance_level", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_assurance_level", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Token_assurance_level { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token_eligibility_decision", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("token_eligibility_decision", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Token_eligibility_decision { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

@@ -1,25 +1,21 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Runtime.Serialization;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum BankTransferStatus
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"PENDING")]
-        PENDING = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PROCESSING")]
-        PROCESSING = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"SUBMITTED")]
-        SUBMITTED = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"RETURNED")]
-        RETURNED = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"COMPLETED")]
-        COMPLETED = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CANCELED")]
-        CANCELED = 5,
-    
+        [EnumMember(Value = @"PENDING")] PENDING = 0,
+
+        [EnumMember(Value = @"PROCESSING")] PROCESSING = 1,
+
+        [EnumMember(Value = @"SUBMITTED")] SUBMITTED = 2,
+
+        [EnumMember(Value = @"RETURNED")] RETURNED = 3,
+
+        [EnumMember(Value = @"COMPLETED")] COMPLETED = 4,
+
+        [EnumMember(Value = @"CANCELED")] CANCELED = 5
     }
 }

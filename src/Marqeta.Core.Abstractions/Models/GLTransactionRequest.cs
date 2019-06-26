@@ -1,30 +1,29 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class GLTransactionRequest 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class GLTransactionRequest
     {
-        [Newtonsoft.Json.JsonProperty("entries", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<GLEntry2> Entries { get; set; } = new System.Collections.ObjectModel.Collection<GLEntry2>();
-    
-        [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("entries", Required = Required.Always)]
+        [Required]
+        public ICollection<GLEntry2> Entries { get; set; } = new Collection<GLEntry2>();
+
+        [JsonProperty("detail", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Detail { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardholder_visible", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("cardholder_visible", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Cardholder_visible { get; set; } = true;
-    
-        [Newtonsoft.Json.JsonProperty("reference_transaction_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("reference_transaction_token", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string Reference_transaction_token { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

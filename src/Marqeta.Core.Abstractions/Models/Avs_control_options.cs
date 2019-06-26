@@ -1,26 +1,24 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Avs_control_options 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class Avs_control_options
     {
-        [Newtonsoft.Json.JsonProperty("validate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("validate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? Validate { get; set; } = true;
-    
-        [Newtonsoft.Json.JsonProperty("decline_on_address_number_mismatch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("decline_on_address_number_mismatch", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? Decline_on_address_number_mismatch { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("decline_on_postal_code_mismatch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("decline_on_postal_code_mismatch", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? Decline_on_postal_code_mismatch { get; set; } = true;
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }

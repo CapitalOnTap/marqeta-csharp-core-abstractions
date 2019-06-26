@@ -1,116 +1,126 @@
-﻿namespace Marqeta.Core.Abstractions
+﻿using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace Marqeta.Core.Abstractions
 {
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class DigitalWalletToken 
+    [GeneratedCode("NJsonSchema", "10.0.20.0 (Newtonsoft.Json v11.0.0.0)")]
+    public class DigitalWalletToken
     {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [JsonProperty("token", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("card", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("card", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public Card Card { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("hash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("hash", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Hash { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("secureToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]> SecureToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("kid", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("secureToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<byte[]> SecureToken { get; set; }
+
+        [JsonProperty("kid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string Kid { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenAssuranceLevel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tokenAssuranceLevel", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string TokenAssuranceLevel { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenRequestorId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tokenRequestorId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string TokenRequestorId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenRequestorName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("tokenRequestorName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public DigitalWalletTokenTokenRequestorName? TokenRequestorName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tokenReferenceId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string TokenReferenceId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenExpirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? TokenExpirationDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tokenExpirationDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? TokenExpirationDate { get; set; }
+
+        [JsonProperty("tokenType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string TokenType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("tokenState", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public DigitalWalletTokenTokenState? TokenState { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fulfillmentStatus", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+
+        [JsonProperty("fulfillmentStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public DigitalWalletTokenFulfillmentStatus? FulfillmentStatus { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenStateReason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tokenStateReason", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string TokenStateReason { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("panReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("panReferenceId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string PanReferenceId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenScore", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tokenScore", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string TokenScore { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("issuerEligibilityDecision", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("issuerEligibilityDecision", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string IssuerEligibilityDecision { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenServiceProviderEligibilityDecision", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("tokenServiceProviderEligibilityDecision", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string TokenServiceProviderEligibilityDecision { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfActiveTokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("numberOfActiveTokens", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? NumberOfActiveTokens { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfInactiveTokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("numberOfInactiveTokens", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? NumberOfInactiveTokens { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfSuspendedTokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("numberOfSuspendedTokens", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? NumberOfSuspendedTokens { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("issuerTermsAndCondition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("issuerTermsAndCondition", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string IssuerTermsAndCondition { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("issuerTermsAndConditionDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? IssuerTermsAndConditionDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("correlationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("issuerTermsAndConditionDate", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? IssuerTermsAndConditionDate { get; set; }
+
+        [JsonProperty("correlationId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public string CorrelationId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("digitalWalletTokenAttributes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DigitalWalletTokenAttribute> DigitalWalletTokenAttributes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("superInactive", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("digitalWalletTokenAttributes", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
+        public ICollection<DigitalWalletTokenAttribute> DigitalWalletTokenAttributes { get; set; }
+
+        [JsonProperty("superInactive", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
         public bool? SuperInactive { get; set; } = false;
-    
-        [Newtonsoft.Json.JsonProperty("numberOfActivationAttempts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("numberOfActivationAttempts", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public int? NumberOfActivationAttempts { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("digitalWalletTokenDevice", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("digitalWalletTokenDevice", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public DigitalWalletTokenDeviceInfo DigitalWalletTokenDevice { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("digitalWalletTokenWalletProvider", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("digitalWalletTokenWalletProvider", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public DigitalWalletTokenWalletProviderInfo DigitalWalletTokenWalletProvider { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("digitalWalletTokenAddressVerification", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+
+        [JsonProperty("digitalWalletTokenAddressVerification", Required = Required.Default,
+            NullValueHandling = NullValueHandling.Ignore)]
         public DigitalWalletTokenAddressVerification DigitalWalletTokenAddressVerification { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Created_time { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Last_modified_time { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-    
+
+        [JsonProperty("created_time", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? Created_time { get; set; }
+
+        [JsonProperty("last_modified_time", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+        public DateTimeOffset? Last_modified_time { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; } = new Dictionary<string, object>();
     }
 }
