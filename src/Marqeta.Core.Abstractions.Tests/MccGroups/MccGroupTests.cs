@@ -31,22 +31,22 @@ namespace Marqeta.Core.Abstractions.Tests.MccGroups
 
         protected MccGroup MccGroup = new MccGroup
         {
-            Token = "my_mccgroup_01",
-            Name = "My MCC Group 01",
-            Mccs = new[] {"0123", "2224-2230", "3876"},
-            Active = true,
-            Config = new Config
-            {
-                AuthorizationControls = new AuthorizationControls
-                {
-                    HoldIncrease = new HoldIncrease
-                    {
-                        Type = HoldIncrease.HoldType.Percent,
-                        Value = 20,
-                    },
-                    HoldExpirationDays = 2
-                }
-            },
+            //Token = "my_mccgroup_01",
+            //Name = "My MCC Group 01",
+            //Mccs = new[] {"0123", "2224-2230", "3876"},
+            //Active = true,
+            //Config = new Config
+            //{
+            //    AuthorizationControls = new AuthorizationControls
+            //    {
+            //        HoldIncrease = new HoldIncrease
+            //        {
+            //            Type = HoldIncrease.HoldType.Percent,
+            //            Value = 20,
+            //        },
+            //        HoldExpirationDays = 2
+            //    }
+            //},
         };
 
         [Fact]
