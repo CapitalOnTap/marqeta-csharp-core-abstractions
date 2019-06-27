@@ -4,6 +4,9 @@ param(
     [bool] $CleanUpCode = $false
 )
 
+# Timer
+$sw = [System.Diagnostics.Stopwatch]::StartNew()
+
 #
 # Sanity checks
 #
@@ -115,6 +118,9 @@ if ($JsonManipulation) {
                 '*Authentication*',
                 '*char max*',
                 '*chars max*',
+                '*createdTime',
+                '*created_time',
+                '*user_transaction_time',
                 '*max char*',
                 '*max chars*',
                 '*Must be * char*',
@@ -175,13 +181,13 @@ if ($JsonManipulation) {
                 , [regex]::new("[^0-9A-Za-z_]*")                    # Non alphanumeric characters - This should be done last
             )
             $newValue = $value `
-                | ForEach-Object { 
-                    # Run each regex on the object and return it
-                    foreach ($regex in $regexes) { $_ = $regex.Replace($_, "") }
-                    $_
-                } `
-                | Where-Object { ![string]::IsNullOrWhiteSpace($_) } `
-                | ForEach-Object { $_.Trim() }
+            | ForEach-Object { 
+                # Run each regex on the object and return it
+                foreach ($regex in $regexes) { $_ = $regex.Replace($_, "") }
+                $_
+            } `
+            | Where-Object { ![string]::IsNullOrWhiteSpace($_) } `
+            | ForEach-Object { $_.Trim() }
             $JsonObject[$PropertyName] = $newValue
         }
         Invoke-DelegateOnJsonNodeWithProperty -PropertyName "enum" -Delegate $delegate -JsonObject $JsonObject
@@ -365,3 +371,7 @@ if ($CleanUpCode) {
         Write-Host -ForegroundColor Yellow "Warning: dotnet CLI could not be found within the current environment. ReSharper Clean Up Code has not been run."
     }
 }
+
+# Timer
+$sw.Stop()
+Write-Host "Code generation completed in '$($sw.Elapsed)'." 
