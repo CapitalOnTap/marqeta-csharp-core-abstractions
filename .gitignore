@@ -340,3 +340,4 @@ swagger.*.json
 
 # TODO - Remove
 swagger-codegen-output/
+nswag.*.json

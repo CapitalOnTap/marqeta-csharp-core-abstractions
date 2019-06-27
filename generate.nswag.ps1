@@ -311,7 +311,7 @@ if ($JsonManipulation) {
 
 # Swagger arguments
 $nswagArgs = @(
-    'run', '.\nswag.template.json'
+    'run', '.\nswag.json'
     , '/runtime:NetCore22'
 )
 Write-Verbose "Using `$nswagArgs: $($nswagArgs)"
