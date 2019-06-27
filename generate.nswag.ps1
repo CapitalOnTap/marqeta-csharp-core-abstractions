@@ -234,60 +234,64 @@ if ($JsonManipulation) {
 
         $paths = @(
             '/acceptedcountries'
-            # '/accountholdergroups'
-            # '/authcontrols'
-            # '/autoreloads'
-            # '/bulkissuances'
-            # '/businesses'
-            # '/campaigns'
-            # '/cardproducts'
-            # '/chargebacks'
-            # '/commandomodes'
-            # '/digitalwallettokens'
-            # '/directdeposits'
-            # '/fees'
-            # '/fundingsources/addresses/business/{business_token}'
-            # '/fundingsources/addresses/user/{user_token}'
-            # '/fundingsources/program/ach'
-            # '/fundingsources/user/{user_token}'
-            # '/gpaorders/unloads'
-            # '/kyc/business/{business_token}'
-            # '/kyc/user/{user_token}'
+            '/accountholdergroups'
+            '/authcontrols'
+            '/autoreloads'
+            '/bulkissuances'
+            '/businesses'
+            '/campaigns'
+            '/cardproducts'
+            '/chargebacks'
+            '/commandomodes'
+            '/digitalwallettokens'
+            '/directdeposits'
+            '/fees'
+            '/fundingsources/addresses/business/{business_token}'
+            '/fundingsources/addresses/user/{user_token}'
+            '/fundingsources/program/ach'
+            '/fundingsources/user/{user_token}'
+            '/gpaorders/unloads'
+            '/kyc/business/{business_token}'
+            '/kyc/user/{user_token}'
             '/mccgroups'
-            # '/merchants'
-            # '/merchants/{token}/stores'
-            # '/msaorders/unloads'
-            # '/offers'
-            # '/programreserve/transactions'
-            # '/programtransfers'
-            # '/programtransfers/types'
-            # '/pushtocards/disburse'
-            # '/pushtocards/paymentcard'
-            # '/realtimefeegroups'
-            # '/stores'
-            # '/transactions'
-            # '/transactions/fundingsource/{funding_source_token}'
-            # '/transactions/{token}/related'
-            # '/usertransitions/user/{user_token}'
-            # '/users'
-            # '/users/phonenumber/{phone_number}'
-            # '/users/{parent_token}/children'
-            # '/users/{token}/notes'
-            # '/velocitycontrols'
-            # '/velocitycontrols/user/{user_token}/available'
-            # '/webhooks'
+            '/merchants'
+            '/merchants/{token}/stores'
+            '/msaorders/unloads'
+            '/offers'
+            '/programreserve/transactions'
+            '/programtransfers'
+            '/programtransfers/types'
+            '/pushtocards/disburse'
+            '/pushtocards/paymentcard'
+            '/realtimefeegroups'
+            '/stores'
+            '/transactions'
+            '/transactions/fundingsource/{funding_source_token}'
+            '/transactions/{token}/related'
+            '/usertransitions/user/{user_token}'
+            '/users'
+            '/users/phonenumber/{phone_number}'
+            '/users/{parent_token}/children'
+            '/users/{token}/notes'
+            '/velocitycontrols'
+            '/velocitycontrols/user/{user_token}/available'
+            '/webhooks'
         )
         foreach ($path in $paths) {
+            Write-Verbose "Adding paginated response for '$($path)'."
 
             $jsonResponse = $jsonObject.paths[$path].get.responses["200"]
 
-            $modelName = $jsonResponse.schema.items['$ref'].Split('/') | Select-Object -Last 1
+            $responseSchema = $jsonResponse.schema
+            if ($responseSchema.items) { $responseRefValue = $responseSchema.items['$ref'] }
+            elseif ($responseSchema.'$ref') { $responseRefValue = $responseSchema.'$ref' }
+
+            $modelName = $responseRefValue.Split('/') | Select-Object -Last 1
             $paginatedResponseName = $modelName + '_paginated_response'
 
             $jsonResponse.schema = @{
                 '$ref' = '#/definitions/' + $paginatedResponseName;
             }
-
             $paginatedResponseSchema = @{
                 'type'       = 'object';
                 'properties' = @{
