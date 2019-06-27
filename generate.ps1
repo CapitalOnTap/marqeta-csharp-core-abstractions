@@ -102,6 +102,9 @@ if ($CapMaxItems) {
         # Remove definitions
         Write-Verbose "Massaging JSON."
 
+        # Tite
+        $jsonObject.info.title = 'Marqeta Core Api'
+
         # NB: We change the max items due to a bug in swagger-codegen
         #       https://github.com/swagger-api/swagger-codegen/issues/6394
         Write-Verbose "Removing large 'maxItem' properties."
@@ -110,7 +113,9 @@ if ($CapMaxItems) {
         $jsonObject.definitions["auth_user_update_request"].properties["roles"].maxItems = $newMax
         $jsonObject.definitions["commando_mode_enables"].properties["velocity_controls"].maxItems = $newMax
 
+        #
         # Enum
+        #
         Write-Verbose "Removing problematic enums."
         Import-Module "$($PSScriptRoot)\HelpersModule.ps1" -Force
         $delegate = {
@@ -202,6 +207,41 @@ if ($CapMaxItems) {
             $JsonObject[$PropertyName] = $newValue
         }
         Invoke-DelegateOnJsonNodeWithProperty -PropertyName "enum" -Delegate $delegate -JsonObject $JsonObject
+        #
+        # /Enum
+        #
+
+        #
+        # Remove operation ids
+        #
+        Write-Verbose "Removing problematic operation ids."
+        $delegate = {
+            param (
+                [string] $PropertyName,
+                [object] $JsonObject
+            )
+
+            # Early out if null
+            if ($null -eq $JsonObject) { return }
+            $value = $JsonObject[$PropertyName]
+            if ($null -eq $value) { $value = $JsonObject.$PropertyName }
+            if ($null -eq $value) { return }
+
+            # If object is an array, recurse through array
+            switch ($JsonObject.GetType().ToString()) {
+                'System.Object[]' {
+                    $JsonObject | ForEach-Object { Invoke-DelegateOnJsonNodeWithProperty -PropertyName $PropertyName -Delegate $Delegate -JsonObject $_ }
+                    return
+                }
+            }
+
+            # Object is not an array so process object
+            $JsonObject.Remove($PropertyName) | Out-Null
+        }
+        Invoke-DelegateOnJsonNodeWithProperty -PropertyName "operationId" -Delegate $delegate -JsonObject $JsonObject
+        #
+        # /Remove operation ids
+        #
 
         Write-Verbose "Writing file."
         $JsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
