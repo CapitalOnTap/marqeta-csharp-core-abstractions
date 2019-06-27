@@ -56,15 +56,22 @@ if ($JsonManipulation) {
         Write-Verbose "Downloading '$defaultJsonUri'."
         Invoke-WebRequest -Uri $defaultJsonUri -OutFile $defaultJsonPath
 
+        Write-Verbose 'Massaging JSON.'
+
+        # Remove diacritics
+        Write-Verbose 'Removing diacritics.'
+        (Get-Content -Path $defaultJsonPath).Replace("é", "e") | Out-File -Encoding utf8 $defaultJsonPath
+
         # NB: We need to use the .NET JavaScriptSerializer because the build in powershell one cannot handle IDs with the same name but different casing
         [void][System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions")
         $jsonObject = [System.Web.Script.Serialization.JavaScriptSerializer]::new().DeserializeObject((Get-Content -Path $defaultJsonPath))
 
-        # Remove definitions
-        Write-Verbose "Massaging JSON."
-
-        # Tite
+        # Title
+        Write-Verbose "Adding 'title' property."
         $jsonObject.info.title = 'Marqeta Core Api'
+
+        # Remove
+        Write-Verbose "Adding 'title' property."
 
         # NB: We change the max items due to a bug in swagger-codegen
         #       https://github.com/swagger-api/swagger-codegen/issues/6394
@@ -162,9 +169,19 @@ if ($JsonManipulation) {
             }
 
             # Regex
-            # Replace (default*) 
-            $regex = [regex]::new("(\(default[ = ]*[0-9A-Za-z_]*\))")
-            $newValue = $value | ForEach-Object { $regex.Replace($_, "") } | Where-Object { ![string]::IsNullOrWhiteSpace($_) } | ForEach-Object { $_.Trim() }
+            # Delete unsavory content within enumerations
+            $regexes = @(
+                [regex]::new("(\(default[ = ]*[0-9A-Za-z_]*\))")    # (default*)
+                , [regex]::new("[^0-9A-Za-z_]*")                    # Non alphanumeric characters - This should be done last
+            )
+            $newValue = $value `
+                | ForEach-Object { 
+                    # Run each regex on the object and return it
+                    foreach ($regex in $regexes) { $_ = $regex.Replace($_, "") }
+                    $_
+                } `
+                | Where-Object { ![string]::IsNullOrWhiteSpace($_) } `
+                | ForEach-Object { $_.Trim() }
             $JsonObject[$PropertyName] = $newValue
         }
         Invoke-DelegateOnJsonNodeWithProperty -PropertyName "enum" -Delegate $delegate -JsonObject $JsonObject
@@ -211,48 +228,48 @@ if ($JsonManipulation) {
 
         $paths = @(
             '/acceptedcountries'
-            '/accountholdergroups'
-            '/authcontrols'
-            '/autoreloads'
-            '/bulkissuances'
-            '/businesses'
-            '/campaigns'
-            '/cardproducts'
-            '/chargebacks'
-            '/commandomodes'
-            '/digitalwallettokens'
-            '/directdeposits'
-            '/fees'
-            '/fundingsources/addresses/business/{business_token}'
-            '/fundingsources/addresses/user/{user_token}'
-            '/fundingsources/program/ach'
-            '/fundingsources/user/{user_token}'
-            '/gpaorders/unloads'
-            '/kyc/business/{business_token}'
-            '/kyc/user/{user_token}'
+            # '/accountholdergroups'
+            # '/authcontrols'
+            # '/autoreloads'
+            # '/bulkissuances'
+            # '/businesses'
+            # '/campaigns'
+            # '/cardproducts'
+            # '/chargebacks'
+            # '/commandomodes'
+            # '/digitalwallettokens'
+            # '/directdeposits'
+            # '/fees'
+            # '/fundingsources/addresses/business/{business_token}'
+            # '/fundingsources/addresses/user/{user_token}'
+            # '/fundingsources/program/ach'
+            # '/fundingsources/user/{user_token}'
+            # '/gpaorders/unloads'
+            # '/kyc/business/{business_token}'
+            # '/kyc/user/{user_token}'
             '/mccgroups'
-            '/merchants'
-            '/merchants/{token}/stores'
-            '/msaorders/unloads'
-            '/offers'
-            '/programreserve/transactions'
-            '/programtransfers'
-            '/programtransfers/types'
-            '/pushtocards/disburse'
-            '/pushtocards/paymentcard'
-            '/realtimefeegroups'
-            '/stores'
-            '/transactions'
-            '/transactions/fundingsource/{funding_source_token}'
-            '/transactions/{token}/related'
-            '/usertransitions/user/{user_token}'
-            '/users'
-            '/users/phonenumber/{phone_number}'
-            '/users/{parent_token}/children'
-            '/users/{token}/notes'
-            '/velocitycontrols'
-            '/velocitycontrols/user/{user_token}/available'
-            '/webhooks'
+            # '/merchants'
+            # '/merchants/{token}/stores'
+            # '/msaorders/unloads'
+            # '/offers'
+            # '/programreserve/transactions'
+            # '/programtransfers'
+            # '/programtransfers/types'
+            # '/pushtocards/disburse'
+            # '/pushtocards/paymentcard'
+            # '/realtimefeegroups'
+            # '/stores'
+            # '/transactions'
+            # '/transactions/fundingsource/{funding_source_token}'
+            # '/transactions/{token}/related'
+            # '/usertransitions/user/{user_token}'
+            # '/users'
+            # '/users/phonenumber/{phone_number}'
+            # '/users/{parent_token}/children'
+            # '/users/{token}/notes'
+            # '/velocitycontrols'
+            # '/velocitycontrols/user/{user_token}/available'
+            # '/webhooks'
         )
         foreach ($path in $paths) {
 
@@ -299,7 +316,7 @@ if ($JsonManipulation) {
         #
 
         Write-Verbose "Writing file."
-        $JsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
+        $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $defaultJsonPath
     }
     else {
         Write-Verbose "File '$($defaultJsonPath)' already exists. Skipping."
