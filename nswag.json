@@ -3,19 +3,20 @@
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "./swagger.json"
+      "url": "swagger.json",
+      "output": null
     }
   },
   "codeGenerators": {
     "openApiToCSharpClient": {
       "clientBaseClass": null,
       "configurationClass": null,
-      "generateClientClasses": true,
+      "generateClientClasses": false,
       "generateClientInterfaces": true,
       "injectHttpClient": true,
       "disposeHttpClient": true,
       "protectedMethods": [],
-      "generateExceptionClasses": true,
+      "generateExceptionClasses": false,
       "exceptionClass": "ApiException",
       "wrapDtoExceptions": false,
       "useHttpClientCreationMethod": false,
