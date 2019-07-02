@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
     [bool] $JsonManipulation = $true,
-    [bool] $CleanUpCode = $false
+    [bool] $CleanUpCode = $false,
+    [bool] $BuildAfterGeneration = $true
 )
 
 # Timer
@@ -73,9 +74,6 @@ if ($JsonManipulation) {
         Write-Verbose "Adding 'title' property."
         $jsonObject.info.title = 'Marqeta Core Api'
 
-        # Remove
-        Write-Verbose "Adding 'title' property."
-
         # NB: We change the max items due to a bug in swagger-codegen
         #       https://github.com/swagger-api/swagger-codegen/issues/6394
         Write-Verbose "Removing large 'maxItem' properties."
@@ -86,7 +84,7 @@ if ($JsonManipulation) {
 
         #
         # Enum
-        #
+        #       
         Write-Verbose "Removing problematic enums."
         Import-Module "$($PSScriptRoot)\HelpersModule.ps1" -Force
         $delegate = {
@@ -147,7 +145,7 @@ if ($JsonManipulation) {
                         $value1 = $value[0]
                         foreach ($delimiter in $delimiters) {
                             if ($value1.Contains($delimiter)) {
-                                $newValue = $value1.Split($delimiter).Trim().Replace('.', '_')
+                                $newValue = $value1.Split($delimiter).Trim()
                                 $JsonObject[$PropertyName] = $newValue
                                 break
                             }
@@ -156,7 +154,7 @@ if ($JsonManipulation) {
                     else {
                         $value1 = $value -like '*|*'
                         if ($value1) {
-                            $newValue = $value1.Split('|').Trim().Replace('.', '_')
+                            $newValue = $value1.Split('|').Trim()
                             $JsonObject[$PropertyName] = $newValue
                         }
                     }
@@ -178,7 +176,7 @@ if ($JsonManipulation) {
             # Delete unsavory content within enumerations
             $regexes = @(
                 [regex]::new("(\(default[ = ]*[0-9A-Za-z_]*\))")    # (default*)
-                , [regex]::new("[^0-9A-Za-z_]*")                    # Non alphanumeric characters - This should be done last
+                , [regex]::new("[^0-9A-Za-z_.]*")                   # Non alphanumeric characters - This should be done last
             )
             $newValue = $value `
             | ForEach-Object { 
@@ -241,6 +239,7 @@ if ($JsonManipulation) {
             '/businesses'
             '/campaigns'
             '/cardproducts'
+            '/cards/user/{token}'
             '/chargebacks'
             '/commandomodes'
             '/digitalwallettokens'
@@ -347,14 +346,26 @@ Write-Verbose "Running nswag."
 nswag $nswagArgs
 
 # 
+# Build solution
+#
+$solutionPath = './Marqeta.Core.Abstractions.sln'
+if ($BuildAfterGeneration) {
+    if (Get-Command 'dotnet' -ErrorAction SilentlyContinue) {
+        # Build solution
+        dotnet build $solutionPath
+    }
+    else {
+        Write-Host -ForegroundColor Yellow "Warning: dotnet CLI could not be found within the current environment. ReSharper Clean Up Code has not been run."
+    }
+}
+
+# 
 # Clean up code
 #
 if ($CleanUpCode) {
     # Check for dotnet CLI
     # We need to build the solution before running the ReSharper Clean Up Code to prevent errors in the clean up
     if (Get-Command 'dotnet' -ErrorAction SilentlyContinue) {
-        $solutionPath = './Marqeta.Core.Abstractions.sln'
-
         # Build solution
         dotnet build $solutionPath
 

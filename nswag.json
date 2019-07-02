@@ -51,7 +51,7 @@
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
       "namespace": "Marqeta.Core.Abstractions",
-      "requiredPropertiesMustBeDefined": true,
+      "requiredPropertiesMustBeDefined": false,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
       "anyType": "object",
