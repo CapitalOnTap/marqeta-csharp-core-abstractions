@@ -332,12 +332,5 @@ ASALocalRun/
 # ReSharper Command Line Tools
 JetBrains.ReSharper.CommandLineTools.*/
 
-# Swagger CodeGen Files
-swagger-codegen/
-swagger-codegen-cli.jar
+# Swagger Json File
 swagger.json
-swagger.*.json
-
-# TODO - Remove
-swagger-codegen-output/
-nswag.*.json
