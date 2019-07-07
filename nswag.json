@@ -3,7 +3,7 @@
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "swagger.json",
+      "url": "https://raw.githubusercontent.com/CapitalOnTap/marqeta-swagger-json/master/swagger.json",
       "output": null
     }
   },
