@@ -58,6 +58,13 @@ namespace Marqeta.Core.Abstractions.Tests
                 { fixture.Create<string>(), fixture.Build<Program_reserve_account_balance>().Without(p => p.Balances).Create() }
             }));
 
+            // We replace instances of System.Object with Newtonsoft.Json.Linq.JObject
+            // NB: This is required as AutoFixture generates classes with empty System.Object types
+            //      that are deserialised as Newtonsoft.Json.Linq.JObject.
+            //      DeepEquals will incorrectly throw when comparing these type types.
+            var defaultJObject = fixture.Create<Newtonsoft.Json.Linq.JObject>();
+            fixture.Register<object>(() => defaultJObject);
+
             return fixture;
         }
     }
