@@ -28,7 +28,7 @@ steps:
     command: custom
     arguments: install GitVersion.CommandLine -Version $(gitVersionVersion) -OutputDirectory $(Build.BinariesDirectory)/tools -ExcludeVersion
   displayName: 'Install GitVersion $(gitVersionVersion)'
-- script: mono $(Build.BinariesDirectory)/tools/GitVersion.CommandLine/tools/GitVersion.exe /output build
+- script: mono $(Build.BinariesDirectory)/tools/GitVersion.CommandLine/tools/GitVersion.exe /output buildserver /nofetch
   displayName: 'Run GitVersion'
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
