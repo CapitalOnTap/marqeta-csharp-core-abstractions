@@ -46,7 +46,7 @@ steps:
     nuGetFeedType: external
     publishFeedCredentials: $(nuGetServiceConnectionName)
   # We only want to do this if this is a master branch build OR we have set the FORCE_PUSH_NUGET variable.
-  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq('true', variables['FORCE_PUSH_NUGET']))
+  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq('true', variables['FORCE_PUSH_NUGET'])))
   displayName: 'Push NuGet package(s)'
 
 - task: KriefMikael.githubtools.GitHubTag.GitHubTag@1
@@ -54,5 +54,5 @@ steps:
     githubEndpoint: $(nugetServiceConnectionName)
     tag: 'v$(GitVersion.NuGetVersion)'
   # We only want to do this if this is a master branch build OR we have set the FORCE_PUSH_NUGET variable.
-  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq('true', variables['FORCE_PUSH_NUGET']))
+  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq('true', variables['FORCE_PUSH_NUGET'])))
   displayName: 'Create tag ''v$(GitVersion.NuGetVersion)'' in GitHub'
