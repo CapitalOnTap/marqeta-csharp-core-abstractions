@@ -26,7 +26,7 @@ steps:
   inputs:
     command: custom
     arguments: install GitVersion.CommandLine -Version $(gitVersionVersion) -OutputDirectory $(Build.BinariesDirectory)/tools -ExcludeVersion
-  displayName: "Install GitVersion $(gitVersionVersion)'"
+  displayName: "Install GitVersion '$(gitVersionVersion)'"
 
 - script: mono $(Build.BinariesDirectory)/tools/GitVersion.CommandLine/tools/GitVersion.exe /output buildserver /nofetch
   displayName: 'Run GitVersion'
@@ -55,4 +55,4 @@ steps:
     tag: 'v$(GitVersion.NuGetVersion)'
   # We only want to do this if this is a master branch build OR we have set the FORCE_PUSH_NUGET variable.
   condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq('true', variables['FORCE_PUSH_NUGET'])))
-  displayName: "Create tag 'v$(GitVersion.NuGetVersion)' in GitHub"
+  displayName: "Create tag in GitHub"
