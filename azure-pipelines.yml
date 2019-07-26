@@ -16,12 +16,21 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  gitVersionVersion: '4.0.0'
 
 steps:
-- task: GitVersion@4
-  displayName: 'GitVersion'
+# - task: GitVersion@4
+#   displayName: 'GitVersion'
+#   inputs:
+#     updateAssemblyInfo: true
+steps:
+- task: NuGetCommand@2
   inputs:
-    updateAssemblyInfo: true
+    command: custom
+    arguments: install GitVersion.CommandLine -Version $(gitVersionVersion) -OutputDirectory $(Build.BinariesDirectory)/tools -ExcludeVersion
+  displayName: 'Install GitVersion $(gitVersionVersion)'
+- script: mono $(Build.BinariesDirectory)/tools/GitVersion.CommandLine/tools/GitVersion.exe /output build
+  displayName: 'Run GitVersion'
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - script: dotnet test --configuration $(buildConfiguration)
