@@ -23,7 +23,6 @@ steps:
 #   displayName: 'GitVersion'
 #   inputs:
 #     updateAssemblyInfo: true
-steps:
 - task: NuGetCommand@2
   inputs:
     command: custom
