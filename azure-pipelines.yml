@@ -17,7 +17,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   gitVersionVersion: '4.0.0'
-  nuGetServiceConnectionName: 'NuGet.Marqeta.Core.Abstractions'
+  nuGetServiceConnectionName: 'nuget.org'
   githubServiceConnectionName: 'CapitalOnTap'
 
 steps:
