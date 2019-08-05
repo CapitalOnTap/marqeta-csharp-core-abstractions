@@ -43,6 +43,7 @@ steps:
 
 - script: dotnet test --configuration $(buildConfiguration) --no-build
   displayName: 'dotnet test $(buildConfiguration)'
+  condition: and(succeeded(), ne('true', variables['SKIP_TESTS']))
 
 - script: dotnet pack --configuration $(buildConfiguration) --no-build /p:Version='$(GitVersion.NuGetVersion)' -o '$(build.artifactStagingDirectory)'
   displayName: 'dotnet pack $(buildConfiguration)'
