@@ -41,8 +41,14 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration) /p:Version='$(GitVersion.NuGetVersion)'
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: dotnet test --configuration $(buildConfiguration) --no-build
+- script: dotnet test --configuration $(buildConfiguration) --no-build --logger "trx;LogFileName=$(Common.TestResultsDirectory)\TestResults.xml"
   displayName: 'dotnet test $(buildConfiguration)'
+  condition: and(succeeded(), ne('true', variables['SKIP_TESTS']))
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '$(Common.TestResultsDirectory)/*.xml'
   condition: and(succeeded(), ne('true', variables['SKIP_TESTS']))
 
 - script: dotnet pack --configuration $(buildConfiguration) --no-build /p:Version='$(GitVersion.NuGetVersion)' -o '$(build.artifactStagingDirectory)'
