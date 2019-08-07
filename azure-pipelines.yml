@@ -2,8 +2,6 @@ trigger:
   branches:
     include:
     - master
-    - releases/*
-    - azure-pipelines-testing/*
   paths:
     # NB: It's currently shorter to use an include list instead of an exclude list
     include:
@@ -11,12 +9,12 @@ trigger:
     - Marqeta.Core.Abstractions.sln
     - GitVersion.yml
     - azure-pipelines.yml
-    
+    exclude:
+    - src/Marqeta.Core.Abstractions.Tests/
 pr:
   branches:
     include:
     - master
-    - releases/*
 
 pool:
   vmImage: 'ubuntu-latest'
