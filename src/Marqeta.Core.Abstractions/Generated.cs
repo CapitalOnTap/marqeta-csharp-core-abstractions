@@ -10120,11 +10120,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("transaction_attributes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, string> Transaction_attributes { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issuerReceivedTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IssuerReceivedTime { get; set; }
+        [Newtonsoft.Json.JsonProperty("issuer_received_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Issuer_received_time { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("issuerPaymentNode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IssuerPaymentNode { get; set; }
+        [Newtonsoft.Json.JsonProperty("issuer_payment_node", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Issuer_payment_node { get; set; }
     
     
     }
