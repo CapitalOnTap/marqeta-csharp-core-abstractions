@@ -24,16 +24,16 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>credit line transaction type</summary>
         [Newtonsoft.Json.JsonProperty("transaction_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditLineChargeTransaction_type Transaction_type { get; set; }
+        public string Transaction_type { get; set; }
     
+        /// <summary>credit line transaction charge type</summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditLineChargeType Type { get; set; }
+        public string Type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; set; }
@@ -71,9 +71,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>yyyy-MM-dd</summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Start_date { get; set; }
     
+        /// <summary>yyyy-MM-dd</summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string End_date { get; set; }
     
@@ -95,10 +97,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Campaign_token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -110,11 +114,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("purchase_amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Purchase_amount { get; set; }
     
-        /// <summary>Defaults to 0.00</summary>
+        /// <summary>default is 0.00</summary>
         [Newtonsoft.Json.JsonProperty("reward_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Reward_amount { get; set; }
     
-        /// <summary>Defaults to 0.01</summary>
+        /// <summary>default is 0.01</summary>
         [Newtonsoft.Json.JsonProperty("reward_trigger_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Reward_trigger_amount { get; set; }
     
@@ -154,15 +158,19 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserValidationResponse 
     {
+        /// <summary>yyyy-MM-dd</summary>
         [Newtonsoft.Json.JsonProperty("birth_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Birth_date { get; set; }
     
+        /// <summary>10 char max, phone number</summary>
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Phone { get; set; }
     
+        /// <summary>last four digits of SSN</summary>
         [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Ssn { get; set; }
     
+        /// <summary>six-char random name postfix</summary>
         [Newtonsoft.Json.JsonProperty("random_name_line1_postfix", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Random_name_line1_postfix { get; set; }
     
@@ -172,10 +180,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Ach_response_model 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -232,10 +242,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CreditLineResponseModel 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -288,27 +300,21 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Range(-1, int.MaxValue)]
         public int? Usage_limit { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("approvals_only", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Approvals_only { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_purchases", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_purchases { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_withdrawals", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_withdrawals { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_transfers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_transfers { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_cashback", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_cashback { get; set; }
     
-        /// <summary>Default = false</summary>
         [Newtonsoft.Json.JsonProperty("include_credits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_credits { get; set; }
     
@@ -325,11 +331,10 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Velocity_control_balance_responseVelocity_window Velocity_window { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
-        /// <summary>Available balance</summary>
+        /// <summary>available balance</summary>
         [Newtonsoft.Json.JsonProperty("available", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public Available Available { get; set; } = new Available();
@@ -408,71 +413,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Velocity_control_response 
-    {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("association", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Spend_control_association Association { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("merchant_scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Merchant_scope Merchant_scope { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("usage_limit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Range(-1, int.MaxValue)]
-        public int? Usage_limit { get; set; }
-    
-        /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("approvals_only", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Approvals_only { get; set; }
-    
-        /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_purchases", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Include_purchases { get; set; }
-    
-        /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_withdrawals", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Include_withdrawals { get; set; }
-    
-        /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_transfers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Include_transfers { get; set; }
-    
-        /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("include_cashback", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Include_cashback { get; set; }
-    
-        /// <summary>Default = false</summary>
-        [Newtonsoft.Json.JsonProperty("include_credits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Include_credits { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Currency_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("amount_limit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public double Amount_limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("velocity_window", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Velocity_control_responseVelocity_window Velocity_window { get; set; }
-    
-        /// <summary>Default = true</summary>
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Active { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Digital_wallet_token_transition_request 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -505,6 +445,64 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("override_tsp_error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Override_tsp_error { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Velocity_control_response 
+    {
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("association", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Spend_control_association Association { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("merchant_scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Merchant_scope Merchant_scope { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("usage_limit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(-1, int.MaxValue)]
+        public int? Usage_limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("approvals_only", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Approvals_only { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("include_purchases", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Include_purchases { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("include_withdrawals", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Include_withdrawals { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("include_transfers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Include_transfers { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("include_cashback", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Include_cashback { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("include_credits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Include_credits { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Currency_code { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("amount_limit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
+        public double Amount_limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("velocity_window", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Velocity_control_responseVelocity_window Velocity_window { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
     
     
     }
@@ -714,19 +712,36 @@ namespace Marqeta.Core.Abstractions
         public string Zip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(10)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(40)]
         public string Country { get; set; }
     
-        /// <summary>The unique identifier of the merchant.</summary>
+        /// <summary>the unique identifier of the merchant</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>1 char max</summary>
         [Newtonsoft.Json.JsonProperty("partial_auth_flag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Partial_auth_flag { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BillPaymentCompletionRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("network_reference_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Network_reference_id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("original_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Original_transaction_token { get; set; }
     
     
     }
@@ -760,16 +775,21 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BillPaymentCompletionRequest 
+    public partial class Commando_mode_request 
     {
-        [Newtonsoft.Json.JsonProperty("network_reference_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("program_gateway_funding_source_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Network_reference_id { get; set; }
+        public string Program_gateway_funding_source_token { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("original_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("real_time_standin_criteria", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Real_time_standin_criteria Real_time_standin_criteria { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("commando_mode_enables", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Original_transaction_token { get; set; }
+        public Commando_mode_enables Commando_mode_enables { get; set; } = new Commando_mode_enables();
+    
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
     
     
     }
@@ -806,26 +826,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Commando_mode_request 
-    {
-        [Newtonsoft.Json.JsonProperty("program_gateway_funding_source_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Program_gateway_funding_source_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("real_time_standin_criteria", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Real_time_standin_criteria Real_time_standin_criteria { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("commando_mode_enables", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public Commando_mode_enables Commando_mode_enables { get; set; } = new Commando_mode_enables();
-    
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessCardHolderModel 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -843,6 +843,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(39)]
         public string Ip_address { get; set; }
     
+        /// <summary>strong password required</summary>
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(255, MinimumLength = 1)]
         public string Password { get; set; }
@@ -891,6 +892,7 @@ namespace Marqeta.Core.Abstractions
         public string History { get; set; }
     
         [Newtonsoft.Json.JsonProperty("business_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Business_type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("international_office_locations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -920,6 +922,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Card_inventory_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
@@ -998,6 +1001,7 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.StringLength(36)]
         public string Type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("channel", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1054,6 +1058,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required]
         public Webhook_config_model Config { get; set; } = new Webhook_config_model();
     
+        /// <summary>an array of event types</summary>
         [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> Events { get; set; } = new System.Collections.ObjectModel.Collection<string>();
@@ -1167,38 +1172,14 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ReversalModel 
-    {
-        [Newtonsoft.Json.JsonProperty("network_fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Network_fee_model> Network_fees { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Webhook Webhook { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("original_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Original_transaction_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Amount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("find_original_window_days", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Find_original_window_days { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("is_advice", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Is_advice { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Kyc_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -1246,6 +1227,32 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ReversalModel 
+    {
+        [Newtonsoft.Json.JsonProperty("network_fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Network_fee_model> Network_fees { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Webhook Webhook { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("original_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Original_transaction_token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Amount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("find_original_window_days", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Find_original_window_days { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("is_advice", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Is_advice { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ShippingInformationResponse 
     {
         [Newtonsoft.Json.JsonProperty("method", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1258,6 +1265,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("recipient_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FulfillmentAddressResponse Recipient_address { get; set; }
     
+        /// <summary>255 char max</summary>
         [Newtonsoft.Json.JsonProperty("care_of_line", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Care_of_line { get; set; }
     
@@ -1636,18 +1644,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("approved", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Approved { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contributionAmounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, double> ContributionAmounts { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("statusAsString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StatusAsString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("achPostingOrReversal", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? AchPostingOrReversal { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardHolderObligation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? CardHolderObligation { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("amountIncrease", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? AmountIncrease { get; set; }
     
@@ -1675,6 +1671,18 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("itcShort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ItcShort { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("contributionAmounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, double> ContributionAmounts { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("statusAsString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StatusAsString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("achPostingOrReversal", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? AchPostingOrReversal { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cardHolderObligation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? CardHolderObligation { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
@@ -1684,10 +1692,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Base_ach_extended_response_model 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -1832,10 +1842,10 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>package ID assigned by card fulfillment</summary>
         [Newtonsoft.Json.JsonProperty("package_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Card_inventory_requestPackage_id Package_id { get; set; }
+        public string Package_id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("starting_inventory", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(1, int.MaxValue)]
@@ -1865,6 +1875,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Card_reorder_request 
     {
+        /// <summary>may only contain alphanumeric, hyphens, and underscore characters</summary>
         [Newtonsoft.Json.JsonProperty("card_batch_label", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 1)]
         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[\w-]*$")]
@@ -1883,6 +1894,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>required when order scope is GPA</summary>
         [Newtonsoft.Json.JsonProperty("funding_source_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Funding_source_token { get; set; }
@@ -1894,7 +1906,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("association", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Auto_reload_association Association { get; set; }
     
-        /// <summary>Either GPA or MSA is required</summary>
+        /// <summary>either GPA or MSA is required</summary>
         [Newtonsoft.Json.JsonProperty("order_scope", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public Order_scope Order_scope { get; set; } = new Order_scope();
@@ -1903,13 +1915,24 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Currency_code { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Config 
+    {
+        [Newtonsoft.Json.JsonProperty("authorization_controls", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Authorization_controls Authorization_controls { get; set; }
     
     
     }
@@ -1924,15 +1947,6 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(50)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Jit_funding_paymentcard_funding_sourceRefunds_destination? Refunds_destination { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Config 
-    {
-        [Newtonsoft.Json.JsonProperty("authorization_controls", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Authorization_controls Authorization_controls { get; set; }
     
     
     }
@@ -1953,10 +1967,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("memo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Memo { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -1993,6 +2009,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Transaction_controls 
     {
+        /// <summary>50 char max (default = accept_us_only)</summary>
         [Newtonsoft.Json.JsonProperty("accepted_countries_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Accepted_countries_token { get; set; }
     
@@ -2041,10 +2058,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ChargebackUpdateRequest 
     {
+        /// <summary>either 'reason_description' or 'reason_code' is required</summary>
         [Newtonsoft.Json.JsonProperty("reason_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChargebackUpdateRequestReason_description? Reason_description { get; set; }
     
+        /// <summary>either 'reason_code' or 'reason_description' is required</summary>
         [Newtonsoft.Json.JsonProperty("reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Reason_code { get; set; }
     
@@ -2108,6 +2127,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Clearing_and_settlement 
     {
+        /// <summary>default value of GPA does not apply when JIT funding is enabled</summary>
         [Newtonsoft.Json.JsonProperty("overdraft_destination", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Clearing_and_settlementOverdraft_destination? Overdraft_destination { get; set; }
@@ -2118,10 +2138,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Digital_wallet_android_pay_provision_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -2176,21 +2198,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Other_poi 
-    {
-        [Newtonsoft.Json.JsonProperty("allow", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Allow { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("card_presence_required", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Card_presence_required { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cardholder_presence_required", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Cardholder_presence_required { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Mcc_group_update_model 
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2211,6 +2218,21 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Other_poi 
+    {
+        [Newtonsoft.Json.JsonProperty("allow", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Allow { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("card_presence_required", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Card_presence_required { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cardholder_presence_required", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Cardholder_presence_required { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Card_life_cycle 
     {
         [Newtonsoft.Json.JsonProperty("activate_upon_issue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2219,6 +2241,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("expiration_offset", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Expiration_offset_with_minimum Expiration_offset { get; set; }
     
+        /// <summary>min is 100, max is 999</summary>
         [Newtonsoft.Json.JsonProperty("card_service_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Card_service_code { get; set; }
     
@@ -2241,27 +2264,9 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("recipient_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Fulfillment_address_request Recipient_address { get; set; }
     
+        /// <summary>255 char max</summary>
         [Newtonsoft.Json.JsonProperty("care_of_line", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Care_of_line { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserValidationRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("birth_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Birth_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Phone { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Ssn { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("random_name_line1_postfix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(6, MinimumLength = 6)]
-        public string Random_name_line1_postfix { get; set; }
     
     
     }
@@ -2277,6 +2282,31 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("pin", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Pin { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserValidationRequest 
+    {
+        /// <summary>yyyy-MM-dd</summary>
+        [Newtonsoft.Json.JsonProperty("birth_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTimeOffset? Birth_date { get; set; }
+    
+        /// <summary>phone #</summary>
+        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
+        public string Phone { get; set; }
+    
+        /// <summary>last four digits of SSN</summary>
+        [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
+        public string Ssn { get; set; }
+    
+        /// <summary>six-char random name postfix</summary>
+        [Newtonsoft.Json.JsonProperty("random_name_line1_postfix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(6, MinimumLength = 6)]
+        public string Random_name_line1_postfix { get; set; }
     
     
     }
@@ -2298,10 +2328,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CreditLineUnloadModel 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -2361,10 +2393,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("config", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Card_product_config Config { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -2375,20 +2409,22 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Pan_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
     
-        /// <summary>The unique identifier of the card user.</summary>
+        /// <summary>the unique identifier of the card user</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string User_token { get; set; }
     
-        /// <summary>The unique identifier of the card.</summary>
+        /// <summary>the unique identifier of the card</summary>
         [Newtonsoft.Json.JsonProperty("card_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Card_token { get; set; }
@@ -2415,6 +2451,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required]
         public Webhook_config_model Config { get; set; } = new Webhook_config_model();
     
+        /// <summary>an array of event types</summary>
         [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> Events { get; set; } = new System.Collections.ObjectModel.Collection<string>();
@@ -2431,13 +2468,16 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Clearing_file_request 
     {
+        /// <summary>a list of clearing_transaction_request items</summary>
         [Newtonsoft.Json.JsonProperty("transaction_tokens", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Clearing_record_request_model> Transaction_tokens { get; set; } = new System.Collections.ObjectModel.Collection<Clearing_record_request_model>();
     
+        /// <summary>timeout in seconds</summary>
         [Newtonsoft.Json.JsonProperty("wait_timeout", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Wait_timeout { get; set; }
     
+        /// <summary>string representing batch ID</summary>
         [Newtonsoft.Json.JsonProperty("batch_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Batch_id { get; set; }
     
@@ -2464,21 +2504,25 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Fee_detail> Fees { get; set; } = new System.Collections.ObjectModel.Collection<Fee_detail>();
     
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
@@ -2520,6 +2564,31 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ClearingRetryModel 
+    {
+        [Newtonsoft.Json.JsonProperty("original_failed_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Original_failed_transaction_token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("new_network_reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string New_network_reference { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("new_approval_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string New_approval_code { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("new_stan", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string New_stan { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("find_original_window_days", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Find_original_window_days { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("new_processing_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string New_processing_code { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Balance_inquiry_request_model 
     {
         [Newtonsoft.Json.JsonProperty("network_fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2550,31 +2619,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("card_acceptor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public Card_acceptor_model Card_acceptor { get; set; } = new Card_acceptor_model();
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ClearingRetryModel 
-    {
-        [Newtonsoft.Json.JsonProperty("original_failed_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Original_failed_transaction_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("new_network_reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string New_network_reference { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("new_approval_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string New_approval_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("new_stan", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string New_stan { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("find_original_window_days", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Find_original_window_days { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("new_processing_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string New_processing_code { get; set; }
     
     
     }
@@ -2977,20 +3021,25 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>empty string (disabled); must be HTTPS</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(250)]
         public string Url { get; set; }
     
+        /// <summary>required if URL is present</summary>
         [Newtonsoft.Json.JsonProperty("basic_auth_username", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 1)]
         public string Basic_auth_username { get; set; }
     
+        /// <summary>required if URL is present; must contain upper and lowercase letters, numbers, and symbols</summary>
         [Newtonsoft.Json.JsonProperty("basic_auth_password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 20)]
         public string Basic_auth_password { get; set; }
     
+        /// <summary>total timeout in milliseconds for gateway processing</summary>
         [Newtonsoft.Json.JsonProperty("timeout_millis", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(1000.0D, 7000.0D)]
         public long? Timeout_millis { get; set; }
@@ -3096,6 +3145,7 @@ namespace Marqeta.Core.Abstractions
         public string Country { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("is_default_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3132,9 +3182,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Start_date { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? End_date { get; set; }
     
@@ -3422,6 +3474,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Parent_token { get; set; }
     
+        /// <summary>default is false</summary>
         [Newtonsoft.Json.JsonProperty("uses_parent_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Uses_parent_account { get; set; }
     
@@ -3463,27 +3516,21 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Range(-1, int.MaxValue)]
         public int? Usage_limit { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("approvals_only", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Approvals_only { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_purchases", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_purchases { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_withdrawals", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_withdrawals { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_transfers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_transfers { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("include_cashback", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_cashback { get; set; }
     
-        /// <summary>Default = false</summary>
         [Newtonsoft.Json.JsonProperty("include_credits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Include_credits { get; set; }
     
@@ -3500,7 +3547,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Velocity_control_requestVelocity_window Velocity_window { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
@@ -3556,6 +3602,9 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("cardholder_billing_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Cardholder_billing_amount { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("cashback", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Cashback { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("cardholder_billing_conversion_rate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Cardholder_billing_conversion_rate { get; set; }
     
@@ -3579,6 +3628,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(12, MinimumLength = 1)]
         public string Stan { get; set; }
     
+        /// <summary>must be 2 char</summary>
         [Newtonsoft.Json.JsonProperty("processing_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(2, MinimumLength = 2)]
         public string Processing_code { get; set; }
@@ -3589,10 +3639,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("issuer_fee", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public MoneyModel Issuer_fee { get; set; }
     
+        /// <summary>must be 3 char</summary>
         [Newtonsoft.Json.JsonProperty("function_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(3, MinimumLength = 3)]
         public string Function_code { get; set; }
     
+        /// <summary>must be 4 char</summary>
         [Newtonsoft.Json.JsonProperty("reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(4, MinimumLength = 4)]
         public string Reason_code { get; set; }
@@ -3601,12 +3653,15 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(6, MinimumLength = 1)]
         public string Approval_code { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("transaction_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("local_transaction_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Local_transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("settlement_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Settlement_date { get; set; }
     
@@ -3630,6 +3685,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Clearing_record_request_modelNetwork? Network { get; set; }
     
+        /// <summary>defaults to VISANET if network is VISA</summary>
         [Newtonsoft.Json.JsonProperty("sub_network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Clearing_record_request_modelSub_network? Sub_network { get; set; }
@@ -3690,6 +3746,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("international_enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? International_enabled { get; set; }
     
+        /// <summary>minimum is 0.01</summary>
         [Newtonsoft.Json.JsonProperty("balance_max", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
         public double? Balance_max { get; set; }
@@ -3746,18 +3803,22 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(99, MinimumLength = 1)]
         public string Memo { get; set; }
     
+        /// <summary>required if 'send_business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("sender_user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Sender_user_token { get; set; }
     
+        /// <summary>required if 'recipient_business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("recipient_user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Recipient_user_token { get; set; }
     
+        /// <summary>required if 'send_user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("sender_business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Sender_business_token { get; set; }
     
+        /// <summary>required if 'recipient_business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("recipient_business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Recipient_business_token { get; set; }
@@ -3793,6 +3854,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("transition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Commando_mode_nested_transition Transition { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
@@ -3810,10 +3872,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -3859,22 +3923,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Token_update_request 
-    {
-        [Newtonsoft.Json.JsonProperty("exp_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Exp_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("is_default_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Is_default_account { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Card_update_request 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3897,6 +3945,22 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("credit_line", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CreditLine Credit_line { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Token_update_request 
+    {
+        [Newtonsoft.Json.JsonProperty("exp_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Exp_date { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("is_default_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Is_default_account { get; set; }
     
     
     }
@@ -3928,10 +3992,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Chargeback_request 
     {
+        /// <summary>either 'reason_description' or 'reason_code' is required</summary>
         [Newtonsoft.Json.JsonProperty("reason_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Chargeback_requestReason_description? Reason_description { get; set; }
     
+        /// <summary>either 'reason_code' or 'reason_description' is required</summary>
         [Newtonsoft.Json.JsonProperty("reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Reason_code { get; set; }
     
@@ -3982,6 +4048,35 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Offer_order_balances 
+    {
+        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Currency_code { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ledger_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Ledger_balance { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("available_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Available_balance { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("credit_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Credit_balance { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pending_credits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Pending_credits { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("impacted_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Impacted_amount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("balances", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.IDictionary<string, Offer_order_balances> Balances { get; set; } = new System.Collections.Generic.Dictionary<string, Offer_order_balances>();
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Application 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4021,41 +4116,14 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Offer_order_balances 
-    {
-        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Currency_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ledger_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Ledger_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("available_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Available_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("credit_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Credit_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pending_credits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Pending_credits { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("impacted_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Impacted_amount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("balances", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.IDictionary<string, Offer_order_balances> Balances { get; set; } = new System.Collections.Generic.Dictionary<string, Offer_order_balances>();
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Base_ach_response_model 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -4152,13 +4220,16 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("purchase_amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Purchase_amount { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_transaction_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Start_date { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? End_date { get; set; }
     
@@ -4186,10 +4257,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required]
         public Funding Funding { get; set; } = new Funding();
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -4228,24 +4301,6 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("feeAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? FeeAmount { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BillingAddress 
-    {
-        [Newtonsoft.Json.JsonProperty("first_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string First_name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("last_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Last_name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Address { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Zip { get; set; }
     
     
     }
@@ -4304,17 +4359,19 @@ namespace Marqeta.Core.Abstractions
         public string Zip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(10)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(40)]
         public string Country { get; set; }
     
-        /// <summary>The unique identifier of the merchant.</summary>
+        /// <summary>the unique identifier of the merchant</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>1 char max</summary>
         [Newtonsoft.Json.JsonProperty("partial_auth_flag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Partial_auth_flag { get; set; }
     
@@ -4337,6 +4394,24 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("keyed_auth_cvv_enforced", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Keyed_auth_cvv_enforced { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BillingAddress 
+    {
+        [Newtonsoft.Json.JsonProperty("first_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string First_name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("last_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Last_name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Address { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Zip { get; set; }
     
     
     }
@@ -4593,10 +4668,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -4735,6 +4812,9 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Status { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, object> Data { get; set; }
+    
     
     }
     
@@ -4814,17 +4894,19 @@ namespace Marqeta.Core.Abstractions
         public string Zip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(10)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(40)]
         public string Country { get; set; }
     
-        /// <summary>The unique identifier of the merchant.</summary>
+        /// <summary>the unique identifier of the merchant</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>1 char max</summary>
         [Newtonsoft.Json.JsonProperty("partial_auth_flag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Partial_auth_flag { get; set; }
     
@@ -4854,10 +4936,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Funding_account_response_model 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5001,6 +5085,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>default is true</summary>
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
@@ -5062,12 +5147,14 @@ namespace Marqeta.Core.Abstractions
         public string Notes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("parent_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Parent_token { get; set; }
     
+        /// <summary>default is false</summary>
         [Newtonsoft.Json.JsonProperty("uses_parent_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Uses_parent_account { get; set; }
     
@@ -5101,10 +5188,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(255, MinimumLength = 1)]
         public string Password { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5147,6 +5236,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
+        /// <summary>required if enabled</summary>
         [Newtonsoft.Json.JsonProperty("funding_source_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36)]
         public string Funding_source_token { get; set; }
@@ -5178,10 +5268,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Fee_detail> Fees { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5289,10 +5381,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("real_time_standin_criteria", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Real_time_standin_criteria Real_time_standin_criteria { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5304,13 +5398,13 @@ namespace Marqeta.Core.Abstractions
     public partial class Selective_auth 
     {
         [Newtonsoft.Json.JsonProperty("sa_mode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Sa_mode { get; set; }
+        public Selective_authSa_mode? Sa_mode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("enable_regex_search_chain", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enable_regex_search_chain { get; set; }
     
         [Newtonsoft.Json.JsonProperty("dmd_location_sensitivity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Dmd_location_sensitivity { get; set; }
+        public Selective_authDmd_location_sensitivity? Dmd_location_sensitivity { get; set; }
     
     
     }
@@ -5355,10 +5449,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("is_default_account", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Is_default_account { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5412,6 +5508,32 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Mcc_group_model 
+    {
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mccs", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.MaxLength(500)]
+        public System.Collections.Generic.ICollection<string> Mccs { get; set; } = new System.Collections.ObjectModel.Collection<string>();
+    
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("config", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Config Config { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Financial_request_model 
     {
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5446,32 +5568,6 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Webhook Webhook { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Mcc_group_model 
-    {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [System.ComponentModel.DataAnnotations.StringLength(255)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mccs", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.MaxLength(500)]
-        public System.Collections.Generic.ICollection<string> Mccs { get; set; } = new System.Collections.ObjectModel.Collection<string>();
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("config", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Config Config { get; set; }
     
     
     }
@@ -5520,15 +5616,18 @@ namespace Marqeta.Core.Abstractions
         public Chargeback_responseNetwork Network { get; set; }
     
         [Newtonsoft.Json.JsonProperty("network_case_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(50)]
         public string Network_case_id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("credit_user", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Credit_user { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5554,12 +5653,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Min_offset 
     {
-        /// <summary>Should be specified if a value is provided. Defaults to expiration_offset.unit</summary>
+        /// <summary>specify if a value is provided; default is expiration_offset.unit</summary>
         [Newtonsoft.Json.JsonProperty("unit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Min_offsetUnit? Unit { get; set; }
     
-        /// <summary>Should be specified if unit is provided. Defaults to expiration_offset.value</summary>
+        /// <summary>specify if unit is provided; default is expiration_offset.value</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Value { get; set; }
     
@@ -5608,6 +5707,21 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TranlogToken 
+    {
+        [Newtonsoft.Json.JsonProperty("tranlogId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? TranlogId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("tranLog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranLog TranLog { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Webhook_request_model 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5626,24 +5740,10 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required]
         public Webhook_config_model Config { get; set; } = new Webhook_config_model();
     
+        /// <summary>an array of event types</summary>
         [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> Events { get; set; } = new System.Collections.ObjectModel.Collection<string>();
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class TranlogToken 
-    {
-        [Newtonsoft.Json.JsonProperty("tranlogId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? TranlogId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tranLog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranLog TranLog { get; set; }
     
     
     }
@@ -5655,6 +5755,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>default = true</summary>
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
@@ -5666,6 +5767,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(39)]
         public string Ip_address { get; set; }
     
+        /// <summary>strong password required</summary>
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(255, MinimumLength = 1)]
         public string Password { get; set; }
@@ -5684,10 +5786,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("authentication", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Authentication Authentication { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5726,6 +5830,7 @@ namespace Marqeta.Core.Abstractions
         public string History { get; set; }
     
         [Newtonsoft.Json.JsonProperty("business_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Business_type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("international_office_locations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5793,18 +5898,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Advanced_simulation_response_model 
-    {
-        [Newtonsoft.Json.JsonProperty("transaction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Transaction_model Transaction { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("raw_iso8583", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, object> Raw_iso8583 { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Card_transition_response 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5828,6 +5921,7 @@ namespace Marqeta.Core.Abstractions
         public Card_transition_responseState State { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Reason { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5857,6 +5951,7 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("card_product_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.StringLength(36)]
         public string Card_product_token { get; set; }
     
         [Newtonsoft.Json.JsonProperty("last_four", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5905,12 +6000,26 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Advanced_simulation_response_model 
+    {
+        [Newtonsoft.Json.JsonProperty("transaction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Transaction_model Transaction { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("raw_iso8583", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, object> Raw_iso8583 { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Push_to_card_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -5991,9 +6100,11 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("source_file", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.StringLength(512)]
         public string Source_file { get; set; }
     
         [Newtonsoft.Json.JsonProperty("archive_file", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(512)]
         public string Archive_file { get; set; }
     
     
@@ -6123,10 +6234,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Payment_card_response_model 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -6157,34 +6270,13 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Exp_date { get; set; }
     
+        /// <summary>required if business_token is not present</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string User_token { get; set; }
     
+        /// <summary>required if user_token is not present</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Business_token { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Authorization_advice_model 
-    {
-        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Amount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("network_fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Network_fee_model> Network_fees { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Webhook Webhook { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("original_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Original_transaction_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_options", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Transaction_options Transaction_options { get; set; }
     
     
     }
@@ -6234,6 +6326,29 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("bulk_issuance_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Bulk_issuance_token { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Authorization_advice_model 
+    {
+        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Amount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("network_fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Network_fee_model> Network_fees { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Webhook Webhook { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("original_transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Original_transaction_token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transaction_options", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Transaction_options Transaction_options { get; set; }
     
     
     }
@@ -6373,6 +6488,37 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NetworkTranType 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public NetworkTranTypeNetwork? Network { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sourceAcct", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SourceAcct { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("destAcct", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DestAcct { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("networkTranGroup", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public NetworkTranGroup NetworkTranGroup { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Notes { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("param", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Param { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Offer_model 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6410,37 +6556,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Currency_code { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class NetworkTranType 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public NetworkTranTypeNetwork? Network { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("sourceAcct", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SourceAcct { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("destAcct", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DestAcct { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("networkTranGroup", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NetworkTranGroup NetworkTranGroup { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Notes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("param", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Param { get; set; }
     
     
     }
@@ -6496,39 +6611,6 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("identifications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IdentificationResponseModel> Identifications { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Digital_wallet_apple_pay_provision_request 
-    {
-        [Newtonsoft.Json.JsonProperty("card_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Card_token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("device_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Digital_wallet_apple_pay_provision_requestDevice_type Device_type { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("provisioning_app_version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 1)]
-        public string Provisioning_app_version { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("certificates", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<string> Certificates { get; set; } = new System.Collections.ObjectModel.Collection<string>();
-    
-        [Newtonsoft.Json.JsonProperty("nonce", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Nonce { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("nonce_signature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Nonce_signature { get; set; }
     
     
     }
@@ -6597,6 +6679,39 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Digital_wallet_apple_pay_provision_request 
+    {
+        [Newtonsoft.Json.JsonProperty("card_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Card_token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("device_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Digital_wallet_apple_pay_provision_requestDevice_type Device_type { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("provisioning_app_version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 1)]
+        public string Provisioning_app_version { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("certificates", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Certificates { get; set; } = new System.Collections.ObjectModel.Collection<string>();
+    
+        [Newtonsoft.Json.JsonProperty("nonce", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Nonce { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("nonce_signature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Nonce_signature { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class User_card_holder_search_model 
     {
         [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6658,26 +6773,18 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("verification_notes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Verification_notes { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
     
         [Newtonsoft.Json.JsonProperty("is_default_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Is_default_account { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class DDARequest 
-    {
-        [Newtonsoft.Json.JsonProperty("dda", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Dda { get; set; }
     
     
     }
@@ -6701,6 +6808,16 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("credit_line", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CreditLine Credit_line { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DDARequest 
+    {
+        [Newtonsoft.Json.JsonProperty("dda", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Dda { get; set; }
     
     
     }
@@ -6802,9 +6919,11 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Payment_card_funding_source_model : Funding_source_model
     {
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Business_token { get; set; }
     
@@ -6845,6 +6964,9 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("cardholder_billing_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Cardholder_billing_amount { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("cashback", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Cashback { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("cardholder_billing_conversion_rate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Cardholder_billing_conversion_rate { get; set; }
     
@@ -6868,6 +6990,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(12, MinimumLength = 1)]
         public string Stan { get; set; }
     
+        /// <summary>must be 2 char</summary>
         [Newtonsoft.Json.JsonProperty("processing_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(2, MinimumLength = 2)]
         public string Processing_code { get; set; }
@@ -6878,10 +7001,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("issuer_fee", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public MoneyModel Issuer_fee { get; set; }
     
+        /// <summary>must be 3 char</summary>
         [Newtonsoft.Json.JsonProperty("function_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(3, MinimumLength = 3)]
         public string Function_code { get; set; }
     
+        /// <summary>must be 4 char</summary>
         [Newtonsoft.Json.JsonProperty("reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(4, MinimumLength = 4)]
         public string Reason_code { get; set; }
@@ -6890,12 +7015,15 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(6, MinimumLength = 1)]
         public string Approval_code { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("transaction_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("local_transaction_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Local_transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("settlement_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Settlement_date { get; set; }
     
@@ -6919,6 +7047,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Advanced_clearing_request_modelNetwork? Network { get; set; }
     
+        /// <summary>defaults to VISANET if network is VISA</summary>
         [Newtonsoft.Json.JsonProperty("sub_network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Advanced_clearing_request_modelSub_network? Sub_network { get; set; }
@@ -7085,22 +7214,27 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Card_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
     
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Token { get; set; }
     
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string User_token { get; set; }
     
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("card_product_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Card_product_token { get; set; }
@@ -7118,6 +7252,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Expiration { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("expiration_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Expiration_time { get; set; }
@@ -7304,10 +7439,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -7541,11 +7678,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Bank_transfer_response_modelType? Type { get; set; }
     
-        /// <summary>Default = USD</summary>
+        /// <summary>default = USD</summary>
         [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Currency_code { get; set; }
     
-        /// <summary>Default = STANDARD</summary>
+        /// <summary>default = STANDARD</summary>
         [Newtonsoft.Json.JsonProperty("transfer_speed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Bank_transfer_response_modelTransfer_speed? Transfer_speed { get; set; }
@@ -7585,6 +7722,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(12)]
         public string Stan { get; set; }
     
+        /// <summary>yyyyMMddHHmmss</summary>
         [Newtonsoft.Json.JsonProperty("transmission_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(14)]
         public string Transmission_time { get; set; }
@@ -7627,13 +7765,16 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_transaction_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Start_date { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? End_date { get; set; }
     
@@ -7661,10 +7802,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required]
         public Funding Funding { get; set; } = new Funding();
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -7855,6 +7998,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Adv_auth_request_model 
     {
+        /// <summary>default is 0100</summary>
         [Newtonsoft.Json.JsonProperty("mti", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Adv_auth_request_modelMti? Mti { get; set; }
@@ -7864,6 +8008,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Adv_auth_request_modelNetwork Network { get; set; }
     
+        /// <summary>defaults to VISANET if network is VISA</summary>
         [Newtonsoft.Json.JsonProperty("sub_network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Adv_auth_request_modelSub_network? Sub_network { get; set; }
@@ -7874,12 +8019,15 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("network_reference_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Network_reference_id { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("local_transaction_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Local_transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("transaction_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Transaction_date { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("settlement_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Settlement_date { get; set; }
     
@@ -7901,9 +8049,10 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("acquirer_reference_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Acquirer_reference_id { get; set; }
     
+        /// <summary>must be 11 char</summary>
         [Newtonsoft.Json.JsonProperty("forwarding_institution_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Adv_auth_request_modelForwarding_institution_id? Forwarding_institution_id { get; set; }
+        [System.ComponentModel.DataAnnotations.StringLength(11, MinimumLength = 11)]
+        public string Forwarding_institution_id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("local_transaction_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Local_transaction_amount { get; set; }
@@ -7952,6 +8101,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("pin", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pin { get; set; }
     
+        /// <summary>default is MAG_STRIPE</summary>
         [Newtonsoft.Json.JsonProperty("pos_pan_entry_mode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Adv_auth_request_modelPos_pan_entry_mode? Pos_pan_entry_mode { get; set; }
@@ -7962,6 +8112,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("stip_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Stip_reason_code { get; set; }
     
+        /// <summary>default is false</summary>
         [Newtonsoft.Json.JsonProperty("is_recurring", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Is_recurring { get; set; }
     
@@ -8031,6 +8182,44 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Campaign_update_model 
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(40)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
+    
+        /// <summary>yyyy-MM-dd</summary>
+        [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Start_date { get; set; }
+    
+        /// <summary>yyyy-MM-dd</summary>
+        [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string End_date { get; set; }
+    
+        /// <summary>enclose tokens in brackets</summary>
+        [Newtonsoft.Json.JsonProperty("store_tokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.MaxLength(36)]
+        public System.Collections.Generic.ICollection<string> Store_tokens { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Control_token_request 
+    {
+        /// <summary>token associated with the card</summary>
+        [Newtonsoft.Json.JsonProperty("card_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Card_token { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class TranLogAttributeRequest 
     {
         [Newtonsoft.Json.JsonProperty("transaction_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8044,39 +8233,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("attribute_value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Attribute_value { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Control_token_request 
-    {
-        [Newtonsoft.Json.JsonProperty("card_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Card_token { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Campaign_update_model 
-    {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(40)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Start_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string End_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("store_tokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Store_tokens { get; set; }
     
     
     }
@@ -8168,6 +8324,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Amount { get; set; }
     
+        /// <summary>C = credit; D = debit</summary>
         [Newtonsoft.Json.JsonProperty("credit_debit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Network_fee_modelCredit_debit? Credit_debit { get; set; }
@@ -8201,9 +8358,11 @@ namespace Marqeta.Core.Abstractions
         public string Basic_auth_username { get; set; }
     
         [Newtonsoft.Json.JsonProperty("basic_auth_password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 20)]
         public string Basic_auth_password { get; set; }
     
+        /// <summary>total timeout in milliseconds for gateway processing</summary>
         [Newtonsoft.Json.JsonProperty("timeout_millis", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(1000.0D, 7000.0D)]
         public long? Timeout_millis { get; set; }
@@ -8297,6 +8456,37 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Push_to_card_disburse_request 
+    {
+        [Newtonsoft.Json.JsonProperty("tags", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255, MinimumLength = 1)]
+        public string Tags { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("memo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(99, MinimumLength = 1)]
+        public string Memo { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Currency_code { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0, 50000)]
+        public double Amount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("payment_instrument_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Payment_instrument_token { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FulfillmentAddressResponse 
     {
         [Newtonsoft.Json.JsonProperty("first_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8342,37 +8532,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(20)]
         public string Phone { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Push_to_card_disburse_request 
-    {
-        [Newtonsoft.Json.JsonProperty("tags", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(255, MinimumLength = 1)]
-        public string Tags { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("memo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(99, MinimumLength = 1)]
-        public string Memo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Currency_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Range(0, 50000)]
-        public double Amount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("payment_instrument_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Payment_instrument_token { get; set; }
     
     
     }
@@ -8528,6 +8687,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>required when order scope is GPA</summary>
         [Newtonsoft.Json.JsonProperty("funding_source_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Funding_source_token { get; set; }
@@ -8539,7 +8699,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("association", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Auto_reload_association Association { get; set; }
     
-        /// <summary>Either GPA or MSA is required</summary>
+        /// <summary>either GPA or MSA is required</summary>
         [Newtonsoft.Json.JsonProperty("order_scope", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public Order_scope Order_scope { get; set; } = new Order_scope();
@@ -8554,6 +8714,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Real_time_fee_group 
     {
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Token { get; set; }
@@ -8567,6 +8728,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Active { get; set; }
     
+        /// <summary>50 char max</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Name { get; set; }
@@ -8693,17 +8855,19 @@ namespace Marqeta.Core.Abstractions
         public string Postal_code { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(10)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(40)]
         public string Country { get; set; }
     
-        /// <summary>The unique identifier of the merchant.</summary>
+        /// <summary>the unique identifier of the merchant</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>1 char max</summary>
         [Newtonsoft.Json.JsonProperty("partial_auth_flag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Partial_auth_flag { get; set; }
     
@@ -8727,10 +8891,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("keyed_auth_cvv_enforced", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Keyed_auth_cvv_enforced { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -8746,6 +8912,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 1)]
         public string Name { get; set; }
     
+        /// <summary>250 char max. Empty string (disabled). Must be HTTPS.</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Url { get; set; }
@@ -8774,14 +8941,17 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Account { get; set; }
     
+        /// <summary>50 char max. Required if URL is present</summary>
         [Newtonsoft.Json.JsonProperty("basic_auth_username", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Basic_auth_username { get; set; }
     
+        /// <summary>50 char max. Required if URL is present. Minimum 20 chars with upper and lowercase letters, numbers, and symbols</summary>
         [Newtonsoft.Json.JsonProperty("basic_auth_password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Basic_auth_password { get; set; }
     
+        /// <summary>total timeout in milliseconds for gateway processing</summary>
         [Newtonsoft.Json.JsonProperty("timeout_millis", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long Timeout_millis { get; set; }
     
@@ -8873,24 +9043,28 @@ namespace Marqeta.Core.Abstractions
         public string Zip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(10)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(40)]
         public string Country { get; set; }
     
-        /// <summary>The unique identifier of the merchant.</summary>
+        /// <summary>the unique identifier of the merchant</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>1 char max</summary>
         [Newtonsoft.Json.JsonProperty("partial_auth_flag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Partial_auth_flag { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -8981,11 +9155,13 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
@@ -9085,14 +9261,8 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CardHolderStatus? Status { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("defaultFundingAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CardholderAddress DefaultFundingAddress { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("address2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Address2 { get; set; }
+        [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Zip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
@@ -9106,17 +9276,49 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("address1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Address1 { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("address2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Address2 { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string City { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Zip { get; set; }
+        [Newtonsoft.Json.JsonProperty("defaultFundingAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CardholderAddress DefaultFundingAddress { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string State { get; set; }
     
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Country { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Webhook 
+    {
+        /// <summary>valid URL</summary>
+        [Newtonsoft.Json.JsonProperty("endpoint", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(512, MinimumLength = 1)]
+        public string Endpoint { get; set; }
+    
+        /// <summary>authentication username</summary>
+        [Newtonsoft.Json.JsonProperty("username", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Username { get; set; }
+    
+        /// <summary>authentication password</summary>
+        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Password { get; set; }
+    
+        /// <summary>authentication secret</summary>
+        [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Secret { get; set; }
     
     
     }
@@ -9134,28 +9336,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Webhook 
-    {
-        [Newtonsoft.Json.JsonProperty("endpoint", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(512, MinimumLength = 1)]
-        public string Endpoint { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("username", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Username { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; }
     
     
     }
@@ -9207,9 +9387,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("merchant_scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Merchant_scope Merchant_scope { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("start_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Start_time { get; set; }
     
+        /// <summary>yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("end_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? End_time { get; set; }
     
@@ -9222,7 +9404,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Available 
     {
-        /// <summary>Uses available</summary>
+        /// <summary>uses available</summary>
         [Newtonsoft.Json.JsonProperty("uses", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Uses { get; set; }
     
@@ -9230,7 +9412,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
         public double Amount { get; set; }
     
-        /// <summary>Days remaining</summary>
+        /// <summary>days remaining</summary>
         [Newtonsoft.Json.JsonProperty("days_remaining", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Days_remaining { get; set; }
     
@@ -9390,11 +9572,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("institution_country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Institution_country { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("network_international_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Network_international_id { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("institution_id_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Institution_id_code { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("network_international_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Network_international_id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("retrieval_reference_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Retrieval_reference_number { get; set; }
@@ -9520,10 +9702,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Currency_code { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -9568,6 +9752,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Enabled { get; set; }
     
+        /// <summary>required if enabled</summary>
         [Newtonsoft.Json.JsonProperty("funding_source_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36)]
         public string Funding_source_token { get; set; }
@@ -9586,10 +9771,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Digital_wallet_apple_pay_provision_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -9666,6 +9853,7 @@ namespace Marqeta.Core.Abstractions
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.StringLength(36)]
         public string Token { get; set; }
     
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9689,15 +9877,19 @@ namespace Marqeta.Core.Abstractions
         public string Chargeback_token { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(1024)]
         public string Reason { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transaction_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(36)]
         public string Transaction_token { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -9719,6 +9911,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("expires", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Expires { get; set; }
@@ -9860,12 +10053,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Expiration_offset_with_minimum 
     {
-        /// <summary>Should be specified if a value is provided. Defaults to YEARS</summary>
+        /// <summary>specify if a value is provided; default is YEARS</summary>
         [Newtonsoft.Json.JsonProperty("unit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Expiration_offset_with_minimumUnit? Unit { get; set; }
     
-        /// <summary>Should be specified if unit is provided. Defaults to 4</summary>
+        /// <summary>specify if unit is provided; default is 4</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Value { get; set; }
     
@@ -9899,7 +10092,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("end_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? End_time { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
@@ -9919,8 +10111,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Transaction_modelState State { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Identifier { get; set; }
     
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9945,6 +10136,24 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36)]
         public string Card_token { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("original_credit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Original_credit Original_credit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("preceding_related_transaction_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Preceding_related_transaction_token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("gpa", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Cardholder_balance Gpa { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("charge", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Charge Charge { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("credit_line", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CreditLine Credit_line { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("gpa_order", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Gpa_response Gpa_order { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("duration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Duration { get; set; }
     
@@ -9960,11 +10169,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("request_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Request_amount { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Amount { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("cash_back_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Cash_back_amount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Amount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("currency_conversion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Currency_conversion Currency_conversion { get; set; }
@@ -9981,9 +10190,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Response Response { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("preceding_related_transaction_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Preceding_related_transaction_token { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("incremental_authorization_transaction_tokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Incremental_authorization_transaction_tokens { get; set; }
     
@@ -9993,26 +10199,8 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("store", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Store_response_model Store { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("card_acceptor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Transaction_card_acceptor Card_acceptor { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("gpa", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Cardholder_balance Gpa { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("charge", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Charge Charge { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("credit_line", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CreditLine Credit_line { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("card", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Card_response Card { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("gpa_order_unload", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Gpa_returns Gpa_order_unload { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("gpa_order", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Gpa_response Gpa_order { get; set; }
     
         [Newtonsoft.Json.JsonProperty("program_transfer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Program_transfer_response Program_transfer { get; set; }
@@ -10066,6 +10254,9 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("acquirer_fee_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Acquirer_fee_amount { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("acquirer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Acquirer Acquirer { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("fees", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Network_fee_model> Fees { get; set; }
     
@@ -10075,17 +10266,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Cardholder_metadata User { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("card", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Card_response Card { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("business", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Business_metadata Business { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("acquirer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Acquirer Acquirer { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fraud", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Fraud Fraud { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pos", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pos Pos { get; set; }
     
         [Newtonsoft.Json.JsonProperty("address_verification", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Address_verification_model Address_verification { get; set; }
@@ -10093,14 +10278,8 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("card_security_code_verification", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Card_security_code_verification Card_security_code_verification { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("transaction_metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Transaction_metadata Transaction_metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("original_credit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Original_credit Original_credit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("card_holder_model", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User_card_holder_response Card_holder_model { get; set; }
+        [Newtonsoft.Json.JsonProperty("fraud", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Fraud Fraud { get; set; }
     
         [Newtonsoft.Json.JsonProperty("standin_approved_by", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Standin_approved_by { get; set; }
@@ -10108,17 +10287,8 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("standin_by", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Standin_by { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("network_reference_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Network_reference_id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("acquirer_reference_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Acquirer_reference_id { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("cardholder_authentication_data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Cardholder_authentication_data Cardholder_authentication_data { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_attributes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, string> Transaction_attributes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("issuer_received_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Issuer_received_time { get; set; }
@@ -10186,13 +10356,17 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>enclose tokens in brackets</summary>
         [Newtonsoft.Json.JsonProperty("store_tokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.MaxLength(36)]
         public System.Collections.Generic.ICollection<string> Store_tokens { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -10215,10 +10389,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Offer_order_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -10247,6 +10423,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("offer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Offer_model Offer { get; set; }
     
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_transaction_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_transaction_date { get; set; }
@@ -10290,14 +10467,14 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("issuer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Issuer Issuer { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("mfdfeeCalculationSchedule", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CalculationSchedule MfdfeeCalculationSchedule { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("mfdaccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FinalAccount Mfdaccount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mfdfeeAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FinalAccount MfdfeeAccount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mfdfeeCalculationSchedule", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CalculationSchedule MfdfeeCalculationSchedule { get; set; }
     
     
     }
@@ -10305,6 +10482,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Fee_detail 
     {
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
@@ -10403,7 +10581,7 @@ namespace Marqeta.Core.Abstractions
         public string Network { get; set; }
     
         [Newtonsoft.Json.JsonProperty("account_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Account_risk_score { get; set; }
+        public string Account_risk_score { get; set; }
     
         [Newtonsoft.Json.JsonProperty("account_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Account_risk_score_reason_code { get; set; }
@@ -10438,10 +10616,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Bin_pan_issued_count_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -10482,7 +10662,9 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>enclose tokens in brackets</summary>
         [Newtonsoft.Json.JsonProperty("store_tokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.MaxLength(36)]
         public System.Collections.Generic.ICollection<string> Store_tokens { get; set; }
     
     
@@ -10491,11 +10673,11 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Charge 
     {
+        /// <summary>credit line transaction charge type</summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ChargeType Type { get; set; }
+        public string Type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Time { get; set; }
@@ -10506,10 +10688,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FileProcessingResponse 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -10526,9 +10710,11 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("source_file", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.StringLength(512)]
         public string Source_file { get; set; }
     
         [Newtonsoft.Json.JsonProperty("archive_file", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(512)]
         public string Archive_file { get; set; }
     
         [Newtonsoft.Json.JsonProperty("file_process_status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10600,10 +10786,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Push_to_card_disbursement_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -10639,12 +10827,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Expiration_offset 
     {
-        /// <summary>Should be specified if a value is provided. Defaults to card product expiration offset unit</summary>
+        /// <summary>specify if a value is provided; default is card product expiration offset unit</summary>
         [Newtonsoft.Json.JsonProperty("unit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Expiration_offsetUnit? Unit { get; set; }
     
-        /// <summary>Should be specified if unit is provided. Defaults to card product expiration offset value</summary>
+        /// <summary>specify if unit is provided; default is card product expiration offset value</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Value { get; set; }
     
@@ -10726,14 +10914,14 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("children0", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Account> Children0 { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("finalAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? FinalAccount { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Credit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("chart", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Chart { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("finalAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? FinalAccount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("typeAsString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TypeAsString { get; set; }
@@ -10762,10 +10950,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CardholderAddressResponse 
     {
+        /// <summary>required if business_token is not specified</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if user_token is not specified</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -10820,6 +11010,7 @@ namespace Marqeta.Core.Abstractions
         public string Country { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("is_default_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10828,10 +11019,12 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -10875,9 +11068,6 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("networkTranType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public NetworkTranType NetworkTranType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("impact", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Impact { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("debit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Debit { get; set; }
     
@@ -10886,6 +11076,9 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("decrease", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Decrease { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("impact", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Impact { get; set; }
     
     
     }
@@ -11060,29 +11253,17 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Issuer2 
     {
-        [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Success { get; set; }
+        [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Score { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fraud_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Fraud_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fraud_rating", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Fraud_rating { get; set; }
+        [Newtonsoft.Json.JsonProperty("risk_level", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Risk_level { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rule_violations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Rule_violations { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fraud_score_reasons", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Fraud_score_reasons { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("recommended_action", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Recommended_action { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("model", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Model { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message { get; set; }
     
     
     }
@@ -11175,6 +11356,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Auth_user 
     {
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Token { get; set; }
@@ -11186,14 +11368,17 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Active { get; set; }
     
+        /// <summary>an array of roles</summary>
         [Newtonsoft.Json.JsonProperty("roles", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> Roles { get; set; } = new System.Collections.ObjectModel.Collection<string>();
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -11204,9 +11389,11 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Account_holder_group_response 
     {
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        /// <summary>40 char max</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
@@ -11256,12 +11443,10 @@ namespace Marqeta.Core.Abstractions
     public partial class Original_credit 
     {
         [Newtonsoft.Json.JsonProperty("transaction_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Original_creditTransaction_type? Transaction_type { get; set; }
+        public string Transaction_type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("funding_source", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Original_creditFunding_source? Funding_source { get; set; }
+        public string Funding_source { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sender_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Sender_name { get; set; }
@@ -11356,14 +11541,14 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CompositeAccountMarkerAccount? MarkerAccount { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("finalAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? FinalAccount { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Credit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("chart", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Chart { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("finalAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? FinalAccount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("typeAsString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TypeAsString { get; set; }
@@ -11784,12 +11969,15 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Merchant_scope 
     {
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("mid", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Mid { get; set; }
     
+        /// <summary>4 char max</summary>
         [Newtonsoft.Json.JsonProperty("mcc", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Mcc { get; set; }
     
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("mcc_group", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Mcc_group { get; set; }
     
@@ -11800,13 +11988,14 @@ namespace Marqeta.Core.Abstractions
     public partial class Auth_user_request 
     {
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(32, MinimumLength = 1)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.StringLength(32)]
         public string Password { get; set; }
     
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>an array of roles</summary>
         [Newtonsoft.Json.JsonProperty("roles", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
@@ -11833,24 +12022,6 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Message { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Offer_update_model 
-    {
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Start_date { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string End_date { get; set; }
     
     
     }
@@ -11898,15 +12069,38 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Offer_update_model 
+    {
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
+    
+        /// <summary>255 char max</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
+        [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Start_date { get; set; }
+    
+        /// <summary>yyyy-MM-ddThh:mm:ssZ</summary>
+        [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string End_date { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Client_access_token_response 
     {
         [Newtonsoft.Json.JsonProperty("application", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Application Application { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("expires", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Expires { get; set; }
@@ -11928,8 +12122,9 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(20, MinimumLength = 1)]
         public string Original_transaction_token { get; set; }
     
+        /// <summary>default is same amount as original GPA pending credit</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
+        [System.ComponentModel.DataAnnotations.Range(0, 10000)]
         public double? Amount { get; set; }
     
     
@@ -11994,6 +12189,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>an array of roles</summary>
         [Newtonsoft.Json.JsonProperty("roles", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
         [System.ComponentModel.DataAnnotations.MaxLength(500)]
@@ -12005,12 +12201,15 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Webhook_config_model 
     {
+        /// <summary>must be HTTPS</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(255, MinimumLength = 1)]
         public string Url { get; set; }
     
+        /// <summary>must contain upper and lowercase letters, numbers, and symbols</summary>
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 20)]
         public string Secret { get; set; }
     
         [Newtonsoft.Json.JsonProperty("basic_auth_username", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12018,8 +12217,10 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 1)]
         public string Basic_auth_username { get; set; }
     
+        /// <summary>required if URL is present; must contain upper and lowercase letters, numbers, and symbols</summary>
         [Newtonsoft.Json.JsonProperty("basic_auth_password", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(50, MinimumLength = 20)]
         public string Basic_auth_password { get; set; }
     
     
@@ -12031,6 +12232,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("token_reference_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token_reference_id { get; set; }
     
+        /// <summary>50 char max</summary>
         [Newtonsoft.Json.JsonProperty("pan_reference_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Pan_reference_id { get; set; }
@@ -12066,15 +12268,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Currency_conversion 
-    {
-        [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Network Network { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class KYCQuestion 
     {
         [Newtonsoft.Json.JsonProperty("key", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12085,6 +12278,24 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("answers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Answers { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Currency_conversion 
+    {
+        [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Network Network { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Update_system_health 
+    {
+        [Newtonsoft.Json.JsonProperty("force_unavailable", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool Force_unavailable { get; set; }
     
     
     }
@@ -12126,6 +12337,7 @@ namespace Marqeta.Core.Abstractions
         public string Token { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("association", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12425,10 +12637,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Program_reserve_transaction_response 
     {
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -12617,6 +12831,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Parent_token { get; set; }
     
+        /// <summary>default is false</summary>
         [Newtonsoft.Json.JsonProperty("uses_parent_account", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Uses_parent_account { get; set; }
     
@@ -12671,6 +12886,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
         public double Amount { get; set; }
     
+        /// <summary>payment card or ACH account number</summary>
         [Newtonsoft.Json.JsonProperty("funding_source", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Funding_source { get; set; }
     
@@ -12697,10 +12913,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -12737,12 +12955,14 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthenticationLast_password_update_channel? Last_password_update_channel { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_password_update_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Last_password_update_time { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email_verified", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Email_verified { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("email_verified_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Email_verified_time { get; set; }
     
@@ -12775,11 +12995,11 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Bank_transfer_request_modelType? Type { get; set; }
     
-        /// <summary>Default = USD</summary>
+        /// <summary>default = USD</summary>
         [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Currency_code { get; set; }
     
-        /// <summary>Default = STANDARD</summary>
+        /// <summary>default = STANDARD</summary>
         [Newtonsoft.Json.JsonProperty("transfer_speed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Bank_transfer_request_modelTransfer_speed? Transfer_speed { get; set; }
@@ -12837,6 +13057,35 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("tid", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Tid { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Msa_aggregated_balances 
+    {
+        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Currency_code { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ledger_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Ledger_balance { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("available_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Available_balance { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("credit_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Credit_balance { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pending_credits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Pending_credits { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("impacted_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? Impacted_amount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("balances", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.IDictionary<string, Msa_aggregated_balances> Balances { get; set; } = new System.Collections.Generic.Dictionary<string, Msa_aggregated_balances>();
     
     
     }
@@ -12907,6 +13156,7 @@ namespace Marqeta.Core.Abstractions
         public string History { get; set; }
     
         [Newtonsoft.Json.JsonProperty("business_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Business_type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("international_office_locations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12929,35 +13179,6 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("proprietor_or_officer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BusinessProprietorRequestModel Proprietor_or_officer { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Msa_aggregated_balances 
-    {
-        [Newtonsoft.Json.JsonProperty("currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Currency_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ledger_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Ledger_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("available_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Available_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("credit_balance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Credit_balance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pending_credits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Pending_credits { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("impacted_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Impacted_amount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("balances", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.IDictionary<string, Msa_aggregated_balances> Balances { get; set; } = new System.Collections.Generic.Dictionary<string, Msa_aggregated_balances>();
     
     
     }
@@ -12993,6 +13214,7 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Fee 
     {
+        /// <summary>36 char max</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Token { get; set; }
@@ -13000,6 +13222,7 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Active { get; set; }
     
+        /// <summary>50 char max</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Name { get; set; }
@@ -13007,13 +13230,16 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Amount { get; set; }
     
+        /// <summary>255 char max</summary>
         [Newtonsoft.Json.JsonProperty("tags", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Tags { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("created_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Created_time { get; set; }
     
+        /// <summary>yyyy-MM-ddTHH:mm:ssZ</summary>
         [Newtonsoft.Json.JsonProperty("last_modified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Last_modified_time { get; set; }
@@ -13085,18 +13311,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class In_app_provisioning 
-    {
-        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Enabled { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("address_verification", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Digital_wallet_token_address_verification Address_verification { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Auth_control_response 
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13120,9 +13334,20 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("end_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? End_time { get; set; }
     
-        /// <summary>Default = true</summary>
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class In_app_provisioning 
+    {
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Enabled { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("address_verification", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Digital_wallet_token_address_verification Address_verification { get; set; }
     
     
     }
@@ -13189,10 +13414,12 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Token { get; set; }
     
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -13201,6 +13428,7 @@ namespace Marqeta.Core.Abstractions
         public bool? Manual_override { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reference_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(32)]
         public string Reference_id { get; set; }
     
     
@@ -13261,48 +13489,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Fraud 
-    {
-        [Newtonsoft.Json.JsonProperty("merchant_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Merchant_risk_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("merchant_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Merchant_risk_score_reason_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Transaction_risk_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Transaction_risk_score_reason_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transaction_risk_score_reason_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Transaction_risk_score_reason_description { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Account_risk_score { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("account_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Account_risk_score_reason_code { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("issuerFraudModel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Issuer2 IssuerFraudModel { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Order_scope 
-    {
-        [Newtonsoft.Json.JsonProperty("gpa", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Gpa Gpa { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("msa", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Msa Msa { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Merchant_update_model 
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13358,8 +13544,33 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(40)]
         public string Country { get; set; }
     
+        /// <summary>1 char max</summary>
         [Newtonsoft.Json.JsonProperty("partial_auth_flag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Partial_auth_flag { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Fraud 
+    {
+        [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Network Network { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("issuer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Issuer2 Issuer { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Order_scope 
+    {
+        [Newtonsoft.Json.JsonProperty("gpa", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Gpa Gpa { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("msa", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Msa Msa { get; set; }
     
     
     }
@@ -13486,6 +13697,24 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Link 
+    {
+        [Newtonsoft.Json.JsonProperty("rel", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Rel { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("method", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Method { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("href", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Href { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Bulk_request_model 
     {
         [Newtonsoft.Json.JsonProperty("user_tokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13517,29 +13746,13 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Link 
-    {
-        [Newtonsoft.Json.JsonProperty("rel", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Rel { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("method", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Method { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("href", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Href { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Bank_account_funding_source_model : Funding_source_model
     {
+        /// <summary>required if 'business_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string User_token { get; set; }
     
+        /// <summary>required if 'user_token' is null</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Business_token { get; set; }
     
@@ -13613,14 +13826,20 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Network 
     {
-        [Newtonsoft.Json.JsonProperty("original_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Original_amount { get; set; }
+        [Newtonsoft.Json.JsonProperty("transaction_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Transaction_risk_score { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("conversion_rate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Conversion_rate { get; set; }
+        [Newtonsoft.Json.JsonProperty("transaction_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Transaction_risk_score_reason_code { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("original_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Original_currency_code { get; set; }
+        [Newtonsoft.Json.JsonProperty("transaction_risk_score_reason_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Transaction_risk_score_reason_description { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("account_risk_score", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Account_risk_score { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("account_risk_score_reason_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Account_risk_score_reason_code { get; set; }
     
     
     }
@@ -13861,6 +14080,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(1024, MinimumLength = 1)]
         public string Reason { get; set; }
     
+        /// <summary>representment or prearbitration amount; this is for transitioning to Representment or Prearbitration only</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
         public double? Amount { get; set; }
@@ -13903,6 +14123,16 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TransactionUpdateModel 
+    {
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public TransactionUpdateModelState? State { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Echo_ping_response 
     {
         [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13913,16 +14143,6 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("payload", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Payload { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class TransactionUpdateModel 
-    {
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransactionUpdateModelState? State { get; set; }
     
     
     }
@@ -14000,10 +14220,12 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Card_holder_address_model 
     {
+        /// <summary>required if business_token is not specified</summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string User_token { get; set; }
     
+        /// <summary>required if user_token is not specified</summary>
         [Newtonsoft.Json.JsonProperty("business_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
         public string Business_token { get; set; }
@@ -14041,6 +14263,7 @@ namespace Marqeta.Core.Abstractions
         [System.ComponentModel.DataAnnotations.StringLength(2)]
         public string State { get; set; }
     
+        /// <summary>required if postal_code is not specified</summary>
         [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(10)]
         public string Zip { get; set; }
@@ -14051,6 +14274,7 @@ namespace Marqeta.Core.Abstractions
         public string Country { get; set; }
     
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string Phone { get; set; }
     
         [Newtonsoft.Json.JsonProperty("is_default_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -14059,9 +14283,36 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Active { get; set; }
     
+        /// <summary>required if zip is not specified</summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(10)]
         public string Postal_code { get; set; }
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Internal_network_transaction_request 
+    {
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
+        public string Token { get; set; }
+    
+        /// <summary>encryption key ID</summary>
+        [Newtonsoft.Json.JsonProperty("encryption_key_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Encryption_key_id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Message { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Network { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("debit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool Debit { get; set; }
     
     
     }
@@ -14086,31 +14337,6 @@ namespace Marqeta.Core.Abstractions
     
         [Newtonsoft.Json.JsonProperty("user_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AndroidPushTokenRequestAddress User_address { get; set; }
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Internal_network_transaction_request 
-    {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("encryption_key_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Encryption_key_id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Message { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Network { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("debit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Debit { get; set; }
     
     
     }
@@ -15144,43 +15370,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum CreditLineChargeTransaction_type
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"credit")]
-        Credit = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"line")]
-        Line = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"transaction")]
-        Transaction = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"type")]
-        Type = 3,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum CreditLineChargeType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"credit")]
-        Credit = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"line")]
-        Line = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"transaction")]
-        Transaction = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"charge")]
-        Charge = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"type")]
-        Type = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum Velocity_control_balance_responseVelocity_window
     {
         [System.Runtime.Serialization.EnumMember(Value = @"DAY")]
@@ -15211,26 +15400,6 @@ namespace Marqeta.Core.Abstractions
     
         [System.Runtime.Serialization.EnumMember(Value = @"UNLOAD")]
         UNLOAD = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum Velocity_control_responseVelocity_window
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"DAY")]
-        DAY = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"WEEK")]
-        WEEK = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MONTH")]
-        MONTH = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"LIFETIME")]
-        LIFETIME = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"TRANSACTION")]
-        TRANSACTION = 4,
     
     }
     
@@ -15345,6 +15514,26 @@ namespace Marqeta.Core.Abstractions
     
         [System.Runtime.Serialization.EnumMember(Value = @"TERMINATED")]
         TERMINATED = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum Velocity_control_responseVelocity_window
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"DAY")]
+        DAY = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"WEEK")]
+        WEEK = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"MONTH")]
+        MONTH = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"LIFETIME")]
+        LIFETIME = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"TRANSACTION")]
+        TRANSACTION = 4,
     
     }
     
@@ -15982,29 +16171,6 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum Card_inventory_requestPackage_id
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Package")]
-        Package = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Id")]
-        Id = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"assigned")]
-        Assigned = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"by")]
-        By = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"card")]
-        Card = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"fulfillment")]
-        Fulfillment = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum Jit_funding_paymentcard_funding_sourceRefunds_destination
     {
         [System.Runtime.Serialization.EnumMember(Value = @"GATEWAY")]
@@ -16250,29 +16416,29 @@ namespace Marqeta.Core.Abstractions
         [System.Runtime.Serialization.EnumMember(Value = @"ARROWEYE")]
         ARROWEYE = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"OBERTHUR")]
-        OBERTHUR = 2,
-    
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA")]
-        IDEMIA = 3,
+        IDEMIA = 2,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_UK")]
-        IDEMIA_UK = 4,
+        IDEMIA_UK = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_FR")]
-        IDEMIA_FR = 5,
+        IDEMIA_FR = 4,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_CZ")]
-        IDEMIA_CZ = 6,
+        IDEMIA_CZ = 5,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_APAC")]
-        IDEMIA_APAC = 7,
+        IDEMIA_APAC = 6,
     
         [System.Runtime.Serialization.EnumMember(Value = @"GEMALTO")]
-        GEMALTO = 8,
+        GEMALTO = 7,
     
         [System.Runtime.Serialization.EnumMember(Value = @"NITECREST")]
-        NITECREST = 9,
+        NITECREST = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OBERTHUR")]
+        OBERTHUR = 9,
     
     }
     
@@ -16833,6 +16999,32 @@ namespace Marqeta.Core.Abstractions
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum Selective_authSa_mode
+    {
+        _0 = 0,
+    
+        _1 = 1,
+    
+        _2 = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum Selective_authDmd_location_sensitivity
+    {
+        _0 = 0,
+    
+        _1 = 1,
+    
+        _2 = 2,
+    
+        _3 = 3,
+    
+        _4 = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum GL_EntryType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"CREDIT")]
@@ -16913,6 +17105,9 @@ namespace Marqeta.Core.Abstractions
     
         [System.Runtime.Serialization.EnumMember(Value = @"NETWORK_REJECTED")]
         NETWORK_REJECTED = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"WITHDRAWN")]
+        WITHDRAWN = 7,
     
     }
     
@@ -17498,29 +17693,29 @@ namespace Marqeta.Core.Abstractions
         [System.Runtime.Serialization.EnumMember(Value = @"ARROWEYE")]
         ARROWEYE = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"OBERTHUR")]
-        OBERTHUR = 2,
-    
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA")]
-        IDEMIA = 3,
+        IDEMIA = 2,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_UK")]
-        IDEMIA_UK = 4,
+        IDEMIA_UK = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_FR")]
-        IDEMIA_FR = 5,
+        IDEMIA_FR = 4,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_CZ")]
-        IDEMIA_CZ = 6,
+        IDEMIA_CZ = 5,
     
         [System.Runtime.Serialization.EnumMember(Value = @"IDEMIA_APAC")]
-        IDEMIA_APAC = 7,
+        IDEMIA_APAC = 6,
     
         [System.Runtime.Serialization.EnumMember(Value = @"GEMALTO")]
-        GEMALTO = 8,
+        GEMALTO = 7,
     
         [System.Runtime.Serialization.EnumMember(Value = @"NITECREST")]
-        NITECREST = 9,
+        NITECREST = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OBERTHUR")]
+        OBERTHUR = 9,
     
     }
     
@@ -17923,20 +18118,6 @@ namespace Marqeta.Core.Abstractions
     
         [System.Runtime.Serialization.EnumMember(Value = @"MAESTRO")]
         MAESTRO = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum Adv_auth_request_modelForwarding_institution_id
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"11")]
-        _11 = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"char")]
-        Char = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"fixed")]
-        Fixed = 2,
     
     }
     
@@ -18445,14 +18626,17 @@ namespace Marqeta.Core.Abstractions
         [System.Runtime.Serialization.EnumMember(Value = @"pgfs.original.credit.auth_plus_capture")]
         Pgfs_original_credit_auth_plus_capture = 22,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"pgfs.refund.authorizationpgfs.billpayment")]
-        Pgfs_refund_authorizationpgfs_billpayment = 23,
+        [System.Runtime.Serialization.EnumMember(Value = @"pgfs.refund.authorization")]
+        Pgfs_refund_authorization = 23,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pgfs.refund.authorization.reversalpgfs.billpayment")]
+        Pgfs_refund_authorization_reversalpgfs_billpayment = 24,
     
         [System.Runtime.Serialization.EnumMember(Value = @"pgfs.billpayment.capture")]
-        Pgfs_billpayment_capture = 24,
+        Pgfs_billpayment_capture = 25,
     
         [System.Runtime.Serialization.EnumMember(Value = @"pgfs.billpayment.reversal")]
-        Pgfs_billpayment_reversal = 25,
+        Pgfs_billpayment_reversal = 26,
     
     }
     
@@ -18622,11 +18806,14 @@ namespace Marqeta.Core.Abstractions
         [System.Runtime.Serialization.EnumMember(Value = @"NETWORK_REJECTED")]
         NETWORK_REJECTED = 6,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"WITHDRAWN")]
+        WITHDRAWN = 7,
+    
         [System.Runtime.Serialization.EnumMember(Value = @"WRITTEN_OFF_ISSUER")]
-        WRITTEN_OFF_ISSUER = 7,
+        WRITTEN_OFF_ISSUER = 8,
     
         [System.Runtime.Serialization.EnumMember(Value = @"WRITTEN_OFF_PROGRAM")]
-        WRITTEN_OFF_PROGRAM = 8,
+        WRITTEN_OFF_PROGRAM = 9,
     
     }
     
@@ -18653,6 +18840,9 @@ namespace Marqeta.Core.Abstractions
     
         [System.Runtime.Serialization.EnumMember(Value = @"NETWORK_REJECTED")]
         NETWORK_REJECTED = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"WITHDRAWN")]
+        WITHDRAWN = 7,
     
     }
     
@@ -18731,173 +18921,338 @@ namespace Marqeta.Core.Abstractions
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum Transaction_modelType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit")]
-        Gpa_credit = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.pending")]
-        Gpa_credit_pending = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.pending.reversal")]
-        Gpa_credit_pending_reversal = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.reversal")]
-        Gpa_credit_reversal = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.networkload")]
-        Gpa_credit_networkload = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.networkload.reversal")]
-        Gpa_credit_networkload_reversal = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.networkload")]
-        Gpa_debit_networkload = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit")]
-        Gpa_debit = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.pending")]
-        Gpa_debit_pending = 8,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.pending.reversal")]
-        Gpa_debit_pending_reversal = 9,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.grant")]
-        Gpa_grant = 10,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.issueroperator")]
-        Gpa_credit_issueroperator = 11,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.issueroperator")]
-        Gpa_debit_issueroperator = 12,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.chargeback")]
-        Gpa_credit_chargeback = 13,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.chargeback.reversal")]
-        Gpa_credit_chargeback_reversal = 14,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.billpayment")]
-        Gpa_credit_billpayment = 15,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.authorization.billpayment")]
-        Gpa_credit_authorization_billpayment = 16,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.authorization.billpayment.reversal")]
-        Gpa_credit_authorization_billpayment_reversal = 17,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.pending")]
-        Msa_credit_pending = 18,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.pending.reversal")]
-        Msa_credit_pending_reversal = 19,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.reversal")]
-        Msa_credit_reversal = 20,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit")]
-        Msa_credit = 21,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.debit.pending")]
-        Msa_debit_pending = 22,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.debit.pending.reversal")]
-        Msa_debit_pending_reversal = 23,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.debit")]
-        Msa_debit = 24,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.chargeback")]
-        Msa_credit_chargeback = 25,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.chargeback.reversal")]
-        Msa_credit_chargeback_reversal = 26,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"authorization")]
-        Authorization = 27,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"authorization.advice")]
-        Authorization_advice = 28,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"authorization.reversal")]
-        Authorization_reversal = 29,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing")]
-        Authorization_clearing = 30,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"authorization.reversal.issuerexpiration")]
-        Authorization_reversal_issuerexpiration = 31,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback")]
-        Authorization_clearing_chargeback = 32,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback.reversal")]
-        Authorization_clearing_chargeback_reversal = 33,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"refund")]
-        Refund = 34,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.credit.adjustment")]
-        Pindebit_credit_adjustment = 35,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.atm.withdrawal")]
-        Pindebit_atm_withdrawal = 36,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.balanceinquiry")]
-        Pindebit_balanceinquiry = 37,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.cashback")]
-        Pindebit_cashback = 38,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"pindebit")]
-        Pindebit = 39,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"programreserve.credit")]
-        Programreserve_credit = 40,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"programreserve.debit")]
-        Programreserve_debit = 41,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"fee.charge.pending")]
-        Fee_charge_pending = 42,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"fee.charge")]
-        Fee_charge = 43,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"fee.charge.pending.refund")]
-        Fee_charge_pending_refund = 44,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"funds.expire")]
-        Funds_expire = 45,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"reward.earn")]
-        Reward_earn = 46,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"transfer.peer")]
-        Transfer_peer = 47,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"transfer.fee")]
-        Transfer_fee = 48,
-    
         [System.Runtime.Serialization.EnumMember(Value = @"account.credit")]
-        Account_credit = 49,
+        Account_credit = 0,
     
         [System.Runtime.Serialization.EnumMember(Value = @"account.debit")]
-        Account_debit = 50,
+        Account_debit = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"account.funding.auth_plus_capture")]
+        Account_funding_auth_plus_capture = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"account.funding.auth_plus_capture.reversal")]
+        Account_funding_auth_plus_capture_reversal = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"account.funding.authorization")]
+        Account_funding_authorization = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"account.funding.authorization.clearing")]
+        Account_funding_authorization_clearing = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"account.funding.authorization.reversal")]
+        Account_funding_authorization_reversal = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization")]
+        Authorization = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.advice")]
+        Authorization_advice = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing")]
+        Authorization_clearing = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback")]
+        Authorization_clearing_chargeback = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback.completed")]
+        Authorization_clearing_chargeback_completed = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback.provisional.credit")]
+        Authorization_clearing_chargeback_provisional_credit = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback.provisional.debit")]
+        Authorization_clearing_chargeback_provisional_debit = 13,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback.reversal")]
+        Authorization_clearing_chargeback_reversal = 14,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.chargeback.writeoff")]
+        Authorization_clearing_chargeback_writeoff = 15,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.clearing.representment")]
+        Authorization_clearing_representment = 16,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.incremental")]
+        Authorization_incremental = 17,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.reversal")]
+        Authorization_reversal = 18,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.reversal.issuerexpiration")]
+        Authorization_reversal_issuerexpiration = 19,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"authorization.standin")]
+        Authorization_standin = 20,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"billpayment")]
+        Billpayment = 21,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"billpayment.clearing")]
+        Billpayment_clearing = 22,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"billpayment.reversal")]
+        Billpayment_reversal = 23,
     
         [System.Runtime.Serialization.EnumMember(Value = @"creditline.credit")]
-        Creditline_credit = 51,
+        Creditline_credit = 24,
     
         [System.Runtime.Serialization.EnumMember(Value = @"creditline.debit")]
-        Creditline_debit = 52,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"creditline.financecharge")]
-        Creditline_financecharge = 53,
+        Creditline_debit = 25,
     
         [System.Runtime.Serialization.EnumMember(Value = @"creditline.fee")]
-        Creditline_fee = 54,
+        Creditline_fee = 26,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"creditline.financecharge")]
+        Creditline_financecharge = 27,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.credit")]
+        Directdeposit_credit = 28,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.credit.pending")]
+        Directdeposit_credit_pending = 29,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.credit.pending.reversal")]
+        Directdeposit_credit_pending_reversal = 30,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.credit.reject")]
+        Directdeposit_credit_reject = 31,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.credit.reversal")]
+        Directdeposit_credit_reversal = 32,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.debit")]
+        Directdeposit_debit = 33,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.debit.pending")]
+        Directdeposit_debit_pending = 34,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.debit.pending.reversal")]
+        Directdeposit_debit_pending_reversal = 35,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.debit.reject")]
+        Directdeposit_debit_reject = 36,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"directdeposit.debit.reversal")]
+        Directdeposit_debit_reversal = 37,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"fee.charge")]
+        Fee_charge = 38,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"fee.charge.pending")]
+        Fee_charge_pending = 39,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"fee.charge.pending.refund")]
+        Fee_charge_pending_refund = 40,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"fee.charge.reversal")]
+        Fee_charge_reversal = 41,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"funds.expire")]
+        Funds_expire = 42,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit")]
+        Gpa_credit = 43,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.authorization")]
+        Gpa_credit_authorization = 44,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.authorization.billpayment")]
+        Gpa_credit_authorization_billpayment = 45,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.authorization.billpayment.reversal")]
+        Gpa_credit_authorization_billpayment_reversal = 46,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.authorization.reversal")]
+        Gpa_credit_authorization_reversal = 47,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.billpayment")]
+        Gpa_credit_billpayment = 48,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.chargeback")]
+        Gpa_credit_chargeback = 49,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.chargeback.reversal")]
+        Gpa_credit_chargeback_reversal = 50,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.issueroperator")]
+        Gpa_credit_issueroperator = 51,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.networkload")]
+        Gpa_credit_networkload = 52,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.networkload.reversal")]
+        Gpa_credit_networkload_reversal = 53,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.pending")]
+        Gpa_credit_pending = 54,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.pending.reversal")]
+        Gpa_credit_pending_reversal = 55,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.credit.reversal")]
+        Gpa_credit_reversal = 56,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit")]
+        Gpa_debit = 57,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.issueroperator")]
+        Gpa_debit_issueroperator = 58,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.networkload")]
+        Gpa_debit_networkload = 59,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.pending")]
+        Gpa_debit_pending = 60,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.pending.reversal")]
+        Gpa_debit_pending_reversal = 61,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.debit.reversal")]
+        Gpa_debit_reversal = 62,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"gpa.grant")]
+        Gpa_grant = 63,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit")]
+        Msa_credit = 64,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.chargeback")]
+        Msa_credit_chargeback = 65,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.chargeback.reversal")]
+        Msa_credit_chargeback_reversal = 66,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.pending")]
+        Msa_credit_pending = 67,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.pending.reversal")]
+        Msa_credit_pending_reversal = 68,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.credit.reversal")]
+        Msa_credit_reversal = 69,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.debit")]
+        Msa_debit = 70,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.debit.pending")]
+        Msa_debit_pending = 71,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"msa.debit.pending.reversal")]
+        Msa_debit_pending_reversal = 72,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"original.credit.auth_plus_capture")]
+        Original_credit_auth_plus_capture = 73,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"original.credit.auth_plus_capture.reversal")]
+        Original_credit_auth_plus_capture_reversal = 74,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"original.credit.authorization")]
+        Original_credit_authorization = 75,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"original.credit.authorization.clearing")]
+        Original_credit_authorization_clearing = 76,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"original.credit.authorization.reversal")]
+        Original_credit_authorization_reversal = 77,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit")]
+        Pindebit = 78,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.atm.withdrawal")]
+        Pindebit_atm_withdrawal = 79,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.authorization")]
+        Pindebit_authorization = 80,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.authorization.clearing")]
+        Pindebit_authorization_clearing = 81,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.authorization.reversal.issuerexpiration")]
+        Pindebit_authorization_reversal_issuerexpiration = 82,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.balanceinquiry")]
+        Pindebit_balanceinquiry = 83,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.cashback")]
+        Pindebit_cashback = 84,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.chargeback")]
+        Pindebit_chargeback = 85,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.chargeback.completed")]
+        Pindebit_chargeback_completed = 86,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.chargeback.provisional.credit")]
+        Pindebit_chargeback_provisional_credit = 87,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.chargeback.provisional.debit")]
+        Pindebit_chargeback_provisional_debit = 88,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.chargeback.reversal")]
+        Pindebit_chargeback_reversal = 89,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.chargeback.writeoff")]
+        Pindebit_chargeback_writeoff = 90,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.credit.adjustment")]
+        Pindebit_credit_adjustment = 91,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.refund")]
+        Pindebit_refund = 92,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.refund.reversal")]
+        Pindebit_refund_reversal = 93,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.reversal")]
+        Pindebit_reversal = 94,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pindebit.transfer")]
+        Pindebit_transfer = 95,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"programreserve.credit")]
+        Programreserve_credit = 96,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"programreserve.debit")]
+        Programreserve_debit = 97,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pushtocard.debit")]
+        Pushtocard_debit = 98,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pushtocard.reversal")]
+        Pushtocard_reversal = 99,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"refund")]
+        Refund = 100,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"refund.authorization")]
+        Refund_authorization = 101,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"refund.authorization.clearing")]
+        Refund_authorization_clearing = 102,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"reward.earn")]
+        Reward_earn = 103,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"token.activation-request")]
+        Token_activationRequest = 104,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"token.advice")]
+        Token_advice = 105,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"transaction.unknown")]
+        Transaction_unknown = 106,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"transfer.fee")]
+        Transfer_fee = 107,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"transfer.peer")]
+        Transfer_peer = 108,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"transfer.program")]
+        Transfer_program = 109,
     
         [System.Runtime.Serialization.EnumMember(Value = @"unknown")]
-        Unknown = 55,
+        Unknown = 110,
     
     }
     
@@ -19076,254 +19431,275 @@ namespace Marqeta.Core.Abstractions
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_REVERSAL")]
         AUTHORIZATION_REVERSAL = 43,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CASHBACK")]
+        AUTHORIZATION_CASHBACK = 44,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_QUASI_CASH")]
+        AUTHORIZATION_QUASI_CASH = 45,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_ATM_WITHDRAWAL")]
+        AUTHORIZATION_ATM_WITHDRAWAL = 46,
+    
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING")]
-        AUTHORIZATION_CLEARING = 44,
+        AUTHORIZATION_CLEARING = 47,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_NETWORK_FEE")]
-        AUTHORIZATION_CLEARING_NETWORK_FEE = 45,
+        AUTHORIZATION_CLEARING_NETWORK_FEE = 48,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_REPRESENTMENT")]
-        AUTHORIZATION_CLEARING_REPRESENTMENT = 46,
+        AUTHORIZATION_CLEARING_REPRESENTMENT = 49,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_REVERSAL_ISSUER_EXPIRATION")]
-        AUTHORIZATION_REVERSAL_ISSUER_EXPIRATION = 47,
+        AUTHORIZATION_REVERSAL_ISSUER_EXPIRATION = 50,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_CHARGEBACK")]
-        AUTHORIZATION_CLEARING_CHARGEBACK = 48,
+        AUTHORIZATION_CLEARING_CHARGEBACK = 51,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_CHARGEBACK_REVERSAL")]
-        AUTHORIZATION_CLEARING_CHARGEBACK_REVERSAL = 49,
+        AUTHORIZATION_CLEARING_CHARGEBACK_REVERSAL = 52,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_CHARGEBACK_COMPLETED")]
-        AUTHORIZATION_CLEARING_CHARGEBACK_COMPLETED = 50,
+        AUTHORIZATION_CLEARING_CHARGEBACK_COMPLETED = 53,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_CHARGEBACK_PROVISIONAL_CREDIT")]
-        AUTHORIZATION_CLEARING_CHARGEBACK_PROVISIONAL_CREDIT = 51,
+        AUTHORIZATION_CLEARING_CHARGEBACK_PROVISIONAL_CREDIT = 54,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_CHARGEBACK_PROVISIONAL_DEBIT")]
-        AUTHORIZATION_CLEARING_CHARGEBACK_PROVISIONAL_DEBIT = 52,
+        AUTHORIZATION_CLEARING_CHARGEBACK_PROVISIONAL_DEBIT = 55,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_CHARGEBACK_WRITEOFF")]
-        AUTHORIZATION_CLEARING_CHARGEBACK_WRITEOFF = 53,
+        AUTHORIZATION_CLEARING_CHARGEBACK_WRITEOFF = 56,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_CASHBACK")]
+        AUTHORIZATION_CLEARING_CASHBACK = 57,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_QUASI_CASH")]
+        AUTHORIZATION_CLEARING_QUASI_CASH = 58,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_CLEARING_ATM_WITHDRAWAL")]
+        AUTHORIZATION_CLEARING_ATM_WITHDRAWAL = 59,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_FUNDING_AUTHORIZATION")]
-        ACCOUNT_FUNDING_AUTHORIZATION = 54,
+        ACCOUNT_FUNDING_AUTHORIZATION = 60,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_FUNDING_AUTHORIZATION_CLEARING")]
-        ACCOUNT_FUNDING_AUTHORIZATION_CLEARING = 55,
+        ACCOUNT_FUNDING_AUTHORIZATION_CLEARING = 61,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_FUNDING_PLUS_AUTH_CAPTURE")]
-        ACCOUNT_FUNDING_PLUS_AUTH_CAPTURE = 56,
+        ACCOUNT_FUNDING_PLUS_AUTH_CAPTURE = 62,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_FUNDING_AUTHORIZATION_REVERSAL")]
-        ACCOUNT_FUNDING_AUTHORIZATION_REVERSAL = 57,
+        ACCOUNT_FUNDING_AUTHORIZATION_REVERSAL = 63,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_FUNDING_PLUS_AUTH_CAPTURE_REVERSAL")]
-        ACCOUNT_FUNDING_PLUS_AUTH_CAPTURE_REVERSAL = 58,
+        ACCOUNT_FUNDING_PLUS_AUTH_CAPTURE_REVERSAL = 64,
     
         [System.Runtime.Serialization.EnumMember(Value = @"BALANCE_INQUIRY")]
-        BALANCE_INQUIRY = 59,
+        BALANCE_INQUIRY = 65,
     
         [System.Runtime.Serialization.EnumMember(Value = @"REFUND")]
-        REFUND = 60,
+        REFUND = 66,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CREDIT_ADJUSTMENT")]
-        PIN_DEBIT_CREDIT_ADJUSTMENT = 61,
+        PIN_DEBIT_CREDIT_ADJUSTMENT = 67,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_DEBIT_ADJUSTMENT")]
-        PIN_DEBIT_DEBIT_ADJUSTMENT = 62,
+        PIN_DEBIT_DEBIT_ADJUSTMENT = 68,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_ATM_WITHDRAWAL")]
-        PIN_DEBIT_ATM_WITHDRAWAL = 63,
+        PIN_DEBIT_ATM_WITHDRAWAL = 69,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_QUASI_CASH")]
-        PIN_DEBIT_QUASI_CASH = 64,
+        PIN_DEBIT_QUASI_CASH = 70,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_BALANCE_INQUIRY")]
-        PIN_DEBIT_BALANCE_INQUIRY = 65,
+        PIN_DEBIT_BALANCE_INQUIRY = 71,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CASHBACK")]
-        PIN_DEBIT_CASHBACK = 66,
+        PIN_DEBIT_CASHBACK = 72,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CHECK_AVS")]
-        PIN_DEBIT_CHECK_AVS = 67,
+        PIN_DEBIT_CHECK_AVS = 73,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_FINANCIAL_DEPOSIT")]
-        PIN_DEBIT_FINANCIAL_DEPOSIT = 68,
+        PIN_DEBIT_FINANCIAL_DEPOSIT = 74,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_FINANCIAL_REFUND")]
-        PIN_DEBIT_FINANCIAL_REFUND = 69,
+        PIN_DEBIT_FINANCIAL_REFUND = 75,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_FINANCIAL_REVERSAL")]
-        PIN_DEBIT_FINANCIAL_REVERSAL = 70,
+        PIN_DEBIT_FINANCIAL_REVERSAL = 76,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_FINANCIAL_REFUND_REVERSAL")]
-        PIN_DEBIT_FINANCIAL_REFUND_REVERSAL = 71,
+        PIN_DEBIT_FINANCIAL_REFUND_REVERSAL = 77,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_TRANSFER")]
-        PIN_DEBIT_TRANSFER = 72,
+        PIN_DEBIT_TRANSFER = 78,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT")]
-        PIN_DEBIT = 73,
+        PIN_DEBIT = 79,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_REPRESENTMENT")]
-        PIN_DEBIT_REPRESENTMENT = 74,
+        PIN_DEBIT_REPRESENTMENT = 80,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_AUTHORIZATION")]
-        PIN_DEBIT_AUTHORIZATION = 75,
+        PIN_DEBIT_AUTHORIZATION = 81,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_AUTHORIZATION_CLEARING")]
-        PIN_DEBIT_AUTHORIZATION_CLEARING = 76,
+        PIN_DEBIT_AUTHORIZATION_CLEARING = 82,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_AUTHORIZATION_REVERSAL_ISSUER_EXPIRATION")]
-        PIN_DEBIT_AUTHORIZATION_REVERSAL_ISSUER_EXPIRATION = 77,
+        PIN_DEBIT_AUTHORIZATION_REVERSAL_ISSUER_EXPIRATION = 83,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CHARGEBACK")]
-        PIN_DEBIT_CHARGEBACK = 78,
+        PIN_DEBIT_CHARGEBACK = 84,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CHARGEBACK_REVERSAL")]
-        PIN_DEBIT_CHARGEBACK_REVERSAL = 79,
+        PIN_DEBIT_CHARGEBACK_REVERSAL = 85,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CHARGEBACK_COMPLETED")]
-        PIN_DEBIT_CHARGEBACK_COMPLETED = 80,
+        PIN_DEBIT_CHARGEBACK_COMPLETED = 86,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CHARGEBACK_PROVISIONAL_CREDIT")]
-        PIN_DEBIT_CHARGEBACK_PROVISIONAL_CREDIT = 81,
+        PIN_DEBIT_CHARGEBACK_PROVISIONAL_CREDIT = 87,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CHARGEBACK_PROVISIONAL_DEBIT")]
-        PIN_DEBIT_CHARGEBACK_PROVISIONAL_DEBIT = 82,
+        PIN_DEBIT_CHARGEBACK_PROVISIONAL_DEBIT = 88,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_CHARGEBACK_WRITEOFF")]
-        PIN_DEBIT_CHARGEBACK_WRITEOFF = 83,
+        PIN_DEBIT_CHARGEBACK_WRITEOFF = 89,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_CREDIT")]
-        DIRECT_DEPOSIT_CREDIT = 84,
+        DIRECT_DEPOSIT_CREDIT = 90,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_DEBIT")]
-        DIRECT_DEPOSIT_DEBIT = 85,
+        DIRECT_DEPOSIT_DEBIT = 91,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_CREDIT_PENDING")]
-        DIRECT_DEPOSIT_CREDIT_PENDING = 86,
+        DIRECT_DEPOSIT_CREDIT_PENDING = 92,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_DEBIT_PENDING")]
-        DIRECT_DEPOSIT_DEBIT_PENDING = 87,
+        DIRECT_DEPOSIT_DEBIT_PENDING = 93,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_CREDIT_REJECT")]
-        DIRECT_DEPOSIT_CREDIT_REJECT = 88,
+        DIRECT_DEPOSIT_CREDIT_REJECT = 94,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_DEBIT_REJECT")]
-        DIRECT_DEPOSIT_DEBIT_REJECT = 89,
+        DIRECT_DEPOSIT_DEBIT_REJECT = 95,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_CREDIT_PENDING_REVERSAL")]
-        DIRECT_DEPOSIT_CREDIT_PENDING_REVERSAL = 90,
+        DIRECT_DEPOSIT_CREDIT_PENDING_REVERSAL = 96,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_DEBIT_PENDING_REVERSAL")]
-        DIRECT_DEPOSIT_DEBIT_PENDING_REVERSAL = 91,
+        DIRECT_DEPOSIT_DEBIT_PENDING_REVERSAL = 97,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_CREDIT_REVERSAL")]
-        DIRECT_DEPOSIT_CREDIT_REVERSAL = 92,
+        DIRECT_DEPOSIT_CREDIT_REVERSAL = 98,
     
         [System.Runtime.Serialization.EnumMember(Value = @"DIRECT_DEPOSIT_DEBIT_REVERSAL")]
-        DIRECT_DEPOSIT_DEBIT_REVERSAL = 93,
+        DIRECT_DEPOSIT_DEBIT_REVERSAL = 99,
     
         [System.Runtime.Serialization.EnumMember(Value = @"FEE_CHARGE_PENDING")]
-        FEE_CHARGE_PENDING = 94,
+        FEE_CHARGE_PENDING = 100,
     
         [System.Runtime.Serialization.EnumMember(Value = @"FEE_CHARGE")]
-        FEE_CHARGE = 95,
+        FEE_CHARGE = 101,
     
         [System.Runtime.Serialization.EnumMember(Value = @"FEE_CHARGE_REFUND")]
-        FEE_CHARGE_REFUND = 96,
+        FEE_CHARGE_REFUND = 102,
     
         [System.Runtime.Serialization.EnumMember(Value = @"FUNDS_EXPIRE")]
-        FUNDS_EXPIRE = 97,
+        FUNDS_EXPIRE = 103,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PROGRAMRESERVE_CREDIT")]
-        PROGRAMRESERVE_CREDIT = 98,
+        PROGRAMRESERVE_CREDIT = 104,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PROGRAMRESERVE_DEBIT")]
-        PROGRAMRESERVE_DEBIT = 99,
+        PROGRAMRESERVE_DEBIT = 105,
     
         [System.Runtime.Serialization.EnumMember(Value = @"REWARD_EARN")]
-        REWARD_EARN = 100,
+        REWARD_EARN = 106,
     
         [System.Runtime.Serialization.EnumMember(Value = @"TRANSFER_PEER")]
-        TRANSFER_PEER = 101,
+        TRANSFER_PEER = 107,
     
         [System.Runtime.Serialization.EnumMember(Value = @"TRANSFER_FEE")]
-        TRANSFER_FEE = 102,
+        TRANSFER_FEE = 108,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_CREDIT")]
-        ACCOUNT_CREDIT = 103,
+        ACCOUNT_CREDIT = 109,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_DEBIT")]
-        ACCOUNT_DEBIT = 104,
+        ACCOUNT_DEBIT = 110,
     
         [System.Runtime.Serialization.EnumMember(Value = @"TRANSFER_PROGRAM")]
-        TRANSFER_PROGRAM = 105,
+        TRANSFER_PROGRAM = 111,
     
         [System.Runtime.Serialization.EnumMember(Value = @"AUTHORIZATION_STANDIN")]
-        AUTHORIZATION_STANDIN = 106,
+        AUTHORIZATION_STANDIN = 112,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PIN_DEBIT_STANDIN")]
-        PIN_DEBIT_STANDIN = 107,
+        PIN_DEBIT_STANDIN = 113,
     
         [System.Runtime.Serialization.EnumMember(Value = @"TOKEN_ACTIVATION_REQUEST")]
-        TOKEN_ACTIVATION_REQUEST = 108,
+        TOKEN_ACTIVATION_REQUEST = 114,
     
         [System.Runtime.Serialization.EnumMember(Value = @"TOKEN_ADVICE")]
-        TOKEN_ADVICE = 109,
+        TOKEN_ADVICE = 115,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PTC_DEBIT")]
-        PTC_DEBIT = 110,
+        PTC_DEBIT = 116,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PTC_PENDING_DB")]
-        PTC_PENDING_DB = 111,
+        PTC_PENDING_DB = 117,
     
         [System.Runtime.Serialization.EnumMember(Value = @"PTC_DB_REV")]
-        PTC_DB_REV = 112,
+        PTC_DB_REV = 118,
     
         [System.Runtime.Serialization.EnumMember(Value = @"BILLPAYMENT")]
-        BILLPAYMENT = 113,
+        BILLPAYMENT = 119,
     
         [System.Runtime.Serialization.EnumMember(Value = @"BILLPAYMENT_CLEARING")]
-        BILLPAYMENT_CLEARING = 114,
+        BILLPAYMENT_CLEARING = 120,
     
         [System.Runtime.Serialization.EnumMember(Value = @"BILLPAYMENT_REVERSAL")]
-        BILLPAYMENT_REVERSAL = 115,
+        BILLPAYMENT_REVERSAL = 121,
     
         [System.Runtime.Serialization.EnumMember(Value = @"RETURN_AUTHORIZATION")]
-        RETURN_AUTHORIZATION = 116,
+        RETURN_AUTHORIZATION = 122,
     
         [System.Runtime.Serialization.EnumMember(Value = @"RETURN_AUTHORIZATION_CLEARING")]
-        RETURN_AUTHORIZATION_CLEARING = 117,
+        RETURN_AUTHORIZATION_CLEARING = 123,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"RETURN_AUTHORIZATION_REVERSAL")]
+        RETURN_AUTHORIZATION_REVERSAL = 124,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACH_PUSH_PENDING")]
-        ACH_PUSH_PENDING = 118,
+        ACH_PUSH_PENDING = 125,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACH_PULL_PENDING")]
-        ACH_PULL_PENDING = 119,
+        ACH_PULL_PENDING = 126,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACH_PUSH")]
-        ACH_PUSH = 120,
+        ACH_PUSH = 127,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ACH_PULL")]
-        ACH_PULL = 121,
+        ACH_PULL = 128,
     
         [System.Runtime.Serialization.EnumMember(Value = @"CREDITLINE_CREDIT")]
-        CREDITLINE_CREDIT = 122,
+        CREDITLINE_CREDIT = 129,
     
         [System.Runtime.Serialization.EnumMember(Value = @"CREDITLINE_DEBIT")]
-        CREDITLINE_DEBIT = 123,
+        CREDITLINE_DEBIT = 130,
     
         [System.Runtime.Serialization.EnumMember(Value = @"CREDITLINE_FINANCECHARGE")]
-        CREDITLINE_FINANCECHARGE = 124,
+        CREDITLINE_FINANCECHARGE = 131,
     
         [System.Runtime.Serialization.EnumMember(Value = @"CREDITLINE_FEE")]
-        CREDITLINE_FEE = 125,
+        CREDITLINE_FEE = 132,
     
         [System.Runtime.Serialization.EnumMember(Value = @"UNKNOWN")]
-        UNKNOWN = 126,
+        UNKNOWN = 133,
     
     }
     
@@ -19347,26 +19723,6 @@ namespace Marqeta.Core.Abstractions
     
         [System.Runtime.Serialization.EnumMember(Value = @"ALL")]
         ALL = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum ChargeType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"credit")]
-        Credit = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"line")]
-        Line = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"transaction")]
-        Transaction = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"charge")]
-        Charge = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"type")]
-        Type = 4,
     
     }
     
@@ -19617,106 +19973,6 @@ namespace Marqeta.Core.Abstractions
     
         [System.Runtime.Serialization.EnumMember(Value = @"SYSTEM")]
         SYSTEM = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum Original_creditTransaction_type
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"ACCOUNT_TO_ACCOUNT")]
-        ACCOUNT_TO_ACCOUNT = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PERSON_TO_PERSON")]
-        PERSON_TO_PERSON = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"WALLET_TRANSFER")]
-        WALLET_TRANSFER = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MONEY_TRANSFER_BY_BANK")]
-        MONEY_TRANSFER_BY_BANK = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"BUSINESS_TO_BUSINESS")]
-        BUSINESS_TO_BUSINESS = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"DISBURSEMENT")]
-        DISBURSEMENT = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"GOVERNMENT_DISBURSEMENT")]
-        GOVERNMENT_DISBURSEMENT = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"GAMBLING_PAYOUT")]
-        GAMBLING_PAYOUT = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"LOYALTY")]
-        LOYALTY = 8,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MERCHANT_DISBURSEMENT")]
-        MERCHANT_DISBURSEMENT = 9,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ONLINE_GAMBLING_PAYOUT")]
-        ONLINE_GAMBLING_PAYOUT = 10,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PENSION_DISBURSEMENT")]
-        PENSION_DISBURSEMENT = 11,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PREPAID_LOADS")]
-        PREPAID_LOADS = 12,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CARD_BILL_PAYMENT")]
-        CARD_BILL_PAYMENT = 13,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"BILL_PAYMENT")]
-        BILL_PAYMENT = 14,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CASH_CLAIM")]
-        CASH_CLAIM = 15,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CASH_IN")]
-        CASH_IN = 16,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CASH_OUT")]
-        CASH_OUT = 17,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MOBILE_AIR_TIME_PAYMENT")]
-        MOBILE_AIR_TIME_PAYMENT = 18,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MONEY_TRANSFER_BY_MERCHANT")]
-        MONEY_TRANSFER_BY_MERCHANT = 19,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"FACE_TO_FACE_MERCHANT_PAYMENT")]
-        FACE_TO_FACE_MERCHANT_PAYMENT = 20,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"GOVERNMENT_PAYMENT")]
-        GOVERNMENT_PAYMENT = 21,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PAYMENTS_GOODS_SERVICES")]
-        PAYMENTS_GOODS_SERVICES = 22,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum Original_creditFunding_source
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"CREDIT")]
-        CREDIT = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"DEBIT")]
-        DEBIT = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"PREPAID")]
-        PREPAID = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"DEPOSIT_ACCOUNT")]
-        DEPOSIT_ACCOUNT = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CASH")]
-        CASH = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"MOBILE_MONEY_ACCOUNT")]
-        MOBILE_MONEY_ACCOUNT = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"NON_VISA_CREDIT")]
-        NON_VISA_CREDIT = 6,
     
     }
     
