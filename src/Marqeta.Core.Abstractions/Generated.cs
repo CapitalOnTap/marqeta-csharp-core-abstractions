@@ -18409,6 +18409,9 @@ namespace Marqeta.Core.Abstractions
         [System.Runtime.Serialization.EnumMember(Value = @"DEFECTIVE")]
         DEFECTIVE = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"UNKNOWN")]
+        UNKNOWN = 3,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
