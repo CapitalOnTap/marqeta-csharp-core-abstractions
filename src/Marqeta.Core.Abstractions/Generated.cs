@@ -10296,6 +10296,9 @@ namespace Marqeta.Core.Abstractions
         [Newtonsoft.Json.JsonProperty("issuer_payment_node", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Issuer_payment_node { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("card_acceptor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Transaction_card_acceptor Card_acceptor { get; set; }
+    
     
     }
     
