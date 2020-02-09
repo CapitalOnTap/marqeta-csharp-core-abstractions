@@ -21,7 +21,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  gitVersionVersion: '4.0.0'
+  gitVersionVersion: '5.1.3'
   nuGetServiceConnectionName: 'nuget.org'
   githubServiceConnectionName: 'CapitalOnTap'
 
