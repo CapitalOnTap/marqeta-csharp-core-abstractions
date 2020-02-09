@@ -27,13 +27,15 @@ variables:
 
 steps:
 # NB - In the future the GitVersion commands should be replaced with the GitVersion Azure DevOps task. However that task is currently unstable on Linux build agents.
-- task: NuGetCommand@2
-  inputs:
-    command: custom
-    arguments: install GitVersion.CommandLine -Version $(gitVersionVersion) -OutputDirectory $(Build.BinariesDirectory)/tools -ExcludeVersion
-  displayName: "Install GitVersion '$(gitVersionVersion)'"
+# - task: NuGetCommand@2
+#   inputs:
+#     command: custom
+#     arguments: install GitVersion.CommandLine -Version $(gitVersionVersion) -OutputDirectory $(Build.BinariesDirectory)/tools -ExcludeVersion
+#   displayName: "Install GitVersion '$(gitVersionVersion)'"
 
-- script: mono $(Build.BinariesDirectory)/tools/GitVersion.CommandLine/tools/GitVersion.exe /output buildserver /nofetch
+# - script: mono $(Build.BinariesDirectory)/tools/GitVersion.CommandLine/tools/GitVersion.exe /output buildserver /nofetch
+#   displayName: 'Run GitVersion'
+- task: gittools.gitversion.gitversion-task.GitVersion@5
   displayName: 'Run GitVersion'
 
 - script: dotnet build --configuration $(buildConfiguration) /p:Version='$(GitVersion.NuGetVersion)'
