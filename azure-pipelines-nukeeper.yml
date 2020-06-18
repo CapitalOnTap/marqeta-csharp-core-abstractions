@@ -2,12 +2,18 @@
 # This should
 # - Run every Sunday morning
 # - Run NuKeeper on the repository to automatically upgrade NuGet packages
+trigger: none # don’t run as CI build
+
 schedules:
 - cron: "0 0 * * 0"
   displayName: Weekly on Sunday Morning
   branches:
     include:
     - master
+  always: true
+
+resources:
+  - repo: self
 
 pool:
   vmImage: 'ubuntu-18.04'
@@ -16,23 +22,27 @@ variables:
   githubRepositoryUrl: 'https://github.com/CapitalOnTap/marqeta-csharp-core-abstractions'
 
 steps:
-- task: PowerShell@2
-  displayName: 'Install NuKeeper'
+- task: NuKeeper@0
   inputs:
-    targetType: 'inline'
-    script: |
-      dotnet tool install nukeeper --global
+    arguments: ''
+    version: '0.*'
+# - task: PowerShell@2
+#   displayName: 'Install NuKeeper'
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       dotnet tool install nukeeper --global
 
-- task: PowerShell@2
-  displayName: 'test'
-  inputs:
-    targetType: 'inline'
-    script: |
-      dotnet tool list
+# - task: PowerShell@2
+#   displayName: 'test'
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       dotnet tool list
 
-- task: PowerShell@2
-  displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
-  inputs:
-    targetType: 'inline'
-    script: |
-      dotnet tool run nukeeper repo $(githubRepositoryUrl)
+# - task: PowerShell@2
+#   displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       dotnet tool run nukeeper repo $(githubRepositoryUrl)
