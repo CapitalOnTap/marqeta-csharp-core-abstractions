@@ -24,6 +24,8 @@ variables:
 
 steps:
 - task: NuKeeper@0
+  inputs:
+    arguments: '$(Nukeeper_github_token)'
 
 # - task: PowerShell@2
 #   displayName: 'Install NuKeeper'
