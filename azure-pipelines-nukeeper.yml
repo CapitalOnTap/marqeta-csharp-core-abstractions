@@ -40,4 +40,6 @@ steps:
     script: |
       git config --global user.name ''NuKeeper'''
       git config --global user.email ''nukeeper@nukeeper.com'''
+      git config --global user.name
+      git config --global user.email
       dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
