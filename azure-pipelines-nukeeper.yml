@@ -38,6 +38,6 @@ steps:
     failOnStderr: true
     targetType: 'inline'
     script:
-      git config --global user.name 'NuKeeper'
-      git config --global user.email 'nukeeper@nukeeper.com'
+      git config --global user.name "NuKeeper"
+      git config --global user.email "nukeeper@nukeeper.com"
       dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
