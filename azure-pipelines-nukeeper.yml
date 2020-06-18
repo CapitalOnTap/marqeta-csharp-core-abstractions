@@ -34,7 +34,7 @@ steps:
     script: |
       dotnet new tool-manifest
       dotnet tool install nukeeper
-      dotnet tool run nukeeper --help
+      nukeeper --help
 
 - task: PowerShell@2
   displayName: 'test'
