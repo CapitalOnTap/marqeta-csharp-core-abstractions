@@ -2,12 +2,16 @@
 # This should
 # - Run every Sunday morning
 # - Run NuKeeper on the repository to automatically upgrade NuGet packages
-trigger: none # don’t run as CI build
+
+trigger: none
 
 schedules:
-#- cron: "0 0 * * 0" # Sunday only
 - cron: "0 0 * * *"
   displayName: Weekly on Sunday Morning
+  branches:
+    include:
+      - master
+  always: true
 
 pool:
   vmImage: 'ubuntu-18.04'
