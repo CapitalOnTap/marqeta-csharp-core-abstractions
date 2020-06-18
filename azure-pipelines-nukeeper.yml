@@ -27,20 +27,14 @@ steps:
 #   inputs:
 #     version: '0.33.0'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'custom'
-    custom: 'tool install --global nukeeper'
-
 - task: PowerShell@2
   displayName: 'Install NuKeeper'
   inputs:
     targetType: 'inline'
     script: |
-      nukeeper
-      # dotnet new tool-manifest
-      # dotnet install nukeeper
-      # dotnet nukeeper --help
+      dotnet new tool-manifest
+      dotnet tool install nukeeper
+      dotnet nukeeper --help
       # nukeeper --help
       # dotnet tool install nukeeper --install-path .
       # ./nukeeper --help
