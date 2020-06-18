@@ -21,7 +21,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      dotnet tool install nukeeper
+      dotnet tool install nukeeper --global
 
 - task: PowerShell@2
   displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
