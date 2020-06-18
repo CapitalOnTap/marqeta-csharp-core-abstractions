@@ -26,20 +26,22 @@ steps:
 - task: NuKeeper@0
   inputs:
     arguments: ''
-    version: '0.33'
-# - task: PowerShell@2
-#   displayName: 'Install NuKeeper'
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       dotnet tool install nukeeper --global
+    version: '0.33.0'
 
-# - task: PowerShell@2
-#   displayName: 'test'
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       dotnet tool list
+- task: PowerShell@2
+  displayName: 'Install NuKeeper'
+  inputs:
+    targetType: 'inline'
+    script: |
+      dotnet new tool-manifest
+      dotnet tool install nukeeper --global
+
+- task: PowerShell@2
+  displayName: 'test'
+  inputs:
+    targetType: 'inline'
+    script: |
+      dotnet tool list
 
 # - task: PowerShell@2
 #   displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
