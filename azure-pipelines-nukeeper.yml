@@ -24,9 +24,7 @@ variables:
 
 steps:
 - task: NuKeeper@0
-  inputs:
-    arguments: ''
-    version: '0.*'
+
 # - task: PowerShell@2
 #   displayName: 'Install NuKeeper'
 #   inputs:
