@@ -33,6 +33,7 @@ steps:
     targetType: 'inline'
     script: |
       dotnet new tool-manifest
+      dotnet install nukeeper
       dotnet nukeeper --help
       # nukeeper --help
       # dotnet tool install nukeeper --install-path .
