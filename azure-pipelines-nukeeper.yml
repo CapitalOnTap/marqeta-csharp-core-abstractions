@@ -24,6 +24,16 @@ variables:
 
 steps:
 
+# - task: PowerShell@2
+#   displayName: 'Install NuKeeper'
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       dotnet new tool-manifest
+#       dotnet tool install nukeeper
+#       dotnet nukeeper repo $(githubRepositoryUrl)
+#       # dotnet nukeeper --help
+
 - task: PowerShell@2
   displayName: 'Install NuKeeper'
   inputs:
@@ -31,15 +41,13 @@ steps:
     script: |
       dotnet new tool-manifest
       dotnet tool install nukeeper
-      dotnet nukeeper repo $(githubRepositoryUrl)
-      # dotnet nukeeper --help
 
 - task: PowerShell@2
   displayName: 'test'
   inputs:
     targetType: 'inline'
     script: |
-      dotnet tool list
+      dotnet nukeeper --help
 
 # - task: PowerShell@2
 #   displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
