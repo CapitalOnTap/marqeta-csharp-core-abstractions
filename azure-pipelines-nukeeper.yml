@@ -23,9 +23,6 @@ variables:
   githubRepositoryUrl: 'https://github.com/CapitalOnTap/marqeta-csharp-core-abstractions'
 
 steps:
-# - task: NuKeeper@0
-#   inputs:
-#     version: '0.33.0'
 
 - task: PowerShell@2
   displayName: 'Install NuKeeper'
@@ -34,10 +31,8 @@ steps:
     script: |
       dotnet new tool-manifest
       dotnet tool install nukeeper
-      dotnet nukeeper --help
-      # nukeeper --help
-      # dotnet tool install nukeeper --install-path .
-      # ./nukeeper --help
+      dotnet nukeeper repo $(githubRepositoryUrl)
+      # dotnet nukeeper --help
 
 - task: PowerShell@2
   displayName: 'test'
