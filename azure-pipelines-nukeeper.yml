@@ -24,8 +24,15 @@ steps:
       dotnet tool install nukeeper --global
 
 - task: PowerShell@2
+  displayName: 'test'
+  inputs:
+    targetType: 'inline'
+    script: |
+      dotnet tool list
+
+- task: PowerShell@2
   displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
   inputs:
     targetType: 'inline'
     script: |
-      dotnet tool nukeeper repo $(githubRepositoryUrl)
+      dotnet tool run nukeeper repo $(githubRepositoryUrl)
