@@ -33,7 +33,7 @@ steps:
     targetType: 'inline'
     script: |
       dotnet new tool-manifest
-      dotnet tool install nukeeper --global
+      dotnet tool install nukeeper
       dotnet tool run nukeeper --help
 
 - task: PowerShell@2
