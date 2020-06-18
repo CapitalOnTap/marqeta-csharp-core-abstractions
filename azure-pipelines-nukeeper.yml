@@ -26,6 +26,7 @@ steps:
 - task: PowerShell@2
   displayName: 'Install NuKeeper'
   inputs:
+    failOnStderr: true
     targetType: 'inline'
     script: |
       dotnet new tool-manifest
@@ -34,6 +35,7 @@ steps:
 - task: PowerShell@2
   displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
   inputs:
+    failOnStderr: true
     targetType: 'inline'
     script: |
       dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
