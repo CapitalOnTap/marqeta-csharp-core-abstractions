@@ -1,19 +1,22 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
+# NuKeeper Pipeline
+# This should
+# - Run every Sunday morning
+# - Run NuKeeper on the repository to automatically upgrade NuGet packages
+schedules:
+- cron: "0 0 * * 0"
+  displayName: Weekly on Sunday Morning
+  branches:
+    include:
+    - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-18.04'
+
+variables:
+  githubRepositoryUrl: 'https://github.com/CapitalOnTap/marqeta-csharp-core-abstractions'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: NuKeeper@0
+  inputs:
+    arguments: 'repo $(githubRepositoryUrl)'
+    version: '0.*'
