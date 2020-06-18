@@ -2,7 +2,8 @@
 # This should
 # - Run every Sunday morning
 # - Run NuKeeper on the repository to automatically upgrade NuGet packages
-trigger: none # don’t run as CI build
+
+# trigger: none # don’t run as CI build
 
 schedules:
 - cron: "0 0 * * 0"
