@@ -30,7 +30,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'custom'
-    custom: 'install --global nukeeper'
+    custom: 'tool install --global nukeeper'
 
 - task: PowerShell@2
   displayName: 'Install NuKeeper'
