@@ -32,8 +32,14 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      echo '1'
       dotnet new tool-manifest
+      echo '2'
+      ls
+      echo '3'
       dotnet install nukeeper
+      ls
+      echo '4'
       dotnet nukeeper --help
       # nukeeper --help
       # dotnet tool install nukeeper --install-path .
