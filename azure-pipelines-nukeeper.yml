@@ -17,9 +17,6 @@ schedules:
 pool:
   vmImage: 'ubuntu-18.04'
 
-# variables:
-#   githubRepositoryUrl: 'https://github.com/CapitalOnTap/marqeta-csharp-core-abstractions'
-
 steps:
 - checkout: self
   persistCredentials: true
@@ -34,7 +31,6 @@ steps:
       dotnet tool install nukeeper
 
 - task: PowerShell@2
-  # displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
   displayName: 'Run NuKeeper'
   inputs:
     failOnStderr: true
@@ -42,14 +38,10 @@ steps:
     script: |
       git config --global user.name ''NuKeeper''
       git config --global user.email ''nukeeper@nukeeper.com''
-      ls -al .
-      ls -al .git
-      echo ''$(Build.Repository.Uri)''
-      dotnet nukeeper repo . --fork SingleRepositoryOnly
-      # dotnet nukeeper repo . $(Nukeeper_github_token) --fork SingleRepositoryOnly
-      # dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
+      dotnet nukeeper repo $(Build.Repository.Uri) $(Nukeeper_github_token) --fork SingleRepositoryOnly
 
 # # Use the NuKeeper task when service connection is supported
+# # Don't forget to re-enable source checkout - <devops_url>/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=5&view=Tab_Tasks
 # - task: NuKeeper@0
 #   inputs:
 #     arguments: '-f SingleRepositoryOnly'
