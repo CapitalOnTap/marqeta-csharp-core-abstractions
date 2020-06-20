@@ -6,7 +6,7 @@
 # trigger: none
 
 schedules:
-- cron: "0 0 * * *"
+- cron: "0 0 * * 0"
   displayName: Weekly on Sunday Morning
   branches:
     include:
@@ -20,6 +20,9 @@ pool:
 #   githubRepositoryUrl: 'https://github.com/CapitalOnTap/marqeta-csharp-core-abstractions'
 
 steps:
+- checkout: self
+  persistCredentials: true
+
 - task: PowerShell@2
   displayName: 'Install NuKeeper'
   inputs:
@@ -39,5 +42,7 @@ steps:
       git config --global user.name ''NuKeeper''
       git config --global user.email ''nukeeper@nukeeper.com''
       ls -al .
-      dotnet nukeeper repo . $(Nukeeper_github_token) --fork SingleRepositoryOnly
+      ls -al .git
+      dotnet nukeeper repo . --fork SingleRepositoryOnly
+      # dotnet nukeeper repo . $(Nukeeper_github_token) --fork SingleRepositoryOnly
       # dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
