@@ -3,7 +3,7 @@
 # - Run every Sunday morning
 # - Run NuKeeper on the repository to automatically upgrade NuGet packages
 
-trigger: none
+# trigger: none
 
 schedules:
 - cron: "0 0 * * *"
@@ -37,4 +37,5 @@ steps:
     script: |
       git config --global user.name ''NuKeeper''
       git config --global user.email ''nukeeper@nukeeper.com''
-      dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
+      dotnet nukeeper repo . $(Nukeeper_github_token) --fork SingleRepositoryOnly
+      # dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
