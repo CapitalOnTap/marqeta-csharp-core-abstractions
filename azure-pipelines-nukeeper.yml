@@ -3,7 +3,8 @@
 # - Run every Sunday morning
 # - Run NuKeeper on the repository to automatically upgrade NuGet packages
 
-# trigger: none
+# No CI builds
+trigger: none
 
 schedules:
 - cron: "0 0 * * 0"
@@ -20,29 +21,35 @@ pool:
 #   githubRepositoryUrl: 'https://github.com/CapitalOnTap/marqeta-csharp-core-abstractions'
 
 steps:
-- checkout: self
-  persistCredentials: true
+# - checkout: self
+#   persistCredentials: true
 
-- task: PowerShell@2
-  displayName: 'Install NuKeeper'
-  inputs:
-    failOnStderr: true
-    targetType: 'inline'
-    script: |
-      dotnet new tool-manifest
-      dotnet tool install nukeeper
+# - task: PowerShell@2
+#   displayName: 'Install NuKeeper'
+#   inputs:
+#     failOnStderr: true
+#     targetType: 'inline'
+#     script: |
+#       dotnet new tool-manifest
+#       dotnet tool install nukeeper
 
-- task: PowerShell@2
-  # displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
-  displayName: 'Run NuKeeper'
+# - task: PowerShell@2
+#   # displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
+#   displayName: 'Run NuKeeper'
+#   inputs:
+#     failOnStderr: true
+#     targetType: 'inline'
+#     script: |
+#       git config --global user.name ''NuKeeper''
+#       git config --global user.email ''nukeeper@nukeeper.com''
+#       ls -al .
+#       ls -al .git
+#       dotnet nukeeper repo . --fork SingleRepositoryOnly
+#       # dotnet nukeeper repo . $(Nukeeper_github_token) --fork SingleRepositoryOnly
+#       # dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
+
+- task: NuKeeper@0
   inputs:
-    failOnStderr: true
-    targetType: 'inline'
-    script: |
-      git config --global user.name ''NuKeeper''
-      git config --global user.email ''nukeeper@nukeeper.com''
-      ls -al .
-      ls -al .git
-      dotnet nukeeper repo . --fork SingleRepositoryOnly
-      # dotnet nukeeper repo . $(Nukeeper_github_token) --fork SingleRepositoryOnly
-      # dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
+    arguments: '-f SingleRepository'
+    version: '0.*'
+    gitHubConnection: 'CapitalOnTap'
