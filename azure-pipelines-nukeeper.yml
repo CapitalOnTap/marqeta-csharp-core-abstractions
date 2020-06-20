@@ -3,10 +3,11 @@
 # - Run every Sunday morning
 # - Run NuKeeper on the repository to automatically upgrade NuGet packages
 
+# No CI builds
 trigger: none
 
 schedules:
-- cron: "0 0 * * *"
+- cron: "0 0 * * 0"
   displayName: Weekly on Sunday Morning
   branches:
     include:
@@ -16,10 +17,10 @@ schedules:
 pool:
   vmImage: 'ubuntu-18.04'
 
-variables:
-  githubRepositoryUrl: 'https://github.com/CapitalOnTap/marqeta-csharp-core-abstractions'
-
 steps:
+- checkout: self
+  persistCredentials: true
+
 - task: PowerShell@2
   displayName: 'Install NuKeeper'
   inputs:
@@ -30,11 +31,19 @@ steps:
       dotnet tool install nukeeper
 
 - task: PowerShell@2
-  displayName: 'Run NuKeeper for repository ''$(githubRepositoryUrl)'''
+  displayName: 'Run NuKeeper'
   inputs:
     failOnStderr: true
     targetType: 'inline'
     script: |
       git config --global user.name ''NuKeeper''
       git config --global user.email ''nukeeper@nukeeper.com''
-      dotnet nukeeper repo $(githubRepositoryUrl) $(Nukeeper_github_token)
+      dotnet nukeeper repo $(Build.Repository.Uri) $(Nukeeper_github_token) --fork SingleRepositoryOnly
+
+# # Use the NuKeeper task when service connection is supported
+# # Don't forget to re-enable source checkout - <devops_url>/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=5&view=Tab_Tasks
+# - task: NuKeeper@0
+#   inputs:
+#     arguments: '-f SingleRepositoryOnly'
+#     version: '0.*'
+#     gitHubConnection: 'CapitalOnTap'
