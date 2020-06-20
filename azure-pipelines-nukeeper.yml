@@ -50,6 +50,6 @@ steps:
 
 - task: NuKeeper@0
   inputs:
-    arguments: '-f SingleRepositoryOnly'
+    arguments: '$(Nukeeper_github_token) -f SingleRepositoryOnly'
     version: '0.*'
     # gitHubConnection: 'CapitalOnTap'
