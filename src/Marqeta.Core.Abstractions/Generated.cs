@@ -17746,9 +17746,6 @@ namespace Marqeta.Core.Abstractions
         [System.Runtime.Serialization.EnumMember(Value = @"ICVV")]
         ICVV = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"DCVV")]
-        DCVV = 3,
-    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.9.0 (Newtonsoft.Json v11.0.0.0)")]
